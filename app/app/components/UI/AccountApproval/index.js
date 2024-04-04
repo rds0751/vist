@@ -63,18 +63,19 @@ const styles = StyleSheet.create({
 	},
 	hostTitle: {
 		marginTop: 10,
-		fontSize: 13,
+		fontSize: 14,
 		...fontStyles.semibold,
 		color: colors.$030319,
 		alignSelf: 'center',
 		marginHorizontal: 20
 	},
 	hostDescription: {
-		marginTop: 15,
-		fontSize: 9,
+		fontSize: 12,
+		marginTop: 10,
 		...fontStyles.normal,
 		color: colors.$030319,
 		alignSelf: 'center',
+		textAlign: 'center',
 		marginHorizontal: 20
 	},
 	titleLeftIcon: {
@@ -180,7 +181,6 @@ class AccountApproval extends PureComponent {
 			<View style={[styles.root, isDarkMode && baseStyles.darkModalBackground]}>
 				<View style={[styles.titleLayout, isDarkMode && baseStyles.darkBackground600]}>
 					<Text style={[styles.intro, isDarkMode && baseStyles.textDark]}>
-						{' '}
 						{strings('accountApproval.walletconnect_request')}
 					</Text>
 				</View>
@@ -191,9 +191,10 @@ class AccountApproval extends PureComponent {
 					url={url}
 					icon={typeof icon === 'string' ? icon : ''}
 				/>
-				<Text style={[styles.hostTitle, isDarkMode && baseStyles.textDark]}>{title}</Text>
-				<Text style={(styles.hostDescription, isDarkMode && baseStyles.subTextDark)}>{description}</Text>
 
+				<Text style={[styles.hostTitle, isDarkMode && baseStyles.textDark]}>{title}</Text>
+
+				<Text style={[styles.hostDescription, isDarkMode && baseStyles.subTextDark]}>{description}</Text>
 				<View style={styles.actionContainer}>
 					<TouchableOpacity
 						style={[styles.cancelButton, isDarkMode && baseStyles.darkCancelButton]}

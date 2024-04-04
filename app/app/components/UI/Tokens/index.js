@@ -111,7 +111,10 @@ const styles = StyleSheet.create({
 		shadowOffset: { width: 0, height: 2 },
 		shadowOpacity: 0.1,
 		shadowRadius: 4,
-		alignSelf: 'center'
+		alignSelf: 'center',
+		borderRadius: 50,
+
+		elevation: 4
 	},
 	balances: {
 		flex: 1,

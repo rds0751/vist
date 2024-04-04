@@ -360,7 +360,7 @@ export default class AddressBar extends PureComponent {
 							},
 							shadowOpacity: 0.13,
 							shadowRadius: 4,
-							elevation: 3
+							elevation: 1
 						}}
 					>
 						<Icon
@@ -583,7 +583,7 @@ export default class AddressBar extends PureComponent {
 							},
 							shadowOpacity: 0.13,
 							shadowRadius: 4,
-							elevation: 3
+							elevation: 1
 						}}
 					>
 						<Text style={{ color: isDarkMode ? colors.white : 'black' }}>{tabCount}</Text>
@@ -615,7 +615,7 @@ export default class AddressBar extends PureComponent {
 							},
 							shadowOpacity: 0.13,
 							shadowRadius: 4,
-							elevation: 3
+							elevation: 1
 						}}
 					>
 						<AntIcon size={18} color={isDarkMode ? colors.white : colors.paliGrey200} name="plus" />

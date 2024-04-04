@@ -416,7 +416,11 @@ class CardSwiper extends PureComponent {
 										) : (
 											<Image
 												style={styles.networkNormalIcon}
-												source={ChainTypeIcons[translateIndex]}
+												source={
+													!isDarkMode
+														? ChainTypeMoreIcons[translateIndex]
+														: ChainTypeIcons[translateIndex]
+												}
 											/>
 										)}
 										<Text

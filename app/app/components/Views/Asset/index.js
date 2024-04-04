@@ -498,7 +498,7 @@ class Asset extends PureComponent {
 									{isDarkMode ? (
 										<Icon name={'back'} color={colors.white} width="26" height="26" />
 									) : (
-										<Image source={require('../../../images/back.png')} />
+										<Image source={this.state.backImg} />
 									)}
 								</TouchableOpacity>
 								{scrollEnabled && this.renderUnfold(unFoldOpacity, moveHeight)}

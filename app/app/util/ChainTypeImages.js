@@ -133,7 +133,7 @@ export function getAssetNetworkBarColor(type) {
 		: type === ChainType.Optimism
 		? '#FF0420'
 		: type === ChainType.Avax
-		? '#000000'
+		? '#e84341'
 		: type === ChainType.Syscoin
 		? '#1F5EFF'
 		: type === ChainType.Rollux

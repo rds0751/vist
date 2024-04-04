@@ -16,7 +16,9 @@ const styles = StyleSheet.create({
 		shadowOffset: { width: 0, height: 2 },
 		shadowOpacity: 0.02,
 		shadowRadius: 1,
-		elevation: 4
+		elevation: 0.3,
+
+		borderBottomRightRadius: 0.1
 	},
 	capInsetWrapper: {
 		flex: 1,
