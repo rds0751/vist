@@ -32,7 +32,7 @@ export const ThemeProvider = ({ children }) => {
 			}
 		};
 		loadTheme();
-	}, []);
+	}, [systemPreference]);
 
 	// Save the theme to AsyncStorage whenever it changes
 	useEffect(() => {

@@ -1291,7 +1291,7 @@ class WalletManagement extends PureComponent {
 		const wallet = identities[walletMainAddress];
 		return (
 			<>
-				<View style={styles.titleLayout}>
+				<View style={[styles.titleLayout, isDarkMode && baseStyles.darkCardBackground]}>
 					<Text style={[styles.intro, isDarkMode && baseStyles.textDark]}>
 						{isWalletPop ? walletSelectedName : strings('other.wallet')}
 					</Text>
@@ -1499,9 +1499,7 @@ class WalletManagement extends PureComponent {
 						{this.renderView()}
 					</KeyboardAvoidingView>
 				) : (
-					<View style={[styles.wrapperModal && isDarkMode && baseStyles.darkCardBackground]}>
-						{this.renderView()}
-					</View>
+					<View style={[styles.wrapperModal]}>{this.renderView()}</View>
 				)}
 			</Modal>
 		);

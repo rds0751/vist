@@ -46,12 +46,6 @@ const styles = StyleSheet.create({
 	flexOne: {
 		flex: 1
 	},
-	hitSlop: {
-		top: 10,
-		left: 10,
-		bottom: 10,
-		right: 10
-	},
 	noDisplay: {
 		width: 0,
 		height: 0,
@@ -355,7 +349,7 @@ export default class AddressBar extends PureComponent {
 							borderTopRightRadius: 5,
 							borderBottomRightRadius: 5,
 							paddingRight: 5,
-							backgroundColor: isDarkMode ? colors.brandBlue600 : colors.white,
+							backgroundColor: isDarkMode ? colors.brandBlue700 : colors.white,
 							height: 40,
 							alignItems: 'center',
 							justifyContent: 'center',
@@ -577,7 +571,7 @@ export default class AddressBar extends PureComponent {
 							borderTopLeftRadius: 5,
 							borderBottomLeftRadius: 5,
 							paddingRight: 5,
-							backgroundColor: isDarkMode ? colors.brandBlue600 : colors.white,
+							backgroundColor: isDarkMode ? colors.brandBlue700 : colors.white,
 							height: 40,
 							display: 'flex',
 							alignItems: 'center',
@@ -608,7 +602,7 @@ export default class AddressBar extends PureComponent {
 							borderTopLeftRadius: 5,
 							borderBottomLeftRadius: 5,
 							paddingRight: 5,
-							backgroundColor: isDarkMode ? colors.brandBlue600 : colors.white,
+							backgroundColor: isDarkMode ? colors.brandBlue700 : colors.white,
 							height: 40,
 							display: 'flex',
 							alignItems: 'center',
