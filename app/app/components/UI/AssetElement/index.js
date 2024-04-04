@@ -15,10 +15,10 @@ const styles = StyleSheet.create({
 		shadowColor: colors.paliBlue100,
 		shadowOffset: { width: 0, height: 2 },
 		shadowOpacity: 0.02,
-		shadowRadius: 1,
-		elevation: 0.3,
+		shadowRadius: 1
+		// elevation: 0.3,
 
-		borderBottomRightRadius: 0.1
+		// borderBottomRightRadius: 0.1
 	},
 	capInsetWrapper: {
 		flex: 1,
@@ -87,7 +87,7 @@ export default class AssetElement extends PureComponent {
 					source={
 						Device.isAndroid()
 							? isDarkMode
-								? { uri: 'card_dark' }
+								? { uri: 'card_dark_shadow' }
 								: { uri: 'card' }
 							: isDarkMode
 							? require('../../../images/card_dark.png')

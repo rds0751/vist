@@ -326,7 +326,7 @@ class AssetActionView extends PureComponent {
 						style={[
 							styles.buttonView,
 							{ marginLeft: 0 },
-							isDarkMode && { borderColor: 'white', backgroundColor: 'transparent' }
+							isDarkMode && { borderColor: 'white', backgroundColor: colors.brandBlue600 }
 						]}
 					>
 						<TouchableOpacity onPress={this.showSendModal} activeOpacity={activeOpacity}>
@@ -340,7 +340,7 @@ class AssetActionView extends PureComponent {
 						<View
 							style={[
 								styles.buttonView,
-								isDarkMode && { borderColor: 'white', backgroundColor: 'transparent' }
+								isDarkMode && { borderColor: 'white', backgroundColor: colors.brandBlue600 }
 							]}
 						>
 							<TouchableOpacity onPress={this.onSwap} activeOpacity={activeOpacity}>
@@ -354,7 +354,7 @@ class AssetActionView extends PureComponent {
 						style={[
 							styles.buttonView,
 							{ minWidth: 85 },
-							isDarkMode && { borderColor: 'white', backgroundColor: 'transparent' }
+							isDarkMode && { borderColor: 'white', backgroundColor: colors.brandBlue600 }
 						]}
 					>
 						<TouchableOpacity onPress={this.showMigrateModal} activeOpacity={activeOpacity}>
@@ -370,7 +370,7 @@ class AssetActionView extends PureComponent {
 					<View
 						style={[
 							styles.buttonView,
-							isDarkMode && { borderColor: 'white', backgroundColor: 'transparent' }
+							isDarkMode && { borderColor: 'white', backgroundColor: colors.brandBlue600 }
 						]}
 					>
 						<TouchableOpacity onPress={this.showReceiveModal} activeOpacity={activeOpacity}>

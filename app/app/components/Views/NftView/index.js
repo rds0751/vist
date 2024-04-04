@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Icon from '../../UI/Icon';
 import { baseStyles, colors, fontStyles } from '../../../styles/common';
 import Device from '../../../util/Device';
 import { isSupportLuxy } from '../../../util/luxy';
@@ -571,7 +572,7 @@ class NftView extends PureComponent {
 						style={[
 							styles.actionView,
 							{ width: buttonWidth },
-							isDarkMode && { borderColor: 'white', backgroundColor: 'transparent' }
+							isDarkMode && { borderColor: 'white', backgroundColor: colors.brandBlue700 }
 						]}
 					>
 						<TouchableOpacity
@@ -693,7 +694,11 @@ class NftView extends PureComponent {
 								onPress={this.goBack}
 								activeOpacity={activeOpacity}
 							>
-								<Image source={isDarkMode ? iconBackWhite : backImg} />
+								{isDarkMode ? (
+									<Icon name={'back'} color={colors.white} width="26" height="26" />
+								) : (
+									<Image source={backImg} />
+								)}
 							</TouchableOpacity>
 							<TouchableOpacity
 								style={styles.draggerButton}
@@ -735,7 +740,7 @@ class NftView extends PureComponent {
 							showsVerticalScrollIndicator={false}
 						>
 							<View>
-								{!isSvgFile(nftToken.image_url) && (
+								{!isSvgFile(nftToken.image_url) && (!isDarkMode || !Device.isAndroid()) && (
 									<View style={[styles.blurLayout]}>
 										<NFTImage
 											style={{ width: screenWidth, height: screenWidth }}
@@ -760,10 +765,10 @@ class NftView extends PureComponent {
 									source={
 										Device.isAndroid()
 											? isDarkMode
-												? null
+												? { uri: 'dark800_card' }
 												: { uri: 'default_card' }
 											: isDarkMode
-											? null
+											? require('../../../images/dark800_card.png')
 											: require('../../../images/default_card.png')
 									}
 									capInsets={baseStyles.capInsets}
@@ -1064,7 +1069,9 @@ class NftView extends PureComponent {
 						</ScrollView>
 					</View>
 				</View>
-				<SafeAreaView style={[styles.bottomBg, isDarkMode && baseStyles.darkBackground]} />
+				{isDarkMode && Device.isAndroid() ? null : (
+					<SafeAreaView style={[styles.bottomBg, isDarkMode && baseStyles.darkBackground]} />
+				)}
 				{this.renderActionView()}
 				{this.renderSendModal()}
 			</React.Fragment>
