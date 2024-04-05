@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSPrivacyAccessedAPITypes</key>
+	<array>
+		<dict>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string></string>
+			</array>
+			<key>Item 0</key>
+			<string>CA92.1</string>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string></string>
+			</array>
+			<key>Item 0</key>
+			<string>E174.1</string>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryDiskSpace</string>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string></string>
+			</array>
+			<key>Item 0</key>
+			<string>35F9.1</string>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategorySystemBootTime</string>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string></string>
+			</array>
+			<key>Item 0</key>
+			<string>DDA9.1: Display on the user own device the timestamp</string>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryFileTimestamp</string>
+		</dict>
+	</array>
+</dict>
+</plist>

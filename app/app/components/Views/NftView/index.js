@@ -685,8 +685,7 @@ class NftView extends PureComponent {
 						<Animated.View
 							style={[
 								styles.draggerWrapper,
-								{ backgroundColor, height: headerHeight, paddingTop: barHeight },
-								isDarkMode && baseStyles.darkBackground
+								{ backgroundColor, height: headerHeight, paddingTop: barHeight }
 							]}
 						>
 							<TouchableOpacity
@@ -749,11 +748,7 @@ class NftView extends PureComponent {
 										/>
 
 										<BlurView
-											style={[
-												styles.blurView,
-												{ width: screenWidth, height: screenWidth },
-												isDarkMode && baseStyles.darkBackground
-											]}
+											style={[styles.blurView, { width: screenWidth, height: screenWidth }]}
 											blurType="light"
 											blurAmount={10}
 											reducedTransparencyFallbackColor={isDarkMode ? '#111E33' : 'white'}

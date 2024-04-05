@@ -31,6 +31,7 @@
 		FF1F2CCC2A99342400E0C6A4 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = FF1F2CCB2A99342400E0C6A4 /* splash_screen.json */; };
 		FF1F2CCF2A99349800E0C6A4 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1F2CCE2A99349800E0C6A4 /* Dynamic.swift */; };
 		FF1F2CD12A9934CF00E0C6A4 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = FF1F2CD02A9934CF00E0C6A4 /* splash_screen.json */; };
+		FFDF59AA2BBF7A2F00B9306A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = FFDF59A92BBF7A2F00B9306A /* PrivacyInfo.xcprivacy */; };
 		FFF38F0D2A1D5E68009E6B8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFF38F092A1D5E68009E6B8F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -156,6 +157,7 @@
 		FF1F2CCE2A99349800E0C6A4 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		FF1F2CD02A9934CF00E0C6A4 /* splash_screen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = splash_screen.json; path = PaliWallet/splash_screen.json; sourceTree = "<group>"; };
 		FFB49EBA2BA889A9009A86F8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FFDF59A92BBF7A2F00B9306A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		FFF38F092A1D5E68009E6B8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -266,6 +268,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				FFDF59A92BBF7A2F00B9306A /* PrivacyInfo.xcprivacy */,
 				FF1F2CD02A9934CF00E0C6A4 /* splash_screen.json */,
 				FF1F2CCE2A99349800E0C6A4 /* Dynamic.swift */,
 				FFF38F092A1D5E68009E6B8F /* GoogleService-Info.plist */,
@@ -436,6 +439,7 @@
 				FF1F2CD12A9934CF00E0C6A4 /* splash_screen.json in Resources */,
 				1BDE537E26E611790027269D /* InpageVConsole.js in Resources */,
 				1BF815B926B3F5FA0000DC6C /* InpageBridgeWeb3.js in Resources */,
+				FFDF59AA2BBF7A2F00B9306A /* PrivacyInfo.xcprivacy in Resources */,
 				1DA5BF652704303F00D0AC41 /* img_0.png in Resources */,
 				1B0BF5032653AB9900AFC828 /* PaliWallet.entitlements in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
