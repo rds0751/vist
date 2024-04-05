@@ -23,12 +23,15 @@
 		1DC4A6B526B3A215007514B3 /* RNToolsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC4A6B426B3A215007514B3 /* RNToolsManager.m */; };
 		1DC4A6B726B3A4D5007514B3 /* RNToolsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC4A6B626B3A4D5007514B3 /* RNToolsManager.swift */; };
 		1DC4A6BA26B3A678007514B3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC4A6B926B3A678007514B3 /* Constants.swift */; };
+		5E16B44FDE62411693A6DE6F /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDFEE8C6A2A44993964AE1D7 /* Poppins-SemiBold.ttf */; };
 		654378B0243E2ADC00571B9C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654378AF243E2ADC00571B9C /* File.swift */; };
 		B579CECA27145E9700D045FB /* advanced.html in Resources */ = {isa = PBXBuildFile; fileRef = B579CEC527145E9700D045FB /* advanced.html */; };
+		C18A59DF590B45CB8A9B869A /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BEFB8A3293734BEBB00CCECA /* Poppins-Regular.ttf */; };
 		C1AD4CA9B26CA485141CC318 /* libPods-PaliWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 268712BC72BD3AEF00000DF9 /* libPods-PaliWallet.a */; };
 		FF1F2CCC2A99342400E0C6A4 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = FF1F2CCB2A99342400E0C6A4 /* splash_screen.json */; };
 		FF1F2CCF2A99349800E0C6A4 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1F2CCE2A99349800E0C6A4 /* Dynamic.swift */; };
 		FF1F2CD12A9934CF00E0C6A4 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = FF1F2CD02A9934CF00E0C6A4 /* splash_screen.json */; };
+		FFDF59AA2BBF7A2F00B9306A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = FFDF59A92BBF7A2F00B9306A /* PrivacyInfo.xcprivacy */; };
 		FFF38F0D2A1D5E68009E6B8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFF38F092A1D5E68009E6B8F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -141,17 +144,20 @@
 		A98DB430A7DA47EFB97EDF8B /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		AA9EDF17249955C7005D89EE /* PaliWalletDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = PaliWalletDebug.entitlements; path = PaliWallet/PaliWalletDebug.entitlements; sourceTree = "<group>"; };
 		B579CEC527145E9700D045FB /* advanced.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = advanced.html; path = ../app/components/UI/TradingViewKline/advanced.html; sourceTree = "<group>"; };
+		BEFB8A3293734BEBB00CCECA /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		BF485CDA047B4D52852B87F5 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		BF8DE2E5A176599FCD8A7CFD /* Pods-PaliWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaliWallet.debug.xcconfig"; path = "Target Support Files/Pods-PaliWallet/Pods-PaliWallet.debug.xcconfig"; sourceTree = "<group>"; };
 		D0CBAE789660472DB719C765 /* libLottie.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libLottie.a; sourceTree = "<group>"; };
 		E9629905BA1940ADA4189921 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		EBC2B6371CD846D28B9FAADF /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		EDFEE8C6A2A44993964AE1D7 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBold.ttf"; path = "../assets/fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		F562CA6B28AA4A67AA29B61C /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		F9DFF7AC557B46B6BEFAA1C1 /* libRNShakeEvent.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNShakeEvent.a; sourceTree = "<group>"; };
 		FF1F2CCB2A99342400E0C6A4 /* splash_screen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = splash_screen.json; path = PaliWallet/splash_screen.json; sourceTree = "<group>"; };
 		FF1F2CCE2A99349800E0C6A4 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		FF1F2CD02A9934CF00E0C6A4 /* splash_screen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = splash_screen.json; path = PaliWallet/splash_screen.json; sourceTree = "<group>"; };
 		FFB49EBA2BA889A9009A86F8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FFDF59A92BBF7A2F00B9306A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		FFF38F092A1D5E68009E6B8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -245,6 +251,8 @@
 				57C103F40F394637B5A886FC /* FontAwesome5_Brands.ttf */,
 				EBC2B6371CD846D28B9FAADF /* FontAwesome5_Regular.ttf */,
 				A98DB430A7DA47EFB97EDF8B /* FontAwesome5_Solid.ttf */,
+				BEFB8A3293734BEBB00CCECA /* Poppins-Regular.ttf */,
+				EDFEE8C6A2A44993964AE1D7 /* Poppins-SemiBold.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -260,6 +268,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				FFDF59A92BBF7A2F00B9306A /* PrivacyInfo.xcprivacy */,
 				FF1F2CD02A9934CF00E0C6A4 /* splash_screen.json */,
 				FF1F2CCE2A99349800E0C6A4 /* Dynamic.swift */,
 				FFF38F092A1D5E68009E6B8F /* GoogleService-Info.plist */,
@@ -430,6 +439,7 @@
 				FF1F2CD12A9934CF00E0C6A4 /* splash_screen.json in Resources */,
 				1BDE537E26E611790027269D /* InpageVConsole.js in Resources */,
 				1BF815B926B3F5FA0000DC6C /* InpageBridgeWeb3.js in Resources */,
+				FFDF59AA2BBF7A2F00B9306A /* PrivacyInfo.xcprivacy in Resources */,
 				1DA5BF652704303F00D0AC41 /* img_0.png in Resources */,
 				1B0BF5032653AB9900AFC828 /* PaliWallet.entitlements in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
@@ -439,6 +449,8 @@
 				15ACC9FB226555820063978B /* LaunchScreen.xib in Resources */,
 				FF1F2CCC2A99342400E0C6A4 /* splash_screen.json in Resources */,
 				04D092DD277EA4F300DE4DCB /* NativeWorker.jsbundle in Resources */,
+				C18A59DF590B45CB8A9B869A /* Poppins-Regular.ttf in Resources */,
+				5E16B44FDE62411693A6DE6F /* Poppins-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,7 +645,7 @@
 				CODE_SIGN_ENTITLEMENTS = PaliWallet/PaliWalletDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 24;
 				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 6YCW295639;
@@ -661,14 +673,14 @@
 				INFOPLIST_FILE = PaliWallet/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Pali Wallet";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/PaliWallet/System/Library/Frameworks\"",
 				);
 				LLVM_LTO = YES;
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.2.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = (
 					"$(inherited)",
@@ -700,7 +712,7 @@
 				CODE_SIGN_ENTITLEMENTS = PaliWallet/PaliWallet.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 24;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 6YCW295639;
 				ENABLE_BITCODE = NO;
@@ -728,14 +740,14 @@
 				INFOPLIST_FILE = PaliWallet/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Pali Wallet";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/PaliWallet/System/Library/Frameworks\"",
 				);
 				LLVM_LTO = YES;
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.2.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = (
 					"$(inherited)",
