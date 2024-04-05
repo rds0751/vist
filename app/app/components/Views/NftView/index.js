@@ -633,13 +633,18 @@ class NftView extends PureComponent {
 	render = () => {
 		const { nftToken, IOSStatusBarHeight, barStyle, navBackColorOffset, backImg, favoriteImg } = this.state;
 		const { navigation, favoriteCollectibles } = this.props;
+		const { isDarkMode } = this.context;
 		// console.log('====nftToken = ', nftToken);
 		if (!nftToken) {
 			return this.renderLoader();
 		}
 		const backgroundColor = navBackColorOffset.interpolate({
 			inputRange: [0, this.changeNavHeight / 2, this.changeNavHeight],
-			outputRange: [colors.transparent, '#FFFFFF30', '#FFFFFFFF'],
+			outputRange: [
+				colors.transparent,
+				isDarkMode ? colors.transparent : '#FFFFFF30',
+				isDarkMode ? '#111E33' : '#FFFFFFFF'
+			],
 			extrapolate: 'clamp',
 			useNativeDriver: true
 		});
@@ -662,8 +667,6 @@ class NftView extends PureComponent {
 			);
 		const isFavorite = filterFavorite && filterFavorite.length > 0;
 		const securityData = nftToken.securityData;
-
-		const { isDarkMode } = this.context;
 
 		return (
 			<React.Fragment>
