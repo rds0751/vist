@@ -7,40 +7,32 @@
 		<dict>
 			<key>NSPrivacyAccessedAPITypeReasons</key>
 			<array>
-				<string></string>
+				<string>CA92.1</string>
 			</array>
-			<key>Item 0</key>
-			<string>CA92.1</string>
 			<key>NSPrivacyAccessedAPIType</key>
 			<string>NSPrivacyAccessedAPICategoryUserDefaults</string>
 		</dict>
 		<dict>
 			<key>NSPrivacyAccessedAPITypeReasons</key>
 			<array>
-				<string></string>
+				<string>E174.1</string>
 			</array>
-			<key>Item 0</key>
-			<string>E174.1</string>
 			<key>NSPrivacyAccessedAPIType</key>
 			<string>NSPrivacyAccessedAPICategoryDiskSpace</string>
 		</dict>
 		<dict>
 			<key>NSPrivacyAccessedAPITypeReasons</key>
 			<array>
-				<string></string>
+				<string>35F9.1</string>
 			</array>
-			<key>Item 0</key>
-			<string>35F9.1</string>
 			<key>NSPrivacyAccessedAPIType</key>
 			<string>NSPrivacyAccessedAPICategorySystemBootTime</string>
 		</dict>
 		<dict>
 			<key>NSPrivacyAccessedAPITypeReasons</key>
 			<array>
-				<string></string>
+				<string>DDA9.1</string>
 			</array>
-			<key>Item 0</key>
-			<string>DDA9.1: Display on the user own device the timestamp</string>
 			<key>NSPrivacyAccessedAPIType</key>
 			<string>NSPrivacyAccessedAPICategoryFileTimestamp</string>
 		</dict>
