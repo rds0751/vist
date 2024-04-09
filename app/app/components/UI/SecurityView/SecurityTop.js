@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
 	},
 	btnText: {
 		fontSize: 16,
+		color: colors.$514570,
 		...fontStyles.bold
 	},
 	animation: {
