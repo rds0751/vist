@@ -531,8 +531,10 @@ class Wallet extends PureComponent {
 						onSnapToItem={index => {
 							this.firstItem = index;
 							this.setSelectedAddress(contactEntrys[index].address);
-							ReactNativeHapticFeedback.trigger('impactMedium', options);
+							ReactNativeHapticFeedback.trigger('impactLight', options);
 						}}
+						decelerationRate={Device.isAndroid() ? 0.7 : undefined}
+						enableMomentum={Device.isAndroid() ? false : undefined}
 						scrollEnabled={!chainEditing && !searchEditing}
 					/>
 				</View>
