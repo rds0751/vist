@@ -31,7 +31,7 @@ import AssetElement from '../AssetElement';
 import { connect } from 'react-redux';
 import Modal from 'react-native-modal';
 import AddAsset from '../../Views/AddAsset';
-import { BignumberJs as BigNumber, util, TokenType, ChainType } from 'paliwallet-core';
+import { BignumberJs as BigNumber, util, TokenType, ChainType } from 'vistawallet-core';
 import Popover from '../Popover';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LottieView from 'lottie-react-native';
@@ -1007,7 +1007,7 @@ class Tokens extends PureComponent {
 		if (!securityData) {
 			return;
 		}
-		if (!securityData.isTrust) {
+		if (!(asset.symbol === "VISTA") && !securityData.isTrust) {
 			if (securityData.risk?.length > 0) {
 				return <Image source={require('../../../images/tag_danger.png')} style={styles.tagPosition} />;
 			}
@@ -1017,7 +1017,7 @@ class Tokens extends PureComponent {
 		}
 	};
 
-	renderItem = (rowData, rowMap, allLength) => {
+	renderElement(rowData, rowMap, allLength){
 		const asset = rowData.item;
 		const index = rowData.index;
 		const { isAmountHide } = this.props;
@@ -1026,108 +1026,118 @@ class Tokens extends PureComponent {
 		const securityData = getSecurityData(asset);
 		const amountSymbol = CURRENCIES[currencyCode].symbol;
 		const isEnd = index + 1 === allLength;
+		const isSYS = asset.symbol === "SYS";
 
 		const isDefi = asset.isDefi;
 		const isRisk = securityData?.risk?.length > 0 && !securityData?.isTrust;
-		return (
-			<AssetElement
-				key={index}
-				onPress={token => {
-					if (rowMap[this.getSwipeKey(index)].isOpen) {
-						rowMap[this.getSwipeKey(index)]?.closeRow();
-					}
-					this.onItemPress(token);
-				}}
-				asset={asset}
-				indexKey={index}
-				isEnd={isEnd}
-			>
-				<View style={styles.iconLayout}>
-					<TokenImage asset={asset} containerStyle={styles.ethLogo} iconStyle={styles.iconStyle} />
-					<Image style={styles.tagView} source={getIcTagByChainType(asset.type)} />
-				</View>
+		if(isSYS)
+		   return null
+		return <AssetElement
+		key={index}
+		onPress={token => {
+			if (rowMap[this.getSwipeKey(index)].isOpen) {
+				rowMap[this.getSwipeKey(index)]?.closeRow();
+			}
+			this.onItemPress(token);
+		}}
+		asset={asset}
+		indexKey={index}
+		isEnd={isEnd}
+	>
+		<View style={styles.iconLayout}>
+			<TokenImage asset={asset} containerStyle={styles.ethLogo} iconStyle={styles.iconStyle} />
+			<Image style={styles.tagView} source={getIcTagByChainType(asset.type)} />
+		</View>
 
-				<View style={styles.balances}>
-					<View style={styles.titleItem}>
-						<Text style={styles.textItemName} numberOfLines={1}>
-							{asset.symbol}
+		<View style={styles.balances}>
+			<View style={styles.titleItem}>
+				<Text style={styles.textItemName} numberOfLines={1}>
+					{asset.symbol}
+				</Text>
+				{done ? (
+					<Text style={styles.claimText}>{strings('other.claim')}</Text>
+				) : (
+					asset.lockType && <Image source={require('../../../images/lock_icon.png')} />
+				)}
+				<Text
+					style={[styles.textItemBalance, isRisk && !isAmountHide ? styles.strikethrough : {}]}
+					numberOfLines={1}
+				>
+					{isAmountHide ? '***' : balanceFiat}
+				</Text>
+			</View>
+			{!isDefi &&
+				(isRisk ? (
+					<View style={styles.flexDir}>
+						<Text style={styles.textItemAmount}>
+							{isAmountHide ? '***' : renderAmount(balance)}
 						</Text>
-						{done ? (
-							<Text style={styles.claimText}>{strings('other.claim')}</Text>
-						) : (
-							asset.lockType && <Image source={require('../../../images/lock_icon.png')} />
-						)}
+						<View style={styles.flexOne} />
+						<Text style={styles.textItemAmount}>{strings('other.worthless_high_risk_token')}</Text>
+					</View>
+				) : (
+					<View style={styles.flexDir}>
+						<Text style={styles.textItemAmount}>
+							{isAmountHide ? '***' : renderAmount(balance)}
+						</Text>
 						<Text
-							style={[styles.textItemBalance, isRisk && !isAmountHide ? styles.strikethrough : {}]}
 							numberOfLines={1}
+							style={[
+								styles.itemPrice,
+
+								{
+									color:
+										!priceChange || priceChange === 0
+											? colors.$8F92A1
+											: priceChange > 0
+											? colors.$09C285
+											: colors.$FC6564
+								}
+							]}
 						>
-							{isAmountHide ? '***' : balanceFiat}
+							{amountSymbol}
+							{renderAmount(price && price > 10000 ? new BigNumber(price).toFixed(2) : price)}
+						</Text>
+						<View style={styles.arrowLayout}>
+							{priceChange !== undefined && priceChange > 0 && (
+								<Image source={require('../../../images/ic_aseet_up.png')} />
+							)}
+							{priceChange !== undefined && priceChange < 0 && (
+								<Image source={require('../../../images/ic_aseet_down.png')} />
+							)}
+						</View>
+						<Text
+							style={[
+								styles.priceChageView,
+								{
+									color:
+										!priceChange || priceChange === 0
+											? colors.$8F92A1
+											: priceChange > 0
+											? colors.$09C285
+											: colors.$FC6564
+								}
+							]}
+						>
+							{priceChange ? Math.abs(priceChange.toFixed(2)) : '0'}%
 						</Text>
 					</View>
-					{!isDefi &&
-						(isRisk ? (
-							<View style={styles.flexDir}>
-								<Text style={styles.textItemAmount}>
-									{isAmountHide ? '***' : renderAmount(balance)}
-								</Text>
-								<View style={styles.flexOne} />
-								<Text style={styles.textItemAmount}>{strings('other.worthless_high_risk_token')}</Text>
-							</View>
-						) : (
-							<View style={styles.flexDir}>
-								<Text style={styles.textItemAmount}>
-									{isAmountHide ? '***' : renderAmount(balance)}
-								</Text>
-								<Text
-									numberOfLines={1}
-									style={[
-										styles.itemPrice,
+				))}
+		</View>
+		{isDefi ? (
+			<Image source={require('../../../images/ic_tag_defi.png')} style={styles.defiTagPosition} />
+		) : (
+			this.renderSecurityTag(asset)
+		)}
+	</AssetElement>;
+	 }
 
-										{
-											color:
-												!priceChange || priceChange === 0
-													? colors.$8F92A1
-													: priceChange > 0
-													? colors.$09C285
-													: colors.$FC6564
-										}
-									]}
-								>
-									{amountSymbol}
-									{renderAmount(price && price > 10000 ? new BigNumber(price).toFixed(2) : price)}
-								</Text>
-								<View style={styles.arrowLayout}>
-									{priceChange !== undefined && priceChange > 0 && (
-										<Image source={require('../../../images/ic_aseet_up.png')} />
-									)}
-									{priceChange !== undefined && priceChange < 0 && (
-										<Image source={require('../../../images/ic_aseet_down.png')} />
-									)}
-								</View>
-								<Text
-									style={[
-										styles.priceChageView,
-										{
-											color:
-												!priceChange || priceChange === 0
-													? colors.$8F92A1
-													: priceChange > 0
-													? colors.$09C285
-													: colors.$FC6564
-										}
-									]}
-								>
-									{priceChange ? Math.abs(priceChange.toFixed(2)) : '0'}%
-								</Text>
-							</View>
-						))}
-				</View>
-				{isDefi ? (
-					<Image source={require('../../../images/ic_tag_defi.png')} style={styles.defiTagPosition} />
-				) : (
-					this.renderSecurityTag(asset)
-				)}
-			</AssetElement>
+	renderItem = (rowData, rowMap, allLength) => {
+		
+		return (
+			<View>
+            { this.renderElement(rowData, rowMap, allLength) }
+        </View>
 		);
 	};
 

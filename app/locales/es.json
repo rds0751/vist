@@ -21,7 +21,7 @@
 		"ok": "Ok"
 	},
 	"onboarding": {
-		"title": "Bienvenido a\nPali Wallet",
+		"title": "Bienvenido a\nVista Wallet",
 		"subtitle": "Web3 donde quieras",
 		"start_exploring_now": "Crear\nNueva Billetera",
 		"import_seed_phrase": "Importar\nFrase de Semilla",
@@ -78,10 +78,10 @@
 		"wrong_private_key": "Clave Privada Incorrecta",
 		"private_key_imported": "Clave Privada Importada",
 		"enter_private_key": "Introduce la clave privada",
-		"enter_private_key_tips": "Dado que la clave privada no es legible ni memorable para los humanos, la mayoría de las claves privadas se guardan en dispositivos poco seguros y se importan copiando y pegando, lo cual NO es recomendable según Pali Wallet. Después de importar desde una clave privada, es mejor transferir tus activos a una nueva billetera generada en Frase Semilla por Pali Wallet para obtener una mejor seguridad."
+		"enter_private_key_tips": "Dado que la clave privada no es legible ni memorable para los humanos, la mayoría de las claves privadas se guardan en dispositivos poco seguros y se importan copiando y pegando, lo cual NO es recomendable según Vista Wallet. Después de importar desde una clave privada, es mejor transferir tus activos a una nueva billetera generada en Frase Semilla por Vista Wallet para obtener una mejor seguridad."
 	},
 	"wallet": {
-		"title": "Pali Wallet",
+		"title": "Vista Wallet",
 		"tokens": "TOKENS",
 		"all_network": "Todas",
 		"eth_etwork": "Ethereum",
@@ -100,7 +100,7 @@
 	"onboarding_wallet": {
 		"skip_tour": "Omitir Tutorial",
 		"finish": "Terminar",
-		"onboarding1": "Personaliza tu experiencia en Pali Wallet aquí.",
+		"onboarding1": "Personaliza tu experiencia en Vista Wallet aquí.",
 		"onboarding2": "Escanea el código QR para iniciar sesión a través de Wallet Connect.",
 		"onboarding3": "Opción para ocultar el valor de tus activos.",
 		"onboarding4": "Gestiona tus cuentas sin esfuerzo.",
@@ -129,11 +129,11 @@
 		"network_symbol_label": "Símbolo de Moneda",
 		"network_explorer_label": "URL del Explorador",
 		"keep_login": "Mantener el estado de inicio de sesión",
-		"keep_login_message": "No necesitas ingresar la contraseña cada vez que abres Pali Wallet.",
+		"keep_login_message": "No necesitas ingresar la contraseña cada vez que abres Vista Wallet.",
 		"use_id": "Usar FaceID / Huella Digital",
-		"use_id_message": "En lugar de ingresar la contraseña, usa FaceID o huella digital para desbloquear Pali Wallet.",
+		"use_id_message": "En lugar de ingresar la contraseña, usa FaceID o huella digital para desbloquear Vista Wallet.",
 		"use_biometrics": "Usar Bio Autenticación",
-		"use_biometrics_message": "En lugar de ingresar la contraseña, usa la Bio Autenticación para desbloquear Pali Wallet.",
+		"use_biometrics_message": "En lugar de ingresar la contraseña, usa la Bio Autenticación para desbloquear Vista Wallet.",
 		"transaction_verification": "Se requiere verificación de transacción",
 		"verification_message_for_pwd": "Se requiere contraseña para cada transacción.",
 		"verification_message_for_id": "Se requiere contraseña o FaceID/Huella Digital para cada transacción.",
@@ -145,7 +145,7 @@
 		"wrong_password": "Contraseña incorrecta, por favor inténtalo de nuevo",
 		"your_private_key": "Tu Clave Privada",
 		"confirm": "OK",
-		"enter_password": "Contraseña para desbloquear Pali Wallet"
+		"enter_password": "Contraseña para desbloquear Vista Wallet"
 	},
 	"password_reset": {
 		"change_password": "Cambiar contraseña"
@@ -211,11 +211,11 @@
 		"dapp_network": "Red de dApp",
 		"dapp_account": "Cuenta de dApp",
 		"link_copied": "Enlace copiado",
-		"security_alert": "Alerta de Seguridad de Pali Wallet",
+		"security_alert": "Alerta de Seguridad de Vista Wallet",
 		"close_the_page": "Cerrar la Página",
 		"continue_to_browse": "Continuar navegando",
 		"unknown_desc": "Este sitio web o dApp aún no ha sido verificado, por favor ten cuidado.",
-		"safe_desc": "Este sitio web o dApp ha pasado la detección del Motor de Seguridad de Pali Wallet.",
+		"safe_desc": "Este sitio web o dApp ha pasado la detección del Motor de Seguridad de Vista Wallet.",
 		"unkown_website_title": "Sitio web desconocido",
 		"whitelisted_dapp": "dApp en lista blanca",
 		"more_tip": "Toca aquí para cambiar de Red o Cuenta.",
@@ -282,13 +282,13 @@
 		"enable_touchid": "Habilitar Touch ID",
 		"enable_faceid": "Habilitar Face ID",
 		"enable_biometrics": "Habilitar Bio Autenticación",
-		"rejectBiometry": "Face ID o huella digital ha excedido el límite máximo de intentos. Bloquea la pantalla de tu teléfono y vuelve a abrirlo, o ve a Configuración > Pali Wallet para habilitar Face ID o huella digital."
+		"rejectBiometry": "Face ID o huella digital ha excedido el límite máximo de intentos. Bloquea la pantalla de tu teléfono y vuelve a abrirlo, o ve a Configuración > Vista Wallet para habilitar Face ID o huella digital."
 	},
 	"authentication": {
 		"auth_prompt_title": "Autenticación requerida",
-		"auth_prompt_desc": "Por favor autentica para usar Pali Wallet",
+		"auth_prompt_desc": "Por favor autentica para usar Vista Wallet",
 		"fingerprint_prompt_title": "Autenticación requerida",
-		"fingerprint_prompt_desc": "Usa tu huella digital para desbloquear Pali Wallet",
+		"fingerprint_prompt_desc": "Usa tu huella digital para desbloquear Vista Wallet",
 		"fingerprint_prompt_cancel": "Cancelar"
 	},
 	"accountApproval": {
@@ -385,6 +385,9 @@
 		"to_this_address": "a esta dirección.",
 		"from": "Desde",
 		"to": "A",
+		"bank": "Bank",
+		"force": "Vista",
+		"p2p": "P2P",
 		"to_address": "Dirección de Destinatario",
 		"recipient": "Destinatario",
 		"suggestions": "Sugerencias",
@@ -555,7 +558,7 @@
 		"pop_tip": "{{number}} tokens enfrentando problemas de seguridad anormales.",
 		"security_score": "Puntuación de Seguridad",
 		"no_detectable_tokens": "No se detectan tokens",
-		"faq_desc_undetected": "Hay {{num}} tokens que no han sido registrados ni detectados por el Motor de Seguridad de Pali Wallet en esta cuenta.",
+		"faq_desc_undetected": "Hay {{num}} tokens que no han sido registrados ni detectados por el Motor de Seguridad de Vista Wallet en esta cuenta.",
 		"security_risk_unknown": "No detectado",
 		"security_risk_low": "Riesgo Bajo",
 		"security_risk_medium": "Riesgo Medio",
@@ -639,7 +642,7 @@
 		"try_it_later": "Inténtalo más tarde",
 		"owner_address": "Dirección del Propietario",
 		"owner_address_desc": "Si la dirección del propietario está configurada como 0x00..000 o cualquier dirección de agujero negro, entonces no se puede ejecutar ninguna función especial o maliciosa manualmente, incluso si esas funciones existen, es decir, lo consideramos seguro.",
-		"token_security": "${{symbol}} Seguridad - Informe de seguridad del token por Pali Wallet",
+		"token_security": "${{symbol}} Seguridad - Informe de seguridad del token por Vista Wallet",
 		"share_security_report": "Compartir Informe de Seguridad"
 	},
 	"approval_management": {
@@ -694,7 +697,7 @@
 		"what_seed_phrase": "¿Qué es una frase de semilla?",
 		"what_seed_phrase_desc": "La frase de semilla es un estándar universal para la generación de claves privadas en todas las blockchains.\n\nEs más amigable para el usuario, legible por humanos y, en la práctica, más segura que las soluciones primitivas basadas solo en claves privadas.\n\nSolo con un conjunto de frase de semilla, puede acceder a todas las blockchains y crear múltiples cuentas.",
 		"keep_seed_phrase_safe": "Mantenga segura la frase de semilla",
-		"keep_seed_phrase_safe_desc": "Si la frase de semilla se filtra, los activos serán robados.\nSi se pierde la frase de semilla, nadie podrá recuperarla (incluido Pali Wallet).\n\nPor lo tanto, está obligado a mantenerla segura. Aquí hay algunas reglas.\n\n1. Escríbala en papel o guárdela en cualquier medio desconectado de Internet. También puede memorizarla.\n\n2. Dado que es legible por humanos, ingrésela directamente al importarla en una billetera y NUNCA la copie y pegue, lo cual es riesgoso.\n\n3. NO la comparta con NADIE.\n\n¡Puede verificar si la ha memorizado correctamente a continuación!",
+		"keep_seed_phrase_safe_desc": "Si la frase de semilla se filtra, los activos serán robados.\nSi se pierde la frase de semilla, nadie podrá recuperarla (incluido Vista Wallet).\n\nPor lo tanto, está obligado a mantenerla segura. Aquí hay algunas reglas.\n\n1. Escríbala en papel o guárdela en cualquier medio desconectado de Internet. También puede memorizarla.\n\n2. Dado que es legible por humanos, ingrésela directamente al importarla en una billetera y NUNCA la copie y pegue, lo cual es riesgoso.\n\n3. NO la comparta con NADIE.\n\n¡Puede verificar si la ha memorizado correctamente a continuación!",
 		"verify_your_seed_phrase": "Verifique su frase de semilla",
 		"verify": "Verificar",
 		"wrong_seed_phrase": "Frase de semilla incorrecta, intente de nuevo.",
@@ -785,7 +788,7 @@
 	"observer": {
 		"observe_only_ccounts": "Cuentas de Solo Observación",
 		"enter_address_here": "Dirección o ENS",
-		"only_support_evm_chain": "Solo admite cadenas compatibles con Pali Wallet.",
+		"only_support_evm_chain": "Solo admite cadenas compatibles con Vista Wallet.",
 		"wrong_address": "Dirección o ENS incorrecto",
 		"account_already": "La cuenta ya está en tu lista de cuentas activas.",
 		"add_an_address": "Agregar una Dirección",
@@ -827,7 +830,7 @@
 		"enter_http_ipfs": "Ingresa aquí el enlace http o ipfs",
 		"unable_load_content": "No se puede cargar el contenido",
 		"hi_ens_name": "Hola, {{name}}",
-		"set_url_tip": "No has configurado un avatar, aquí solo hay una foto de Pali como marcador de posición.",
+		"set_url_tip": "No has configurado un avatar, aquí solo hay una foto de Vista como marcador de posición.",
 		"about_ens_avatar": "Acerca del Avatar de ENS",
 		"about_title_1": "¿Qué es esto?",
 		"about_title_2": "¿Formato disponible?",
@@ -835,8 +838,8 @@
 		"about_title_4": "¿Alguna tarifa?",
 		"about_desc_1": "ENS ha admitido avatares para tu perfil de ENS. Será parte de tu identidad descentralizada de Web3.",
 		"about_desc_2": "Puedes configurar tu avatar desde un NFT (solo en Ethereum), una foto o una URL http/ipfs.",
-		"about_desc_3": "El avatar que configures se almacena en ENS en la cadena de bloques de Ethereum, no en Pali Wallet.",
-		"about_desc_4": "Debes pagar una tarifa de minero para enviar tu avatar de ENS a Ethereum. Pali Wallet no cobrará nada.",
+		"about_desc_3": "El avatar que configures se almacena en ENS en la cadena de bloques de Ethereum, no en Vista Wallet.",
+		"about_desc_4": "Debes pagar una tarifa de minero para enviar tu avatar de ENS a Ethereum. Vista Wallet no cobrará nada.",
 		"not_any_nft": "ENS solo acepta NFTs en Ethereum.\nNo tienes ningún NFT allí.",
 		"your_can_buy_on": "Puedes comprar en",
 		"opensea": "OpenSea"

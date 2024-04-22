@@ -1,6 +1,6 @@
 import { strings } from '../../locales/i18n';
 import TopDomains from './TopDomains';
-import { util, URL } from 'paliwallet-core';
+import { util, URL } from 'vistawallet-core';
 import NativeThreads from '../threads/NativeThreads';
 import { callSqlite } from '../util/ControllerUtils';
 
@@ -65,7 +65,7 @@ export class AutoCompleteController {
 			}
 			return;
 		}
-		if (this.text_.startsWith('paliwallet://')) {
+		if (this.text_.startsWith('vistawallet://')) {
 			const url_item = {
 				type: AutoCompleteType_URL,
 				url: text,
@@ -224,7 +224,7 @@ export class AutoCompleteController {
 				}
 			})
 			.catch(e => {
-				util.logDebug('leon.w@fetchSuggestions: ', e);
+				// util.logDebug('leon.w@fetchSuggestions: ', e);
 			});
 	};
 }

@@ -1,18 +1,29 @@
 {
 	"project_info": {
-		"project_number": "Put your own firebase configuration data here"
+	  "project_number": "588556083820",
+	  "project_id": "vistawallet-559be",
+	  "storage_bucket": "vistawallet-559be.appspot.com"
 	},
 	"client": [
-		{
-			"client_info": {},
-			"oauth_client": [{}, {}],
-			"api_key": [{}],
-			"services": {
-				"appinvite_service": {
-					"other_platform_oauth_client": []
-				}
-			}
+	  {
+		"client_info": {
+		  "mobilesdk_app_id": "1:588556083820:android:1ebc7c692cd51a45aa6e49",
+		  "android_client_info": {
+			"package_name": "io.vistawallet"
+		  }
+		},
+		"oauth_client": [],
+		"api_key": [
+		  {
+			"current_key": "AIzaSyCuwqJGInrQFB8FBrUoyptTtXNYoMCWmfU"
+		  }
+		],
+		"services": {
+		  "appinvite_service": {
+			"other_platform_oauth_client": []
+		  }
 		}
+	  }
 	],
 	"configuration_version": "1"
-}
+  }

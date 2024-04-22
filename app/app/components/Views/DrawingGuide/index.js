@@ -7,6 +7,7 @@ import LottieView from 'lottie-react-native';
 import MStatusBar from '../../UI/MStatusBar';
 import TitleBar from '../../UI/TitleBar';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Engine from '../../../core/Engine';
 
 const styles = StyleSheet.create({
 	flexOne: {
@@ -86,27 +87,11 @@ export default class DrawingGuide extends PureComponent {
 			/>
 			<View style={styles.baseView}>
 				<Text style={styles.title}>{strings('drawing_board.true_random_number')}</Text>
-				{strings('other.accept_language') === 'zh' ? (
 					<Text style={styles.baseText}>
-						<Text style={styles.formatText}>随机画</Text>一些线条，绘图的坐标将被用于
-						<Text style={styles.formatText}>真随机数发生器</Text>的一部分熵源，以生成助记词。
-					</Text>
-				) : strings('other.accept_language') === 'es' ? (
-					<Text style={styles.baseText}>
-						Las coordenadas de tu <Text style={styles.formatText}>dibujo aleatorio</Text> se utilizarán como
-						parte de la{' '}
-						<Text style={styles.formatText}>
-							entropía del Generador de Números Verdaderamente Aleatorios
-						</Text>{' '}
-						para la generación de la frase semilla.
-					</Text>
-				) : (
-					<Text style={styles.baseText}>
-						Coordinates of your <Text style={styles.formatText}>random drawing</Text> will be used as a part{' '}
-						<Text style={styles.formatText}>entropy of True Random Number Generator</Text> for seed phrase
+						Coordinates of your <Text style={styles.formatText}>Signature</Text> will be used as a part{' '}
+						<Text style={styles.formatText}>entropy of True Random Number Generator</Text> for  secure seed phrase
 						generation.
 					</Text>
-				)}
 				<View style={styles.secureLayout}>
 					<Image source={require('../../../images/ic_setting_Security.png')} />
 					<Text style={styles.forMoreSecure}>{strings('drawing_board.far_more_secure')}</Text>

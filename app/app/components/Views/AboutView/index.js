@@ -87,19 +87,19 @@ export default class AboutView extends PureComponent {
 	};
 
 	goWebsite = () => {
-		Linking.openURL('https://paliwallet.com/');
+		Linking.openURL('https://vistafinance.org/');
 	};
 
 	goDiscord = () => {
-		Linking.openURL('https://discord.gg/syscoin');
+		Linking.openURL('https://discord.gg/vista');
 	};
 
 	goTwitter = () => {
-		Linking.openURL('https://twitter.com/PaliWallet');
+		Linking.openURL('https://twitter.com/VistaWallet');
 	};
 
 	goTelegram = () => {
-		Linking.openURL('https://t.me/Syscoin_Official');
+		Linking.openURL('https://t.me/vista');
 	};
 
 	render() {

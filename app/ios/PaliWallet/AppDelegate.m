@@ -20,7 +20,7 @@
 #import <UMPush/UMessage.h>
 #import <Firebase.h>
 #import "RNSplashScreen.h" 
-#import "PaliWallet-Swift.h" 
+#import "VistaWallet-Swift.h" 
 
 
 static void InitializeFlipper(UIApplication *application) {
@@ -49,7 +49,7 @@ static void InitializeFlipper(UIApplication *application) {
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   UInt64 native_start_time = [[NSDate date] timeIntervalSince1970] * 1000;
-  RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge moduleName:@"PaliWallet" initialProperties:@{@"native_start_time": [NSString stringWithFormat:@"%llu", native_start_time]}];
+  RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge moduleName:@"VistaWallet" initialProperties:@{@"native_start_time": [NSString stringWithFormat:@"%llu", native_start_time]}];
 
   if (@available(iOS 13.0, *)) {
       rootView.backgroundColor = [UIColor systemBackgroundColor];

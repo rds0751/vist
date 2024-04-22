@@ -19,7 +19,7 @@ import Engine from '../../../core/Engine';
 import { safeToChecksumAddress } from '../../../util/address';
 import { colors } from '../../../styles/common';
 import PromptView from '../PromptView';
-import { ChainType, isValidAddress, BN, util } from 'paliwallet-core';
+import { ChainType, isValidAddress, BN, util } from 'vistawallet-core';
 import CheckPassword from '../CheckPassword';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { VERIFICATION_DISABLED } from '../../../constants/storage';

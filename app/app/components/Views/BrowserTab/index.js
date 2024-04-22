@@ -35,7 +35,7 @@ import Device from '../../../util/Device';
 import AppConstants from '../../../core/AppConstants';
 import SharedDeeplinkManager from '../../../core/DeeplinkManager';
 import { SetUseTestServer } from '../../../actions/settings';
-import { ChainType, util, URL } from 'paliwallet-core';
+import { ChainType, util, URL } from 'vistawallet-core';
 import { toggleShowHint } from '../../../actions/hint';
 import { checkPermissionAndSave } from '../../../util/ImageUtils.android';
 import { getAppVersion, getAppVersionCode, getChannel, getDeviceId, getDeviceInfo } from '../../../util/ApiClient';
@@ -1513,7 +1513,7 @@ const BrowserTab = props => {
 										<View style={styles.dappNetScroll}>
 											{props.allChains.map((item, index) => {
 												const isRpc = getIsRpc(item);
-												return (
+												return getRpcName(item) === "Rollux" || getRpcName(item) === "Syscoin" || getChainTypeName(item) === "Rollux" || getChainTypeName(item) === "Syscoin" ? null : (
 													<TouchableOpacity
 														key={'defi-net-' + index}
 														activeOpacity={activeOpacity}

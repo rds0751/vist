@@ -33,8 +33,14 @@ import Browser from '../Views/Browser';
 import TransactionsView from '../UI/TransactionsView';
 import GlobeIcon from '../UI/GlobeIcon';
 import WalletIcon from '../UI/WalletIcon';
+import P2PIcon from '../UI/P2PIcon';
+import VistaIcon from '../UI/VistaIcon';
+import CoinIcon from '../UI/CoinIcon';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import LanguageSelector from '../Views/LanguageSelector';
+import P2P from '../Views/P2P';
+import Bank from '../Views/Bank';
+import BrowserVista from '../Views/BrowserVista';
 
 const options = {
 	enableVibrateFallback: true,
@@ -187,11 +193,109 @@ export default createStackNavigator(
 									{strings('other.browser')}
 								</Text>
 							),
-							tabBarIcon: ({ focused }) => <GlobeIcon focused={focused} />,
+							tabBarIcon: ({ focused }) => <GlobeIcon focused={focused} />
+						}
+					},
+					VistaTabHome: {
+						screen: createStackNavigator({
+							BrowserView: {
+								screen: BrowserVista,
+								navigationOptions: {
+									header: null,
+									gesturesEnabled: false,
+									animationEnabled: true
+								}
+							}
+						}),
+						navigationOptions: {
+							tabBarLabel: () => (
+								<Text
+									style={[
+										// eslint-disable-next-line react-native/no-inline-styles
+										{
+											textAlign: 'center',
+											fontSize: 11,
+											...fontStyles.bold
+										},
+										// eslint-disable-next-line react-native/no-inline-styles
+										{ marginBottom: 5 }
+									]}
+								>
+									{strings('other.force')}
+								</Text>
+							),
+							tabBarIcon: ({ focused }) => <VistaIcon focused={focused} />
+						}
+					},
+					CoinTabHome: {
+						screen: createStackNavigator({
+							BrowserView: {
+								screen: Bank,
+								navigationOptions: {
+									header: null,
+									gesturesEnabled: false,
+									animationEnabled: true
+								}
+							}
+						}),
+						navigationOptions: {
+							tabBarLabel: () => (
+								<Text
+									style={[
+										// eslint-disable-next-line react-native/no-inline-styles
+										{
+											textAlign: 'center',
+											fontSize: 11,
+											...fontStyles.bold
+										},
+										// eslint-disable-next-line react-native/no-inline-styles
+										{ marginBottom: 5 }
+									]}
+								>
+									{strings('other.bank')}
+								</Text>
+							),
+							tabBarIcon: ({ focused }) => <CoinIcon focused={focused} />,
 							tabBarOnPress: ({ defaultHandler }) => {
 								ReactNativeHapticFeedback.trigger('impactLight', options);
 								defaultHandler();
-								DeviceEventEmitter.emit('onBrowserTabFocused');
+								DeviceEventEmitter.emit('onCoinTabFocused');
+							}
+						}
+					},
+					P2PTabHome: {
+						screen: createStackNavigator({
+							BrowserView: {
+								screen: P2P,
+								navigationOptions: {
+									header: null,
+									gesturesEnabled: false,
+									animationEnabled: true
+								}
+							}
+						}),
+						navigationOptions: {
+							tabBarLabel: () => (
+								<Text
+									style={[
+										// eslint-disable-next-line react-native/no-inline-styles
+										{
+											textAlign: 'center',
+											fontSize: 11,
+											...fontStyles.bold
+										},
+										// eslint-disable-next-line react-native/no-inline-styles
+										{ marginBottom: 5 }
+									]}
+								>
+									{strings('other.p2p')}
+								</Text>
+							),
+							tabBarIcon: ({ focused }) => <P2PIcon focused={focused} />,
+							tabBarOnPress: ({ defaultHandler }) => {
+								ReactNativeHapticFeedback.trigger('impactLight', options);
+								defaultHandler();
+								DeviceEventEmitter.emit('onP2PTabFocused');
 							}
 						}
 					}

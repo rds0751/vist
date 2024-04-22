@@ -15,7 +15,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { baseStyles, colors, fontStyles } from '../../../styles/common';
 import Device from '../../../util/Device';
-import { isSupportLuxy } from '../../../util/luxy';
 import MStatusBar from '../../UI/MStatusBar';
 import { BlurView } from '@react-native-community/blur';
 import LinearGradient from 'react-native-linear-gradient';
@@ -41,7 +40,7 @@ import { getDefiIcon } from '../../../util/rpcUtil';
 import { isSvgFile } from '../../../util/general';
 import { getRpcChainTypeByChainId, isRpcChainId } from '../../../util/ControllerUtils';
 import { ChainTypeBgDefi, ChainTypes } from '../../../util/ChainTypeImages';
-import { ChainType } from 'paliwallet-core';
+import { ChainType } from 'vistawallet-core';
 
 const screenWidth = Device.getDeviceWidth();
 
@@ -761,7 +760,6 @@ class NftView extends PureComponent {
 													}
 												]}
 												videoThumbnail={
-													isSupportLuxy(nftToken.chainId) &&
 													nftToken.image_thumbnail_url !== 'error' &&
 													nftToken.image_thumbnail_url &&
 													nftToken.image_thumbnail_url
@@ -860,9 +858,6 @@ class NftView extends PureComponent {
 													activeOpacity={0.8}
 													onPress={() => {
 														let url = 'https://opensea.io/' + nftToken.creator.address;
-														if (isSupportLuxy(nftToken.chainId)) {
-															url = 'https://luxy.io/user/' + nftToken.creator.address;
-														}
 														this.handleBrowserUrl(url);
 													}}
 												>
@@ -892,12 +887,7 @@ class NftView extends PureComponent {
 											<TouchableOpacity
 												onPress={() => {
 													let url =
-														'https://opensea.io/collection/' + nftToken.collection.slug;
-													if (isSupportLuxy(nftToken.chainId)) {
-														url =
-															'https://luxy.io/collections/' +
-															nftToken.collection.name.toLowerCase().replace(/\s+/g, '-');
-													}
+													'https://opensea.io/collection/' + nftToken.collection.slug;
 													this.handleBrowserUrl(url);
 												}}
 											>

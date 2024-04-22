@@ -33,8 +33,7 @@ export function TokenImage({ asset, containerStyle, iconStyle, logoDefined, fade
 			) : (
 				<NFTImage
 					style={iconStyle}
-					imageUrl={`https://pali-images.s3.amazonaws.com/files/coin-icons/${asset.symbol.toLowerCase()}.png`}
-					defaultImg={require('../../../images/img_default.png')}
+					defaultImg={require('../../../images/pali.png')}
 				/>
 			)}
 		</View>

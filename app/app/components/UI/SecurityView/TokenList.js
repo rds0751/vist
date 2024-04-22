@@ -26,7 +26,7 @@ import { key2Warn } from '../../../util/security';
 import Modal from 'react-native-modal';
 import LottieView from 'lottie-react-native';
 import { getIcTagByChainType } from '../../../util/ChainTypeImages';
-import { ChainType, util } from 'paliwallet-core';
+import { ChainType, util } from 'vistawallet-core';
 
 const styles = StyleSheet.create({
 	emptyView: {
@@ -587,7 +587,7 @@ class TokenList extends PureComponent {
 			return <Image source={require('../../../images/tag_safe.png')} style={flagStyle} />;
 		}
 		const { normalLength, noticeLength, riskLength, isTrust } = asset.securityData;
-		if (isTrust) {
+		if (asset.symbol === "VISTA" || isTrust) {
 			return <Image source={require('../../../images/tag_safe.png')} style={flagStyle} />;
 		}
 		if (riskLength > 0) {

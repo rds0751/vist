@@ -1,4 +1,4 @@
-import { ChainType, util } from 'paliwallet-core';
+import { ChainType, util } from 'vistawallet-core';
 import LottieView from 'lottie-react-native';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';

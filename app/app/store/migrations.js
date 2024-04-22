@@ -1,4 +1,4 @@
-import { ChainType } from 'paliwallet-core';
+import { ChainType } from 'vistawallet-core';
 import { callSqlite } from '../util/ControllerUtils';
 
 export const migrations = {
@@ -210,7 +210,7 @@ export const migrations = {
 		return state;
 	},
 	6: state => {
-		const identities = state?.engine?.backgroundState?.PreferencesController?.identities;
+const identities = state?.engine?.backgroundState?.PreferencesController?.identities;
 		if (identities) {
 			const keys = Object.keys(identities);
 			if (keys?.length > 0) {
@@ -269,11 +269,6 @@ export const migrations = {
 				TokenRatesController.allContractExchangeRates[ChainType.Avax] = { ...avaxContractExchangeRates };
 				delete TokenRatesController.avaxContractExchangeRates;
 			}
-			const syscoinContractExchangeRates = TokenRatesController.syscoinContractExchangeRates;
-			if (syscoinContractExchangeRates) {
-				TokenRatesController.allContractExchangeRates[ChainType.Syscoin] = { ...syscoinContractExchangeRates };
-				delete TokenRatesController.syscoinContractExchangeRates;
-			}
 			if (!TokenRatesController.allCurrencyPrice) {
 				TokenRatesController.allCurrencyPrice = {};
 			}
@@ -296,10 +291,6 @@ export const migrations = {
 			if (TokenRatesController.avaxPrice) {
 				TokenRatesController.allCurrencyPrice[ChainType.Avax] = { ...TokenRatesController.avaxPrice };
 				delete TokenRatesController.avaxPrice;
-			}
-			if (TokenRatesController.syscoinPrice) {
-				TokenRatesController.allCurrencyPrice[ChainType.Syscoin] = { ...TokenRatesController.syscoinPrice };
-				delete TokenRatesController.syscoinPrice;
 			}
 		}
 
@@ -396,17 +387,6 @@ export const migrations = {
 				}
 				delete TokenBalancesController.avaxContractBalances;
 			}
-			if (TokenBalancesController.syscoinContractBalances) {
-				for (const selectedAddress in TokenBalancesController.syscoinContractBalances) {
-					if (!TokenBalancesController.allContractBalances[selectedAddress]) {
-						TokenBalancesController.allContractBalances[selectedAddress] = {};
-					}
-					TokenBalancesController.allContractBalances[selectedAddress][ChainType.Syscoin] = {
-						...TokenBalancesController.syscoinContractBalances[selectedAddress]
-					};
-				}
-				delete TokenBalancesController.syscoinContractBalances;
-			}
 			if (TokenBalancesController.rpcContractBalances) {
 				for (const selectedAddress in TokenBalancesController.rpcContractBalances) {
 					if (!TokenBalancesController.allContractBalances[selectedAddress]) {
@@ -437,22 +417,8 @@ export const migrations = {
 		if (
 			state &&
 			state.engine &&
-			state.engine.backgroundState &&
-			state.engine.backgroundState.RolluxNetworkController
-		) {
-			state.engine.backgroundState.RolluxNetworkController.network = '570';
-
-			if (!state.engine.backgroundState.RolluxNetworkController.properties) {
-				state.engine.backgroundState.RolluxNetworkController.properties = {};
-			}
-			state.engine.backgroundState.RolluxNetworkController.properties['570'] = { isEIP1559Compatible: true };
-
-			if (!state.engine.backgroundState.RolluxNetworkController.provider) {
-				state.engine.backgroundState.RolluxNetworkController.provider = {};
-			}
-			state.engine.backgroundState.RolluxNetworkController.provider.chainId = '570';
-			state.engine.backgroundState.RolluxNetworkController.provider.rpcTarget = 'https://rpc.rollux.com';
-		}
+			state.engine.backgroundState
+		)
 
 		return state;
 	}

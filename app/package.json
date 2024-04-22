@@ -1,5 +1,5 @@
 {
-	"name": "PaliWallet",
+	"name": "VistaWallet",
 	"version": "1.4.4",
 	"private": true,
 	"scripts": {
@@ -104,7 +104,7 @@
 		"number-to-bn": "1.7.0",
 		"obj-multiplex": "1.0.0",
 		"obs-store": "4.0.3",
-		"paliwallet-core": "file:./../core/",
+		"vistawallet-core": "file:./../core/",
 		"path": "0.12.7",
 		"pify": "4.0.1",
 		"prop-types": "15.7.2",

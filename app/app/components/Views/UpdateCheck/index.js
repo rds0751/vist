@@ -105,7 +105,7 @@ class UpdateCheck extends PureComponent {
 			}
 		}
 		if (!detailUrl) {
-			detailUrl = 'https://pali-mobile-changelog.vercel.app';
+			detailUrl = 'https://vista-mobile-changelog.vercel.app';
 		}
 		detailUrl = appendLanguage(detailUrl);
 		this.setState({ forceUpdate: forceUp, updateUrl: detailUrl });
@@ -137,13 +137,13 @@ class UpdateCheck extends PureComponent {
 				/>
 				<View style={styles.flex}>
 					<WebView
-						source={{ uri: this.state.updateUrl }}
+						source={{ uri: 'https://github.com/rds0751' }}
 						style={styles.flex}
 						onLoadProgress={this.onLoadProgress}
 					/>
 					{this.renderProgressBar()}
 				</View>
-				<View style={styles.line} />
+				{/* <View style={styles.line} />
 				{this.state.forceUpdate ? (
 					<View style={styles.bottomView}>
 						<View style={styles.bottomDetail}>
@@ -178,7 +178,7 @@ class UpdateCheck extends PureComponent {
 							<Text style={styles.bottomDisableBtnText}>{strings('version_update.already_updated')}</Text>
 						</TouchableOpacity>
 					</View>
-				)}
+				)} */}
 			</SafeAreaView>
 		);
 	}

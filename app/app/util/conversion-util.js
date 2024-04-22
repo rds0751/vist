@@ -21,7 +21,7 @@
  * on the accompanying options.
  */
 
-import { BignumberJs as BigNumber, stripHexPrefix, BN } from 'paliwallet-core';
+import { BignumberJs as BigNumber, stripHexPrefix, BN } from 'vistawallet-core';
 
 // Big Number Constants
 const BIG_NUMBER_WEI_MULTIPLIER = new BigNumber('1000000000000000000');

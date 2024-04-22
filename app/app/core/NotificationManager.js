@@ -10,7 +10,7 @@ import {
 } from '../util/number';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { LAST_NOTIFICATION_INFO } from '../constants/storage';
-import { ChainType, TxNoChange, TokenTxChanged } from 'paliwallet-core';
+import { ChainType, TxNoChange, TokenTxChanged } from 'vistawallet-core';
 import { getTicker } from '../util/transactions';
 import { callSqlite } from '../util/ControllerUtils';
 

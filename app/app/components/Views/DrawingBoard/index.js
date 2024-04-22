@@ -22,7 +22,7 @@ import Progress from './progress';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { EXISTING_USER, TRUE } from '../../../constants/storage';
 import { failedSeedPhraseRequirements, isValidMnemonic, parseSeedPhrase } from '../../../util/validators';
-import { Mutex, util } from 'paliwallet-core';
+import { Mutex, util } from 'vistawallet-core';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import NativeThreads from '../../../threads/NativeThreads';
 
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
 });
 
 // const drawRef = useRef < DrawRef > null;
-const pathMaxNum = Device.isAndroid() ? 200 : 220;
+const pathMaxNum = Device.isAndroid() ? 80 : 90;
 
 export default class DrawingBoard extends PureComponent {
 	static propTypes = {

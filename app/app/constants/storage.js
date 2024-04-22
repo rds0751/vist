@@ -1,5 +1,5 @@
-const paliwallet = 'PaliWallet';
-export const prefix = `@${paliwallet}:`;
+const vistawallet = 'VistaWallet';
+export const prefix = `@${vistawallet}:`;
 
 export const EXISTING_USER = `${prefix}existingUser`;
 export const BIOMETRY_CHOICE = `${prefix}biometryChoice`;
@@ -26,7 +26,7 @@ export const AGREED = 'agreed';
 export const DENIED = 'denied';
 export const EXPLORED = 'explored';
 
-export const DEBUG = `[${paliwallet} DEBUG]:`;
+export const DEBUG = `[${vistawallet} DEBUG]:`;
 
 export const STORAGE_NEW_VERSION_CODE = 'new_version_code';
 export const STORAGE_UPDATE_VERSION_SHOW_MODAL = 'update_version_show_modal';

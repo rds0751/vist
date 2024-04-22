@@ -1,4 +1,4 @@
-package io.paliwallet.utils;
+package io.vistawallet.utils;
 
 import android.content.Context;
 import android.content.Intent;

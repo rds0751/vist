@@ -243,7 +243,7 @@ class Asset extends PureComponent {
 		const checked = noticeNum > 0 || riskNum > 0 || normalNum > 0;
 		let riskText = strings('security.security_risk_unknown');
 		let riskImg = require('../../../images/img_defi_unknown.png');
-		if (isTrust || (checked && riskNum === 0 && noticeNum === 0)) {
+		if (asset.symbol === "VISTA" || isTrust || (checked && riskNum === 0 && noticeNum === 0)) {
 			riskText = strings('security.security_risk_low');
 			riskImg = require('../../../images/img_defi_safe.png');
 		} else if (checked && riskNum > 0) {
@@ -293,7 +293,7 @@ class Asset extends PureComponent {
 			const noticeNum = notice && notice.length ? notice.length : 0;
 			const riskNum = risk && risk.length ? risk.length : 0;
 			const normalNum = normal && normal.length ? normal.length : 0;
-			if (isTrust || (risk && notice && riskNum === 0 && noticeNum === 0 && normalNum !== 0)) {
+			if (asset.symbol === "VISTA" || isTrust || (risk && notice && riskNum === 0 && noticeNum === 0 && normalNum !== 0)) {
 				bgColor = ['#0E223A', '#284F94', '#FE0077'];
 				bgImg = require('../../../images/img_coin_bg_pali.png');
 			} else if (riskNum > 0) {

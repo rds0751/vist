@@ -10,12 +10,12 @@ import { connect } from 'react-redux';
 import Engine from '../../../core/Engine';
 import { startNetworkChange, toggleTestnetVisible } from '../../../actions/settings';
 import MStatusBar from '../../UI/MStatusBar';
-import { NetworkConfig } from 'paliwallet-core';
+import { NetworkConfig } from 'vistawallet-core';
 import TitleBar from '../../UI/TitleBar';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getAllProvider } from '../../../util/ControllerUtils';
 import { getDeveloperTitle } from '../../../util/ChainTypeImages';
-import { ChainType } from 'paliwallet-core';
+import { ChainType } from 'vistawallet-core';
 
 const styles = {
 	wrapper: {
@@ -122,11 +122,9 @@ class DeveloperOptions extends PureComponent {
 		const elementMap = [];
 
 		const chainOrder = [
-			ChainType.Rollux,
-			ChainType.Syscoin,
+			ChainType.Bsc,
 			ChainType.Ethereum,
 			ChainType.Arbitrum,
-			ChainType.Bsc,
 			ChainType.Polygon,
 			ChainType.Optimism,
 			ChainType.Avax

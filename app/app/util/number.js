@@ -10,7 +10,7 @@ import {
 	NetworkConfig,
 	EthjsUnit as convert,
 	util
-} from 'paliwallet-core';
+} from 'vistawallet-core';
 import numberToBN from 'number-to-bn';
 import Engine from '../core/Engine';
 import { getChainTypeName } from './ChainTypeImages';

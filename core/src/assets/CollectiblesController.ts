@@ -280,7 +280,7 @@ export class CollectiblesController extends BaseController<CollectiblesConfig, C
 
     if (this.isSupportOpensea(chainId)) {
       collectibles = await this.getCollectiblesByOpensea(chainId, requestedSelectedAddress, assetsContract);
-    } else if (this.isSupportLuxy(chainId)) {
+} else if (this.isSupportLuxy(chainId)) {
       collectibles = await this.fetchLuxyNFTs(requestedSelectedAddress, chainId, assetsContract);
     } else {
       collectibles = await this.detectCollectiblesByType(requestedSelectedAddress, chainId, chainType, assetsContract);
@@ -388,7 +388,7 @@ export class CollectiblesController extends BaseController<CollectiblesConfig, C
     chainId: string,
     selectedAddress: string,
     contractController: any,
-    isLuxy?: boolean,
+isLuxy?: boolean,
   ) {
     const erc721Tokens: string[] = [];
     const erc721Ids: string[] = [];
@@ -448,7 +448,7 @@ export class CollectiblesController extends BaseController<CollectiblesConfig, C
       if (owners && owners.length === erc721Tokens.length) {
         erc721Tokens.forEach((address, index) => {
           if (toLowerCaseEquals(owners[index], selectedAddress)) {
-            allOwners.push({ balanceOf: new BigNumber(1), address, token_id: erc721Ids[index] });
+allOwners.push({ balanceOf: new BigNumber(1), address, token_id: erc721Ids[index] });
           } else if (isLuxy && owners[index] === '0x0000000000000000000000000000000000000000') {
             allOwners.push({ balanceOf: new BigNumber(1), address, token_id: erc721Ids[index] });
           }

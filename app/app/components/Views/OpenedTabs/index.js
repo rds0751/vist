@@ -5,14 +5,14 @@ import CookieManager from '@react-native-cookies/cookies';
 import { clearWebViewIOSCache } from 'react-native-webview-ios-cache-clear';
 import Modal from 'react-native-modal';
 import { WebView } from 'react-native-webview';
-import { util } from 'paliwallet-core';
+import { util } from 'vistawallet-core';
 
 import { colors, fontStyles } from '../../../styles/common';
 import { SvgUri } from 'react-native-svg';
 
 import { strings } from '../../../../locales/i18n';
 
-import { URL } from 'paliwallet-core';
+import { URL } from 'vistawallet-core';
 
 import { callSqlite } from '../../../util/ControllerUtils';
 import Device from '../../../util/Device';

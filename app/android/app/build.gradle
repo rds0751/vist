@@ -49,7 +49,7 @@ android {
 
 
 	defaultConfig {
-		applicationId "io.paliwallet"
+		applicationId "io.vistawallet"
 		minSdkVersion rootProject.ext.minSdkVersion
 		targetSdkVersion rootProject.ext.targetSdkVersion
 		versionCode 31

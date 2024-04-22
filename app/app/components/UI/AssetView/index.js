@@ -30,7 +30,7 @@ import { CandleStickChart } from 'react-native-charts-wrapper';
 import Device from '../../../util/Device';
 import syscoinIntro from '../../../util/syscoinIntro.js';
 import Engine from '../../../core/Engine';
-import { util } from 'paliwallet-core';
+import { util } from 'vistawallet-core';
 import { getQueryId } from '../../../data/ContractData';
 import ApprovalEvent from '../ApprovalEvent';
 import EntryScriptWeb3 from '../../../core/EntryScriptWeb3';
@@ -554,12 +554,12 @@ class AssetView extends PureComponent {
 		</Modal>
 	);
 
-	getCoinIntro = (assetType, defaultIntro) => {
-		switch (assetType) {
-			case 256:
-				return syscoinIntro;
+	getCoinIntro = (assetSymbol, defaultIntro) => {
+		switch (assetSymbol) {
+			case "VISTA":
+				return '<p><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">Introducing Vista Finance: Your Gateway to Decentralized Financial Freedom</span><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">In a world where traditional financial systems can be cumbersome and opaque, Vista Finance emerges as a beacon of financial innovation. Our decentralized banking app redefines the way you manage your finances, offering you a seamless and secure gateway to the exciting world of decentralized finance (DeFi).</span><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">Unshackling Financial Freedom</span><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">Imagine a world where you have complete control over your assets, free from the constraints of centralized institutions. Vista Finance empowers you with this very freedom. Say goodbye to traditional banks&apos; restrictive policies and hello to a new era of financial sovereignty.</span><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">Seamless Asset Management</span><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">Vista Finance offers an intuitive platform that simplifies asset management. With just a few taps, you can securely store, send, receive, and trade a wide array of cryptocurrencies and tokens. Our user-friendly interface ensures that both beginners and seasoned crypto enthusiasts can navigate the world of decentralized finance effortlessly.</span><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">Earn Rewards, Effortlessly</span><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">Unlock the potential of your assets with Vista Finance&apos;s unique rewards system. By participating in various DeFi protocols, you can earn lucrative rewards, staking incentives, and even yield farming gains. Watch your assets grow organically as you engage with the DeFi ecosystem like never before.</span><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">Banking on Blockchain</span><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">Built on a secure and transparent blockchain infrastructure, Vista Finance ensures that your financial activities are tamper-proof and verifiable. Your transactions are executed with the highest level of security and transparency, keeping your assets safe from potential threats.</span><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">Decentralized Governance</span><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">We believe in the power of community-driven decision-making. With Vista Finance, you have a voice in the platform&apos;s evolution. Participate in governance proposals, vote on critical changes, and shape the future of our decentralized banking app.</span><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">One Wallet, Many Possibilities</span><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">Vista Finance is more than just a wallet; it&apos;s your all-in-one solution for DeFi. Access lending and borrowing protocols, liquidity pools, decentralized exchanges, and much more &ndash; all from a single, secure platform. Say goodbye to the need for multiple apps and interfaces; Vista Finance brings everything you need under one roof.</span><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">Your Security is Our Priority</span><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">We understand the paramount importance of security in the world of decentralized finance. That&apos;s why we employ cutting-edge encryption, multi-factor authentication, and robust security protocols to safeguard your assets. Rest easy, knowing that Vista Finance is your fortress against potential threats.</span><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">24/7 Customer Support</span><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">Have a question or need assistance? Our dedicated customer support team is available around the clock to provide you with the assistance you need. We&apos;re here to guide you through your DeFi journey and address any concerns you may have.</span><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">Join the Future of Finance</span><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">Vista Finance invites you to embark on a journey into the exciting and dynamic world of decentralized finance. Take control of your financial future, explore new opportunities, and experience the freedom of DeFi. Download Vista Finance today and become a part of the decentralized banking revolution.</span><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">Your Financial Freedom Awaits</span><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><br style="text-align: start;color: transparent;background-color: rgb(255, 255, 255);font-size: 14px;"><span style="text-align: start;color: rgb(95, 99, 104);background-color: rgb(255, 255, 255);font-size: 14px;">With Vista Finance, your assets are in your hands, your rewards are within reach, and your financial future is yours to define. Embrace the future of banking &ndash; join Vista Finance and experience decentralized financial freedom like never before. Welcome to the future of finance, where you are in control.</span></p>';
 			case 512:
-				return rolluxIntro;
+				return '';
 			default:
 				return defaultIntro;
 		}
@@ -574,7 +574,7 @@ class AssetView extends PureComponent {
 		const marketCap = coinInfo?.marketCap ? convertUsdValue(coinInfo.marketCap, currencyCodeRate) : undefined;
 		const fdv = coinInfo?.fdv ? convertUsdValue(coinInfo.fdv, currencyCodeRate) : undefined;
 
-		const coinIntro = asset.nativeCurrency ? this.getCoinIntro(asset.type, coinInfo?.intro || '') : '';
+		const coinIntro = this.getCoinIntro(asset.symbol, coinInfo?.intro || '');
 
 		return (
 			<ImageCapInset
@@ -586,6 +586,23 @@ class AssetView extends PureComponent {
 					<Text style={styles.dashboardText}>
 						{strings('other.token_dashboard', { token: asset.symbol })}
 					</Text>
+					{!!coinIntro && (
+						<>
+							<Text style={styles.introText}>{strings('other.coin_intro')}</Text>
+							<HTMLView
+								style={styles.introMsgText}
+								stylesheet={htmlStyle}
+								value={'<p align="justify">' + coinIntro + '</p>'}
+								onLinkPress={url => {
+									this.props.navigation.navigate('BrowserTabHome');
+									this.props.navigation.navigate('BrowserView', {
+										newTabUrl: url,
+										chainType: asset.type
+									});
+								}}
+							/>
+						</>
+					)}
 					{this.renderSubCoinInfo(
 						ic_liquidity,
 						strings('other.liquidity'),
@@ -642,23 +659,6 @@ class AssetView extends PureComponent {
 								{asset.address}
 							</Text>
 						</TouchableOpacity>
-					)}
-					{!!coinIntro && (
-						<>
-							<Text style={styles.introText}>{strings('other.coin_intro')}</Text>
-							<HTMLView
-								style={styles.introMsgText}
-								stylesheet={htmlStyle}
-								value={'<p>' + coinIntro + '</p>'}
-								onLinkPress={url => {
-									this.props.navigation.navigate('BrowserTabHome');
-									this.props.navigation.navigate('BrowserView', {
-										newTabUrl: url,
-										chainType: asset.type
-									});
-								}}
-							/>
-						</>
 					)}
 				</View>
 			</ImageCapInset>

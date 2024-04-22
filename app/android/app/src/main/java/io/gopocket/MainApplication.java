@@ -1,4 +1,4 @@
-package io.paliwallet;
+package io.vistawallet;
 
 import com.facebook.react.ReactApplication;
 import com.github.wuxudong.rncharts.MPAndroidChartPackage;
@@ -15,7 +15,7 @@ import cl.json.ShareApplication;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import io.invertase.firebase.analytics.ReactNativeFirebaseAnalyticsPackage;
-import io.paliwallet.nativeModules.PreventScreenshotPackage;
+import io.vistawallet.nativeModules.PreventScreenshotPackage;
 import com.swmansion.reanimated.ReanimatedJSIModulePackage;
 import com.facebook.react.bridge.JSIModulePackage;
 
@@ -25,7 +25,7 @@ import androidx.multidex.MultiDexApplication;
 
 import android.database.CursorWindow;
 import java.lang.reflect.Field;
-import io.paliwallet.nativeModules.RNToolsPackage;
+import io.vistawallet.nativeModules.RNToolsPackage;
 
 import com.cmcewen.blurview.BlurViewPackage;
 import com.brentvatne.react.ReactVideoPackage;
@@ -151,7 +151,7 @@ public class MainApplication extends MultiDexApplication implements ShareApplica
     		   We use reflection here to pick up the class that initializes Flipper,
     		  since Flipper library is not available in release mode
     		  */
-    		  Class<?> aClass = Class.forName("io.paliwallet.ReactNativeFlipper");
+    		  Class<?> aClass = Class.forName("io.vistawallet.ReactNativeFlipper");
     		  aClass
     		      .getMethod("initializeFlipper", Context.class, ReactInstanceManager.class)
     		      .invoke(null, context, reactInstanceManager);

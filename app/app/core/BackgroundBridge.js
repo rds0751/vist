@@ -1,4 +1,4 @@
-import { ChainType, util, URL } from 'paliwallet-core';
+import { ChainType, util, URL } from 'vistawallet-core';
 import { JsonRpcEngine } from 'json-rpc-engine';
 import { JS_POST_MESSAGE_TO_PROVIDER, JS_IFRAME_POST_MESSAGE_TO_PROVIDER } from '../util/browserScripts';
 import MobilePortStream from './MobilePortStream';

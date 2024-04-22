@@ -1,4 +1,4 @@
-package io.paliwallet;
+package io.vistawallet;
 
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactActivity;
@@ -23,7 +23,7 @@ public class MainActivity extends ReactActivity {
 	*/
 	@Override
 	protected String getMainComponentName() {
-		return "PaliWallet";
+		return "VistaWallet";
 	}
 
 	// Override onStart, onNewIntent:

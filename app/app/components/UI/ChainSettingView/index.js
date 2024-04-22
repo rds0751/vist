@@ -13,7 +13,7 @@ import {
 	TouchableOpacity,
 	View
 } from 'react-native';
-import { ChainType, defaultEnabledChains } from 'paliwallet-core';
+import { ChainType, defaultEnabledChains } from 'vistawallet-core';
 import { baseStyles, colors, fontStyles } from '../../../styles/common';
 import DragGridView from '../../Views/DragGridView';
 import Engine from '../../../core/Engine';
@@ -299,12 +299,14 @@ class ChainSettingView extends PureComponent {
 	};
 
 	renderItemView = (item, index) => (
-		<View style={styles.itemView} key={item.chainType}>
-			{item.isRpc ? getAssetIcon(item.chainType) : <Image source={item.icon} />}
-			<Text style={styles.itemText} numberOfLines={1} allowFontScaling={false}>
-				{item.text}
-			</Text>
-		</View>
+	<View>
+		{(item.text === "Rollux" || item.text === "Syscoin") ? null : <View style={styles.itemView} key={item.chainType}>
+		{item.isRpc ? getAssetIcon(item.chainType) : <Image source={item.icon} />}
+		<Text style={styles.itemText} numberOfLines={1} allowFontScaling={false}>
+			{item.text}
+		</Text>
+	</View>}
+	</View>
 	);
 
 	renderCustomRPC = () => {

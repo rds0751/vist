@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { strings } from '../../../../locales/i18n';
 import { showAlert } from '../../../actions/alert';
 import Icon from '../Icon';
-import { BignumberJs as BigNumber, ChainType, defaultEnabledChains, TokenType, util } from 'paliwallet-core';
+import { BignumberJs as BigNumber, ChainType, defaultEnabledChains, TokenType, util } from 'vistawallet-core';
 import Engine from '../../../core/Engine';
 import Modal from 'react-native-modal';
 import Popover from '../Popover';
@@ -676,55 +676,58 @@ class CardSwiper extends PureComponent {
 												? getRpcName(chainType)
 												: ChainTypeNames[translateIndex];
 										return (
+											<View>
+											{(networkName() === "Rollux" || networkName() === "Syscoin") ? null :
 											<TouchableOpacity
-												style={styles.networkTouch}
-												onPress={() => {
-													if (currentChainType !== chainType) {
-														this.setState({ currentChainType: chainType });
-														this.props.swipeChange(chainType);
-													}
-												}}
-												activeOpacity={1.0}
-												key={'chain-type-' + index}
-											>
-												<Image
-													style={
-														currentChainType === chainType
-															? styles.networkSelected
-															: styles.networkNormal
-													}
-													source={
-														isRpc
-															? getIcCardResource(chainType)
-															: ChainTypeIcons[translateIndex]
-													}
-												/>
+											style={styles.networkTouch}
+											onPress={() => {
+												if (currentChainType !== chainType) {
+													this.setState({ currentChainType: chainType });
+													this.props.swipeChange(chainType);
+												}
+											}}
+											activeOpacity={1.0}
+											key={'chain-type-' + index}
+										>
+											<Image
+												style={
+													currentChainType === chainType
+														? styles.networkSelected
+														: styles.networkNormal
+												}
+												source={
+													isRpc
+														? getIcCardResource(chainType)
+														: ChainTypeIcons[translateIndex]
+												}
+											/>
 
-												<View
-													style={[
-														styles.chainNameView,
-														{
-															width:
-																networkName().length > 8
-																	? 55
-																	: networkName().length > 5
-																	? 50
-																	: 30,
-															backgroundColor:
-																currentChainType === chainType && colors.blackAlpha300
-														}
-													]}
-													key={currentIndex + translateIndex + 'chain-label-name'}
+											<View
+												style={[
+													styles.chainNameView,
+													{
+														width:
+															networkName().length > 8
+																? 55
+																: networkName().length > 5
+																? 50
+																: 30,
+														backgroundColor:
+															currentChainType === chainType && colors.blackAlpha300
+													}
+												]}
+												key={currentIndex + translateIndex + 'chain-label-name'}
+											>
+												<Text
+													style={styles.chainName}
+													allowFontScaling={false}
+													numberOfLines={1}
 												>
-													<Text
-														style={styles.chainName}
-														allowFontScaling={false}
-														numberOfLines={1}
-													>
-														{networkName()}
-													</Text>
-												</View>
-											</TouchableOpacity>
+													{networkName()}
+												</Text>
+											</View>
+										</TouchableOpacity>}
+										</View>
 										);
 									})}
 									<TouchableOpacity

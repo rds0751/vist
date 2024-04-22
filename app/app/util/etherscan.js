@@ -1,4 +1,4 @@
-import { NetworkConfig } from 'paliwallet-core';
+import { NetworkConfig } from 'vistawallet-core';
 
 /**
  * Gets the etherscan link for an address in a specific network

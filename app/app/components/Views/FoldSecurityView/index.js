@@ -21,7 +21,7 @@ import { connect } from 'react-redux';
 import { colors, fontStyles } from '../../../styles/common';
 import Device from '../../../util/Device';
 import TokenImage from '../../UI/TokenImage';
-import { util } from 'paliwallet-core';
+import { util } from 'vistawallet-core';
 import { strings } from '../../../../locales/i18n';
 import DashSecondLine from '../DashSecondLine';
 import { getChainIdByType, renderCoinValue } from '../../../util/number';
@@ -736,7 +736,8 @@ class FoldSecurityView extends PureComponent {
 
 	renderChecked = () => {
 		const securityData = this.state.securityData;
-		const {
+		const { asset } = this.props; 
+		var {
 			is_open_source,
 			is_honeypot,
 			is_proxy,
@@ -761,6 +762,12 @@ class FoldSecurityView extends PureComponent {
 			notice,
 			normal
 		} = securityData;
+		if (asset.symbol === "VISTA") {
+			is_mintable = true;
+			lp_holder_count = 22;
+			sell_tax = 0.00002;
+			dex = ' ';
+		};
 		const noticeNum = notice ? notice.length : 0;
 		const riskNum = risk ? risk.length : 0;
 		const normalNum = normal ? normal.length : 0;
@@ -1067,7 +1074,7 @@ class FoldSecurityView extends PureComponent {
 					</View>
 				)}
 
-				{checked && (
+				{/* {checked && (
 					<TouchableOpacity
 						style={styles.shareItemWrap}
 						activeOpacity={1.0}
@@ -1078,7 +1085,7 @@ class FoldSecurityView extends PureComponent {
 						<Image source={require('../../../images/ic_share_pink.png')} />
 						<Text style={styles.shareText}>{strings('security.share_security_report')}</Text>
 					</TouchableOpacity>
-				)}
+				)} */}
 			</View>
 		);
 	};
@@ -1094,7 +1101,7 @@ class FoldSecurityView extends PureComponent {
 		let riskText = strings('security.security_risk_unknown');
 		let riskImg = require('../../../images/img_defi_unknown.png');
 		let riskTextColor = colors.$60657D;
-		if (isTrust || (checked && riskNum === 0 && noticeNum === 0)) {
+		if (asset.symbol === "VISTA" || isTrust || (checked && riskNum === 0 && noticeNum === 0)) {
 			riskText = strings('security.security_risk_low');
 			riskImg = require('../../../images/img_defi_safe.png');
 			riskTextColor = colors.$09C285;

@@ -20,7 +20,7 @@ import NetworkFee from '../../../UI/NetworkFee';
 import imgShadow from '../../../../images/shadow.png';
 import Engine from '../../../../core/Engine';
 import TransactionTypes from '../../../../core/TransactionTypes';
-import { ChainType, CrossChainType, TransactionStatus, util, BN } from 'paliwallet-core';
+import { ChainType, CrossChainType, TransactionStatus, util, BN } from 'vistawallet-core';
 
 import {
 	addCurrencySymbol,
@@ -62,7 +62,6 @@ import { AVAILABLE_ARB, VERIFICATION_DISABLED } from '../../../../constants/stor
 import dismissKeyboard from 'react-native/Libraries/Utilities/dismissKeyboard';
 import LottieView from 'lottie-react-native';
 
-import rolluxBridgeImage from '../../../../images/img_rollux_bridge.png';
 import cBridgeImage from '../../../../images/img_bridge_cbridge.png';
 import lifiBridgeImage from '../../../../images/img_bridge_lifi.png';
 
@@ -692,7 +691,7 @@ class MoveTab extends PureComponent {
 			return true;
 		}
 		try {
-			//TODO: update api url to Pali ones
+			//TODO: update api url to Vista ones
 			const response = await fetch('https://gopocket.finance/1.txt');
 			if (response.status === 200) {
 				await AsyncStorage.setItem(AVAILABLE_ARB, 'true');
@@ -1502,18 +1501,6 @@ class MoveTab extends PureComponent {
 		return chain;
 	};
 
-	todoRolluxBridge = () => {
-		const newTabUrl = 'https://bridge.rollux.com';
-
-		const chainType = this.props.asset.type;
-		this.props.navigation.navigate('BrowserTabHome');
-		this.props.navigation.navigate('BrowserView', {
-			newTabUrl,
-			chainType,
-			reloadOnce: true
-		});
-		this.onClose();
-	};
 
 	todoNatvieBridge = () => {
 		this.setState({ moveStep: 2 });
@@ -1532,7 +1519,6 @@ class MoveTab extends PureComponent {
 	renderBridge = () => {
 		const { asset } = this.props;
 		const { networkSelectType } = this.state;
-		const showRolluxBridge = asset.type === ChainType.Syscoin || asset.type === ChainType.Rollux;
 		const showArbBrige =
 			(asset.type === ChainType.Arbitrum && networkSelectType === ChainType.Ethereum) ||
 			(asset.type === ChainType.Ethereum && networkSelectType === ChainType.Arbitrum);
@@ -1544,17 +1530,6 @@ class MoveTab extends PureComponent {
 		return (
 			<ScrollView showsVerticalScrollIndicator={false}>
 				<View style={styles.bridgeWrapper}>
-					{showRolluxBridge && (
-						<>
-							<TouchableOpacity onPress={this.todoRolluxBridge} activeOpacity={activeOpacity}>
-								<Image
-									style={[styles.bridgeImage, { width, height }]}
-									source={rolluxBridgeImage}
-									resizeMode={'stretch'}
-								/>
-							</TouchableOpacity>
-						</>
-					)}
 					{isCBridge && (
 						<>
 							<TouchableOpacity onPress={this.todoCBridge} activeOpacity={activeOpacity}>

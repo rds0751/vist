@@ -6,7 +6,7 @@ import { strings } from '../../../../locales/i18n';
 import { queryContractMap } from '../../../data/ContractData';
 import { isSmartContractAddress } from '../../../util/transactions';
 import Engine from '../../../core/Engine';
-import { ChainType, defaultEnabledChains, isValidAddress, util } from 'paliwallet-core';
+import { ChainType, defaultEnabledChains, isValidAddress, util } from 'vistawallet-core';
 
 const styles = StyleSheet.create({
 	searchSection: {
@@ -70,7 +70,7 @@ export default class AssetSearch extends PureComponent {
 	validateCustomTokenAddress = async (address, chainType) => {
 		let validated = true;
 		const isValidTokenAddress = isValidAddress(address);
-		const toSmartContract = isValidTokenAddress && (await isSmartContractAddress(address, chainType));
+		const toSmartContract = isValidTokenAddress || (await isSmartContractAddress(address, chainType));
 		if (address.length === 0) {
 			validated = false;
 		} else if (!isValidTokenAddress) {
@@ -198,7 +198,7 @@ export default class AssetSearch extends PureComponent {
 					queryResult.push(searchToken);
 				}
 			} catch (e) {
-				util.logDebug('leon.w@ search failed: ', trimedSearchQuery, currentChainType);
+				util.logDebug('leon.w@ search failed: ', trimedSearchQuery, currentChainType, e);
 			}
 		}
 		return queryResult;

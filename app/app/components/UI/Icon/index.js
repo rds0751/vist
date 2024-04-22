@@ -13,6 +13,8 @@ import Visibility from '../../../images/svg/visibility.svg';
 import VisibilityOff from '../../../images/svg/visibilityOff.svg';
 import Wallet from '../../../images/svg/wallet.svg';
 import CoinGecko from '../../../images/svg/coingecko-logo.svg';
+import P2P from '../../../images/svg/p2p.svg';
+import Vista from '../../../images/svg/vista.svg';
 
 const icons = {
 	accountSettings: AccountSettings,
@@ -27,7 +29,9 @@ const icons = {
 	visibility: Visibility,
 	visibilityOff: VisibilityOff,
 	wallet: Wallet,
-	coinGecko: CoinGecko
+	coinGecko: CoinGecko,
+	vista: Vista,
+	p2p: P2P
 };
 
 const Icon = _props => {

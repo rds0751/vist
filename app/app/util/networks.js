@@ -1,4 +1,4 @@
-import { URL } from 'paliwallet-core';
+import { URL } from 'vistawallet-core';
 
 export const RPC = 'rpc';
 

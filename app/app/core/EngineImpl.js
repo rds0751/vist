@@ -30,7 +30,7 @@ import {
 	DefiProtocolController,
 	StaticTokenController,
 	NetworkConfig
-} from 'paliwallet-core';
+} from 'vistawallet-core';
 
 import Encryptor from './Encryptor';
 import AppConstants from './AppConstants';

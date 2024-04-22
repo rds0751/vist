@@ -1,4 +1,4 @@
-import { ChainType } from 'paliwallet-core';
+import { ChainType } from 'vistawallet-core';
 
 //node: lowercase address
 export const CBRIDGE_SUPPORT_TOKENS = {
@@ -168,26 +168,6 @@ export const CBRIDGE_SUPPORT_TOKENS = {
 	}
 };
 
-//node: lowercase address
-export const MULTICHAIN_SUPPORT_TOKENS = {
-	[ChainType.Ethereum]: {
-		//USDC
-		'0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48': [ChainType.Syscoin],
-		//USDT
-		'0xdac17f958d2ee523a2206206994597c13d831ec7': [ChainType.Syscoin],
-		//ETH
-		ETH: [ChainType.Syscoin]
-	},
-	[ChainType.Syscoin]: {
-		//ETH
-		'0x7c598c96d02398d89fbcb9d41eab3df0c16f227d': [ChainType.Ethereum],
-		//USDC
-		'0x2bf9b864cdc97b08b6d79ad4663e71b8ab65c45c': [ChainType.Ethereum],
-		//USDT
-		'0x922d641a426dcffaef11680e5358f34d97d112e1': [ChainType.Ethereum]
-	}
-};
-
 export const TYPE_UNKNOWN = 0;
 export const TYPE_CBRIDGE = 1;
 export const TYPE_MULTICHAIN = 2;
@@ -218,15 +198,6 @@ export function getSupportMigration(asset) {
 	const cBridge = getSupportMigrationCBridge(asset);
 	if (cBridge?.length) {
 		supports.push(...cBridge);
-	}
-
-	const chainSupportsRolluxBridge = {
-		[ChainType.Syscoin]: [ChainType.Rollux],
-		[ChainType.Rollux]: [ChainType.Syscoin]
-	};
-
-	if (chainSupportsRolluxBridge.hasOwnProperty(type)) {
-		supports.push(...chainSupportsRolluxBridge[type]);
 	}
 
 	return supports;

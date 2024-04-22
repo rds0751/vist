@@ -511,7 +511,7 @@ export class TransactionController extends BaseController<TransactionConfig, Tra
             return reject(ethErrors.rpc.internal(meta.error ? meta.error.message : 'Unknown'));
           /* istanbul ignore next */
           default:
-            return reject(ethErrors.rpc.internal(`Pali Wallet Tx Signature: Unknown problem: ${JSON.stringify(meta)}`));
+            return reject(ethErrors.rpc.internal(`Vista Wallet Tx Signature: Unknown problem: ${JSON.stringify(meta)}`));
         }
       });
     });

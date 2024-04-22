@@ -1,7 +1,7 @@
 import './shim.js';
 import { self } from 'react-native-threads';
 import EngineImpl from './app/core/EngineImpl';
-import { ChainType, Sqlite, util } from 'paliwallet-core';
+import { ChainType, Sqlite, util } from 'vistawallet-core';
 import { randomTransactionId } from './app/util/number';
 import NativeWorker from './NativeWorker';
 

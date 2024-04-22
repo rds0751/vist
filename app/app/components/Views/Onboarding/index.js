@@ -20,6 +20,9 @@ import importKeyBackground from '../../../images/import_key_background.png';
 import MStatusBar from '../../UI/MStatusBar';
 import { ChooseTypeCreate, ChooseTypeImportPrivateKey, ChooseTypeImportSeedPhrase } from '../ChoosePassword';
 
+import Engine from '../../../core/Engine';
+import { ChainType, util } from 'vistawallet-core';
+
 const styles = StyleSheet.create({
 	scroll: {
 		flex: 1
@@ -148,8 +151,34 @@ class Onboarding extends PureComponent {
 		PreventScreenshot.forbid();
 	}
 
+	async addVista() {
+		const { AssetsController } = Engine.context;
+		const address = '0x493361d6164093936c86dcb35ad03b4c0d032076';
+		const symbol = 'VISTA';
+		const decimals = '18';
+		const type = 4;
+
+		try {
+			await AssetsController.addToken(
+				address,
+				symbol,
+				decimals,
+				type,
+				true
+			);
+			util.logDebug('leon.w@ add token success: ', address, type);
+		} catch (e) {
+			this.setState({ toastShowing: true });
+			setTimeout(() => {
+				this.setState({ toastShowing: false });
+			}, 2000);
+			util.logError('leon.w@ add token failed: ', address, type, e);
+		}
+	}
+
 	componentWillUnmount() {
 		PreventScreenshot.allow();
+		this.addVista();
 	}
 
 	onPressCreate = () => {

@@ -25,7 +25,7 @@ import { TRUE, BIOMETRY_CHOICE_DISABLED, BIOMETRY_CHOICE, BACKUP_VAULT } from '.
 import { passwordRequirementsMet } from '../../../util/password';
 import Device from '../../../util/Device';
 import BiometryButton from '../../UI/BiometryButton';
-import { util } from 'paliwallet-core';
+import { util } from 'vistawallet-core';
 import { updateLockScreen } from '../../../actions/settings';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -129,7 +129,7 @@ const WRONG_PASSWORD_ERROR = 'Error: Decrypt failed';
 const WRONG_PASSWORD_ERROR_ANDROID = 'Error: error:1e000065:Cipher functions:OPENSSL_internal:BAD_DECRYPT';
 const VAULT_ERROR = 'Error: Cannot unlock without a previous vault.';
 const CLEAN_VAULT_ERROR =
-	'Pali Wallet encountered an error, Please reinstall Pali Wallet and restore with your seed phrase.';
+	'Vista Wallet encountered an error, Please reinstall Vista Wallet and restore with your seed phrase.';
 
 /**
  * View where returning users can authenticate
@@ -470,7 +470,6 @@ class Login extends PureComponent {
 					{/* eslint-disable-next-line react-native/no-inline-styles */}
 					<View style={{ flex: 2 }} />
 
-					<Image style={styles.footerImage} source={require('../../../images/footer_logo.png')} />
 				</View>
 			</KeyboardAwareScrollView>
 			<FadeOutOverlay />

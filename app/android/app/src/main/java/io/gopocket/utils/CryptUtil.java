@@ -1,5 +1,5 @@
 
-package io.paliwallet.utils;
+package io.vistawallet.utils;
 
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;

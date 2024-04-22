@@ -1,4 +1,4 @@
-package io.paliwallet.utils;
+package io.vistawallet.utils;
 
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Constructor;

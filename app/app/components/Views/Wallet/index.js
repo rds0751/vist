@@ -36,7 +36,7 @@ import { showScanner } from '../../../actions/scanner';
 import CardSwiper from '../../UI/CardSwiper';
 import CopyView from '../../UI/CopyView';
 import Clipboard from '@react-native-community/clipboard';
-import { ChainType, util } from 'paliwallet-core';
+import { ChainType, util } from 'vistawallet-core';
 import MStatusBar from '../../UI/MStatusBar';
 import Carousel from 'react-native-snap-carousel';
 import { CURRENCIES } from '../../../util/currencies';

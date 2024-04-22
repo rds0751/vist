@@ -156,7 +156,7 @@ class NetworkTabBar extends PureComponent {
 						const chain = Number(arr[1]);
 						const isTabActive = parseInt(this.props.activeTab) === page;
 						const animated = this.state[tabName] || new Animated.Value(isTabActive ? 1 : 0);
-						return this.renderTab(name, chain, page, isTabActive, animated, this.onPressHandler.bind(this));
+						return name === "Rollux" || name === "Syscoin" ? null : this.renderTab(name, chain, page, isTabActive, animated, this.onPressHandler.bind(this));
 					})}
 				</View>
 			</ScrollView>
