@@ -10,6 +10,20 @@ export enum ChainType {
   Avax = 0x80,
   Syscoin = 0x100,
   Rollux = 0x200,
+  Base = 0x400,
+  Blast = 0x800,
+  Fantom = 0x1600,
+  Mantle = 0x3200,
+  Aurora = 0x6400,
+  // Linea = 0x800,
+  // Gnosis = 0x900,
+  // Celo = 0x1000,
+  // Era = 0x1100,
+  // Mode = 0x1200,
+  // Metis = 0x1300,
+  // Scroll = 0x1400,
+  // Manta = 0x1500,
+  // PolygonZkEVM = 0x1600,
   RPCBase = 0x10000000000000,
 }
 
@@ -22,7 +36,26 @@ export const defaultEnabledChains = [
   ChainType.Bsc,
   ChainType.Avax,
 ];
-export const allChains = [...defaultEnabledChains, ChainType.Optimism, ChainType.Heco];
+export const allChains = [
+  ...defaultEnabledChains,
+  ChainType.Optimism,
+  ChainType.Heco,
+  ChainType.Base,
+  ChainType.Blast,
+  ChainType.Fantom,
+  ChainType.Mantle,
+  ChainType.Aurora,
+
+  // ChainType.Linea,
+  // ChainType.Manta,
+  // ChainType.Gnosis,
+  // ChainType.Celo,
+  // ChainType.Era,
+  // ChainType.Mode,
+  // ChainType.Metis,
+  // ChainType.Scroll,
+  // ChainType.PolygonZkEVM,
+];
 
 /**
  * multiple chain type
@@ -515,6 +548,205 @@ export const NetworkConfig: { [type: number]: any } = {
       },
     },
   },
+  [ChainType.Base]: {
+    Name: 'Base',
+    MainChainId: '8453',
+    UseInfura: false,
+    Disabled: false,
+    DefiTokenChain: ['base'],
+    CoingeckoId: 'ethereum',
+    SwapUrl: 'https://app.uniswap.org/#/swap',
+    SwapTokenUrl: 'https://app.uniswap.org/#/swap?inputCurrency=',
+    CurrencyLogo: 'https://pali-images.s3.amazonaws.com/files/eth_logo.png',
+    NeedAvailableUrl: false,
+    OtherCoinInfoUrl: '',
+    SushiswapGraphUrl: '',
+    Networks: {
+      'Base Mainnet': {
+        provider: {
+          rpcTarget: 'https://mainnet.base.org',
+          type: 'Base Mainnet',
+          chainId: '8453',
+          ticker: 'ETH',
+          nickname: 'Base',
+        },
+        rpcTargets: ['https://mainnet.base.org'],
+        ExplorerUrl: 'https://basescan.org',
+        ExplorerApiUrl: 'https://api.basescan.org',
+      },
+      'Base Sepolia Testnet': {
+        provider: {
+          rpcTarget: 'https://base-sepolia-rpc.publicnode.com',
+          type: 'Base Sepolia',
+          chainId: '84532',
+          ticker: 'ETH',
+          nickname: 'Base Sepolia',
+        },
+        ExplorerUrl: 'https://sepolia.basescan.org',
+        ExplorerApiUrl: '',
+      },
+    },
+  },
+  [ChainType.Blast]: {
+    Name: 'Blast',
+    MainChainId: '81457',
+    UseInfura: false,
+    Disabled: false,
+    DefiTokenChain: ['blast'],
+    CoingeckoId: 'ethereum',
+    SwapUrl: 'https://blasterswap.com/swap',
+    SwapTokenUrl: 'https://blasterswap.com/swap?inputCurrency=',
+    CurrencyLogo: 'https://pali-images.s3.amazonaws.com/files/eth_logo.png',
+    NeedAvailableUrl: false,
+    OtherCoinInfoUrl: '',
+    SushiswapGraphUrl: '',
+    Networks: {
+      'Blast Mainnet': {
+        provider: {
+          rpcTarget: 'https://rpc.blast.io',
+          type: 'Blast Mainnet',
+          chainId: '81457',
+          ticker: 'ETH',
+          nickname: 'Blast',
+        },
+        rpcTargets: ['https://rpc.blast.io'],
+        ExplorerUrl: 'https://blastscan.io',
+        ExplorerApiUrl: 'https://api.blastscan.io',
+      },
+      'Blast Sepolia Testnet': {
+        provider: {
+          rpcTarget: 'https://blast-sepolia.drpc.org',
+          type: 'Blast Sepolia',
+          chainId: '168587773',
+          ticker: 'ETH',
+          nickname: 'Blast Sepolia',
+        },
+        rpcTargets: ['https://blast-sepolia.drpc.org'],
+        ExplorerUrl: 'https://testnet.blastscan.io',
+        ExplorerApiUrl: '',
+      },
+    },
+  },
+  [ChainType.Fantom]: {
+    Name: 'Fantom',
+    MainChainId: '250',
+    UseInfura: false,
+    Disabled: false,
+    DefiTokenChain: ['fantom'],
+    CoingeckoId: 'fantom',
+    SwapUrl: 'https://www.sushi.com/swap',
+    SwapTokenUrl: 'https://www.sushi.com/swap?inputCurrency=',
+    CurrencyLogo: 'https://pali-images.s3.amazonaws.com/files/fantom_logo.png',
+    NeedAvailableUrl: false,
+    OtherCoinInfoUrl: '',
+    SushiswapGraphUrl: '',
+    Networks: {
+      'Fantom Mainnet': {
+        provider: {
+          rpcTarget: 'https://rpc.fantom.network',
+          type: 'Fantom',
+          chainId: '250',
+          ticker: 'FTM',
+          nickname: 'Fantom',
+        },
+        rpcTargets: ['https://rpc.fantom.network', 'https://rpc2.fantom.network', 'https://rpc3.fantom.network'],
+        ExplorerUrl: 'https://ftmscan.com',
+        ExplorerApiUrl: 'https://api.ftmscan.com',
+      },
+      'Fantom Testnet': {
+        provider: {
+          rpcTarget: 'https://rpc.testnet.fantom.network',
+          type: 'Fantom',
+          chainId: '4002',
+          ticker: 'FTM',
+          nickname: 'Fantom',
+        },
+        rpcTargets: ['https://rpc.testnet.fantom.network'],
+        ExplorerUrl: 'https://testnet.ftmscan.com',
+        ExplorerApiUrl: '',
+      },
+    },
+  },
+  [ChainType.Mantle]: {
+    Name: 'Mantle Network',
+    MainChainId: '5000',
+    UseInfura: false,
+    Disabled: false,
+    DefiTokenChain: ['mantle'],
+    CoingeckoId: 'mantle',
+    SwapUrl: 'https://app.mantleswap.org/swap',
+    SwapTokenUrl: 'https://app.mantleswap.org/swap?inputCurrency=',
+    CurrencyLogo: 'https://pali-images.s3.amazonaws.com/files/mnt_logo.png',
+    NeedAvailableUrl: false,
+    OtherCoinInfoUrl: '',
+    SushiswapGraphUrl: '',
+    Networks: {
+      'Mantle Mainnet': {
+        provider: {
+          rpcTarget: 'https://rpc.mantle.xyz',
+          type: 'Mantle Mainnet',
+          chainId: '5000',
+          ticker: 'MNT',
+          nickname: 'Mantle',
+        },
+        rpcTargets: ['https://rpc.mantle.xyz'],
+        ExplorerUrl: 'https://explorer.mantle.xyz',
+        ExplorerApiUrl: '',
+      },
+      'Mantle Testnet': {
+        provider: {
+          rpcTarget: 'https://rpc.testnet.mantle.xyz',
+          type: 'Mantle Testnet',
+          chainId: '5001',
+          ticker: 'MNT',
+          nickname: 'Mantle Testnet',
+        },
+        rpcTargets: ['https://rpc.testnet.mantle.xyz'],
+        ExplorerUrl: 'https://explorer.testnet.mantle.xyz',
+        ExplorerApiUrl: '',
+      },
+    },
+  },
+  [ChainType.Aurora]: {
+    Name: 'Aurora',
+    MainChainId: '1313161554',
+    UseInfura: false,
+    Disabled: false,
+    DefiTokenChain: ['aurora'],
+    CoingeckoId: 'ethereum',
+    SwapUrl: 'https://app.1inch.io/#/1313161554/simple/swap/',
+    SwapTokenUrl: 'https://app.1inch.io/#/1313161554/simple/swap/',
+    CurrencyLogo: 'https://pali-images.s3.amazonaws.com/files/eth_logo.png',
+    NeedAvailableUrl: false,
+    OtherCoinInfoUrl: '',
+    SushiswapGraphUrl: '',
+    Networks: {
+      'Aurora Mainnet': {
+        provider: {
+          rpcTarget: 'https://mainnet.aurora.dev',
+          type: 'Aurora Mainnet',
+          chainId: '1313161554',
+          ticker: 'ETH',
+          nickname: 'Aurora',
+        },
+        rpcTargets: ['https://mainnet.aurora.dev'],
+        ExplorerUrl: 'https://explorer.aurora.dev',
+        ExplorerApiUrl: '',
+      },
+      'Aurora Testnet': {
+        provider: {
+          rpcTarget: 'https://testnet.aurora.dev',
+          type: 'Aurora Testnet',
+          chainId: '1313161555',
+          ticker: 'ETH',
+          nickname: 'Aurora Testnet',
+        },
+        rpcTargets: ['https://testnet.aurora.dev'],
+        ExplorerUrl: 'https://testnet.aurorascan.dev',
+        ExplorerApiUrl: '',
+      },
+    },
+  },
 };
 
 /**
@@ -529,6 +761,7 @@ export const SupportCollectibles = [
   ChainType.Optimism,
   ChainType.Syscoin,
   ChainType.Rollux,
+  ChainType.Base,
 ];
 
 export const OnEventTag = {
@@ -568,6 +801,64 @@ export const OnEventTag = {
     EventValueName: 'rollux',
     EventActiveUsers: 'RolluxActiveUsers',
   },
+  [ChainType.Base]: {
+    EventValueName: 'base',
+    EventActiveUsers: 'BaseActiveUsers',
+  },
+  [ChainType.Blast]: {
+    EventValueName: 'blast',
+    EventActiveUsers: 'BlastActiveUsers',
+  },
+  [ChainType.Fantom]: {
+    EventValueName: 'fantom',
+    EventActiveUsers: 'FantomActiveUsers',
+  },
+  [ChainType.Mantle]: {
+    EventValueName: 'mantle',
+    EventActiveUsers: 'MantleActiveUsers',
+  },
+  [ChainType.Aurora]: {
+    EventValueName: 'aurora',
+    EventActiveUsers: 'AuroraActiveUsers',
+  },
+  // [ChainType.Linea]: {
+  //   EventValueName: 'linea',
+  //   EventActiveUsers: 'LineaActiveUsers',
+  // },
+  // [ChainType.Manta]: {
+  //   EventValueName: 'manta',
+  //   EventActiveUsers: 'MantaActiveUsers',
+  // },
+  // [ChainType.Gnosis]: {
+  //   EventValueName: 'gnosis',
+  //   EventActiveUsers: 'GnosisActiveUsers',
+  // },
+
+  // [ChainType.Celo]: {
+  //   EventValueName: 'celo',
+  //   EventActiveUsers: 'CeloActiveUsers',
+  // },
+  // [ChainType.Era]: {
+  //   EventValueName: 'ZkSyncEra',
+  //   EventActiveUsers: 'ZkSyncEraActiveUsers',
+  // },
+  // [ChainType.Mode]: {
+  //   EventValueName: 'mode',
+  //   EventActiveUsers: 'ModeActiveUsers',
+  // },
+  // [ChainType.Metis]: {
+  //   EventValueName: 'metis',
+  //   EventActiveUsers: 'MetisActiveUsers',
+  // },
+  // [ChainType.Scroll]: {
+  //   EventValueName: 'scroll',
+  //   EventActiveUsers: 'ScrollActiveUsers',
+  // },
+
+  // [ChainType.PolygonZkEVM]: {
+  //   EventValueName: 'polygonzkevm',
+  //   EventActiveUsers: 'PolygonZkEVMActiveUsers',
+  // },
 };
 
 export const BaseChainConfig = {
@@ -683,4 +974,126 @@ export const BaseChainConfig = {
     tokeninfos_address: '0x4a5eE16E6885C7C351d02A6034c49061EA07AFE7',
     nftbalances_address: '0x667AD1C77181FA247a1220d9a95b054802e52777',
   },
+  '8453': {
+    coingecko_path: 'base',
+    balances_address: '0x003bb3580D8DcBf17afaFd38d977F13AACB2430B',
+    tokeninfos_address: '0x3694548dac6e38993034d051086f49b383d8a22d',
+    nftbalances_address: '0xd11d9e8ed9269f664acc02a2e277912f54f2c3c7',
+  },
+  '84532': {
+    coingecko_path: 'base',
+    balances_address: '0x003bb3580D8DcBf17afaFd38d977F13AACB2430B',
+    tokeninfos_address: '0x3694548dac6e38993034d051086f49b383d8a22d',
+    nftbalances_address: '0xd11d9e8ed9269f664acc02a2e277912f54f2c3c7',
+  },
+  '81457': {
+    balances_address: '',
+    coingecko_path: 'blast',
+    tokeninfos_address: '',
+    nftbalances_address: '',
+  },
+  '168587773': {
+    balances_address: '',
+    coingecko_path: 'blast',
+    tokeninfos_address: '',
+    nftbalances_address: '',
+  },
+  '250': {
+    balances_address: '0x939720d218be37d5cdcc723d7ced59084c4f9d90',
+    coingecko_path: 'fantom',
+    tokeninfos_address: '0xb396e50e1e15e288b2c5e4305510b0f0531de996',
+    nftbalances_address: '0x809d13b5aca478ccff78c7d43eb5eac6eb526fa3',
+  },
+  '4002': {
+    balances_address: '0x939720d218be37d5cdcc723d7ced59084c4f9d90',
+    coingecko_path: 'fantom',
+    tokeninfos_address: '0xb396e50e1e15e288b2c5e4305510b0f0531de996',
+    nftbalances_address: '0x809d13b5aca478ccff78c7d43eb5eac6eb526fa3',
+  },
+  '5000': {
+    balances_address: '',
+    coingecko_path: 'mantle',
+    tokeninfos_address: '',
+    nftbalances_address: '',
+  },
+  '5001': {
+    balances_address: '',
+    coingecko_path: 'mantle',
+    tokeninfos_address: '',
+    nftbalances_address: '',
+  },
+  '1313161554': {
+    balances_address: '',
+    coingecko_path: 'aurora',
+    tokeninfos_address: '',
+    nftbalances_address: '',
+  },
+  '1313161555': {
+    balances_address: '',
+    coingecko_path: 'aurora',
+    tokeninfos_address: '',
+    nftbalances_address: '',
+  },
+  // linea: {
+  //   balances_address: '',
+  //   coingecko_path: 'linea',
+  //   tokeninfos_address: '',
+  //   nftbalances_address: '',
+  // },
+  // manta: {
+  //   balances_address: '',
+  //   coingecko_path: 'manta',
+  //   tokeninfos_address: '',
+  //   nftbalances_address: '',
+  // },
+  // gnosis: {
+  //   balances_address: '',
+  //   coingecko_path: 'gnosis',
+  //   tokeninfos_address: '',
+  //   nftbalances_address: '',
+  // },
+
+  // celo: {
+  //   balances_address: '',
+  //   coingecko_path: 'celo',
+  //   tokeninfos_address: '',
+  //   nftbalances_address: '',
+  // },
+  // zksync: {
+  //   balances_address: '',
+  //   coingecko_path: 'zksync',
+  //   tokeninfos_address: '',
+  //   nftbalances_address: '',
+  // },
+  // era: {
+  //   balances_address: '',
+  //   coingecko_path: 'era',
+  //   tokeninfos_address: '',
+  //   nftbalances_address: '',
+  // },
+  // mode: {
+  //   balances_address: '',
+  //   coingecko_path: 'mode',
+  //   tokeninfos_address: '',
+  //   nftbalances_address: '',
+  // },
+  // metis: {
+  //   balances_address: '',
+  //   coingecko_path: 'metis',
+  //   tokeninfos_address: '',
+  //   nftbalances_address: '',
+  // },
+  // scroll: {
+  //   balances_address: '',
+  //   coingecko_path: 'scroll',
+  //   tokeninfos_address: '',
+  //   nftbalances_address: '',
+  // },
+
+  // 'polygon-zkevm': {
+  //   balances_address: '',
+  //   coingecko_path: 'polygon-zkevm',
+  //   tokeninfos_address: '',
+  //   nftbalances_address: '',
+  // },
 };

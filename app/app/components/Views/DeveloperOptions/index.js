@@ -163,7 +163,12 @@ class DeveloperOptions extends PureComponent {
 			ChainType.Bsc,
 			ChainType.Polygon,
 			ChainType.Optimism,
-			ChainType.Avax
+			ChainType.Avax,
+			ChainType.Base,
+			ChainType.Blast,
+			ChainType.Fantom,
+			ChainType.Mantle,
+			ChainType.Aurora
 		];
 
 		for (const type of chainOrder) {

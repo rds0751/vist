@@ -455,7 +455,114 @@ export const migrations = {
 		}
 
 		return state;
+	},
+	10: state => {
+		const allChains = state?.engine?.backgroundState?.PreferencesController?.allChains;
+		if (allChains && !allChains.includes(ChainType.Base)) {
+			allChains.push(ChainType.Base);
+		}
+		if (allChains && !allChains.includes(ChainType.Blast)) {
+			allChains.push(ChainType.Blast);
+		}
+		if (allChains && !allChains.includes(ChainType.Fantom)) {
+			allChains.push(ChainType.Fantom);
+		}
+		if (allChains && !allChains.includes(ChainType.Mantle)) {
+			allChains.push(ChainType.Mantle);
+		}
+		if (allChains && !allChains.includes(ChainType.Aurora)) {
+			allChains.push(ChainType.Aurora);
+		}
+
+		if (
+			state &&
+			state.engine &&
+			state.engine.backgroundState &&
+			state.engine.backgroundState.BaseChainNetworkController
+		) {
+			state.engine.backgroundState.BaseChainNetworkController.network = '8453';
+			if (!state.engine.backgroundState.BaseChainNetworkController.properties) {
+				state.engine.backgroundState.BaseChainNetworkController.properties = {};
+			}
+			state.engine.backgroundState.BaseChainNetworkController.properties['8453'] = { isEIP1559Compatible: true };
+			if (!state.engine.backgroundState.BaseChainNetworkController.provider) {
+				state.engine.backgroundState.BaseChainNetworkController.provider = {};
+			}
+			state.engine.backgroundState.BaseChainNetworkController.provider.chainId = '8453';
+			state.engine.backgroundState.BaseChainNetworkController.provider.rpcTarget = 'https://mainnet.base.org';
+		}
+		if (
+			state &&
+			state.engine &&
+			state.engine.backgroundState &&
+			state.engine.backgroundState.BlastNetworkController
+		) {
+			state.engine.backgroundState.BlastNetworkController.network = '81457';
+			if (!state.engine.backgroundState.BlastNetworkController.properties) {
+				state.engine.backgroundState.BlastNetworkController.properties = {};
+			}
+			state.engine.backgroundState.BlastNetworkController.properties['81457'] = { isEIP1559Compatible: true };
+			if (!state.engine.backgroundState.BlastNetworkController.provider) {
+				state.engine.backgroundState.BlastNetworkController.provider = {};
+			}
+			state.engine.backgroundState.BlastNetworkController.provider.chainId = '81457';
+			state.engine.backgroundState.BlastNetworkController.provider.rpcTarget = 'https://rpc.blast.io';
+		}
+		if (
+			state &&
+			state.engine &&
+			state.engine.backgroundState &&
+			state.engine.backgroundState.FantomNetworkController
+		) {
+			state.engine.backgroundState.FantomNetworkController.network = '250';
+			if (!state.engine.backgroundState.FantomNetworkController.properties) {
+				state.engine.backgroundState.FantomNetworkController.properties = {};
+			}
+			state.engine.backgroundState.FantomNetworkController.properties['250'] = { isEIP1559Compatible: true };
+			if (!state.engine.backgroundState.FantomNetworkController.provider) {
+				state.engine.backgroundState.FantomNetworkController.provider = {};
+			}
+			state.engine.backgroundState.FantomNetworkController.provider.chainId = '250';
+			state.engine.backgroundState.FantomNetworkController.provider.rpcTarget = 'https://rpc.fantom.network';
+		}
+		if (
+			state &&
+			state.engine &&
+			state.engine.backgroundState &&
+			state.engine.backgroundState.MantleNetworkController
+		) {
+			state.engine.backgroundState.MantleNetworkController.network = '5000';
+			if (!state.engine.backgroundState.MantleNetworkController.properties) {
+				state.engine.backgroundState.MantleNetworkController.properties = {};
+			}
+			state.engine.backgroundState.MantleNetworkController.properties['5000'] = { isEIP1559Compatible: true };
+			if (!state.engine.backgroundState.MantleNetworkController.provider) {
+				state.engine.backgroundState.MantleNetworkController.provider = {};
+			}
+			state.engine.backgroundState.MantleNetworkController.provider.chainId = '5000';
+			state.engine.backgroundState.MantleNetworkController.provider.rpcTarget = 'https://rpc.mantle.xyz';
+		}
+		if (
+			state &&
+			state.engine &&
+			state.engine.backgroundState &&
+			state.engine.backgroundState.AuroraNetworkController
+		) {
+			state.engine.backgroundState.AuroraNetworkController.network = '1313161554';
+			if (!state.engine.backgroundState.AuroraNetworkController.properties) {
+				state.engine.backgroundState.AuroraNetworkController.properties = {};
+			}
+			state.engine.backgroundState.AuroraNetworkController.properties['1313161554'] = {
+				isEIP1559Compatible: true
+			};
+			if (!state.engine.backgroundState.AuroraNetworkController.provider) {
+				state.engine.backgroundState.AuroraNetworkController.provider = {};
+			}
+			state.engine.backgroundState.AuroraNetworkController.provider.chainId = '1313161554';
+			state.engine.backgroundState.AuroraNetworkController.provider.rpcTarget = 'https://mainnet.aurora.dev';
+		}
+		return state;
 	}
 };
 
-export const version = 9;
+export const version = 10;
