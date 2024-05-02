@@ -20,6 +20,7 @@ import {
 	getChainIdByType,
 	onlyAddCurrencySymbol,
 	renderCoinValue,
+	appendTickerSuffix,
 	extractTicker
 } from '../../../util/number';
 import { WebView } from 'react-native-webview';
@@ -52,6 +53,7 @@ import { toggleShowHint } from '../../../actions/hint';
 import HTMLView from 'react-native-htmlview';
 import ImageCapInset from '../ImageCapInset';
 import rolluxIntro from '../../../util/rolluxIntro';
+import { now } from 'lodash';
 
 //const chart = createChart(document.getElementById("chart1"));
 
@@ -267,6 +269,7 @@ class AssetView extends PureComponent {
 		},
 		ticker: null,
 		tvHtmlContent: null,
+		hideChart: false,
 		xAxis: {},
 		yAxis: {},
 		timeArray: [],
@@ -329,6 +332,7 @@ class AssetView extends PureComponent {
 	updateCoinGeckoData = (queryId, datas) => {
 		if (!datas || datas.length <= 0) {
 			console.info("CoinGecko doesn't have " + queryId + ' OHLC.');
+			this.setState({ hideChart: true });
 			return;
 		}
 		datas = datas.map(info => ({
@@ -385,6 +389,7 @@ class AssetView extends PureComponent {
 				}
 			}
 		});
+		this.setState({ hideChart: false });
 		console.info('CoinGecko OHLC ' + queryId + ' fetched.');
 	};
 
@@ -405,16 +410,38 @@ class AssetView extends PureComponent {
 		const { asset } = this.props;
 		const { TokenRatesController } = Engine.context;
 		const { ticker, load } = await TokenRatesController.getTvSymbol(asset.symbol);
+
 		if (ticker) {
 			const newTicker = extractTicker(ticker);
 			this.setState({ ticker: newTicker });
 			return true;
 		} else if (load) {
-			const nowTicker = await TokenRatesController.loadTvSymbol(asset.symbol);
-			const extractedTicker = extractTicker(nowTicker);
+			let nowTicker;
+			try {
+				const response = await fetch(`https://www.tradingview.com/symbols/${asset.symbol}USDT/`, {
+					method: 'HEAD'
+				});
+				if (response.status === 200) {
+					console.log('Successful fetch for TradingView symbol.', asset.symbol);
+					nowTicker = asset.symbol;
+				} else if (response.status === 404) {
+					console.log('TradingView symbol fetch resulted in 404 error.');
+					return false;
+				} else {
+					console.log(`Unhandled response status: ${response.status}`);
+					return false;
+				}
+			} catch (error) {
+				console.error('Error fetching TradingView symbol:', error);
+				return false;
+			}
+
 			if (nowTicker) {
+				const extractedTicker = appendTickerSuffix(nowTicker);
+
 				this.setState({ ticker: extractedTicker });
 			}
+
 			return !!nowTicker;
 		}
 		return false;
@@ -739,11 +766,11 @@ class AssetView extends PureComponent {
 	};
 
 	renderAsset = () => {
-		const { timeArray, data, coinGeckoId, ticker, tvHtmlContent } = this.state;
+		const { timeArray, data, coinGeckoId, ticker, tvHtmlContent, hideChart } = this.state;
 		const { isDarkMode } = this.context;
 		return (
 			<>
-				{(!!coinGeckoId || !!ticker) && (
+				{!hideChart && (!!coinGeckoId || !!ticker) && (
 					<ImageCapInset
 						style={[styles.cardWrapper, styles.bodyMargin]}
 						source={
