@@ -168,7 +168,12 @@ class DeveloperOptions extends PureComponent {
 			ChainType.Blast,
 			ChainType.Fantom,
 			ChainType.Mantle,
-			ChainType.Aurora
+			ChainType.Aurora,
+			ChainType.Manta,
+			ChainType.Era,
+			ChainType.Gnosis,
+			ChainType.Linea,
+			ChainType.Scroll
 		];
 
 		for (const type of chainOrder) {

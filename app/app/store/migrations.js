@@ -473,6 +473,21 @@ export const migrations = {
 		if (allChains && !allChains.includes(ChainType.Aurora)) {
 			allChains.push(ChainType.Aurora);
 		}
+		if (allChains && !allChains.includes(ChainType.Manta)) {
+			allChains.push(ChainType.Manta);
+		}
+		if (allChains && !allChains.includes(ChainType.Era)) {
+			allChains.push(ChainType.Era);
+		}
+		if (allChains && !allChains.includes(ChainType.Gnosis)) {
+			allChains.push(ChainType.Gnosis);
+		}
+		if (allChains && !allChains.includes(ChainType.Linea)) {
+			allChains.push(ChainType.Linea);
+		}
+		if (allChains && !allChains.includes(ChainType.Scroll)) {
+			allChains.push(ChainType.Scroll);
+		}
 
 		if (
 			state &&
@@ -518,7 +533,7 @@ export const migrations = {
 			if (!state.engine.backgroundState.FantomNetworkController.properties) {
 				state.engine.backgroundState.FantomNetworkController.properties = {};
 			}
-			state.engine.backgroundState.FantomNetworkController.properties['250'] = { isEIP1559Compatible: true };
+			state.engine.backgroundState.FantomNetworkController.properties['250'] = { isEIP1559Compatible: false };
 			if (!state.engine.backgroundState.FantomNetworkController.provider) {
 				state.engine.backgroundState.FantomNetworkController.provider = {};
 			}
@@ -560,6 +575,92 @@ export const migrations = {
 			}
 			state.engine.backgroundState.AuroraNetworkController.provider.chainId = '1313161554';
 			state.engine.backgroundState.AuroraNetworkController.provider.rpcTarget = 'https://mainnet.aurora.dev';
+		}
+		if (
+			state &&
+			state.engine &&
+			state.engine.backgroundState &&
+			state.engine.backgroundState.MantaNetworkController
+		) {
+			state.engine.backgroundState.MantaNetworkController.network = '169';
+			if (!state.engine.backgroundState.MantaNetworkController.properties) {
+				state.engine.backgroundState.MantaNetworkController.properties = {};
+			}
+			state.engine.backgroundState.MantaNetworkController.properties['169'] = { isEIP1559Compatible: true };
+			if (!state.engine.backgroundState.MantaNetworkController.provider) {
+				state.engine.backgroundState.MantaNetworkController.provider = {};
+			}
+			state.engine.backgroundState.MantaNetworkController.provider.chainId = '169';
+			state.engine.backgroundState.MantaNetworkController.provider.rpcTarget =
+				'https://pacific-rpc.manta.network/http';
+		}
+		if (
+			state &&
+			state.engine &&
+			state.engine.backgroundState &&
+			state.engine.backgroundState.EraNetworkController
+		) {
+			state.engine.backgroundState.EraNetworkController.network = '324';
+			if (!state.engine.backgroundState.EraNetworkController.properties) {
+				state.engine.backgroundState.EraNetworkController.properties = {};
+			}
+			state.engine.backgroundState.EraNetworkController.properties['324'] = { isEIP1559Compatible: true };
+			if (!state.engine.backgroundState.EraNetworkController.provider) {
+				state.engine.backgroundState.EraNetworkController.provider = {};
+			}
+			state.engine.backgroundState.EraNetworkController.provider.chainId = '324';
+			state.engine.backgroundState.EraNetworkController.provider.rpcTarget = 'https://mainnet.era.zksync.io';
+		}
+		if (
+			state &&
+			state.engine &&
+			state.engine.backgroundState &&
+			state.engine.backgroundState.GnosisNetworkController
+		) {
+			state.engine.backgroundState.GnosisNetworkController.network = '100';
+			if (!state.engine.backgroundState.GnosisNetworkController.properties) {
+				state.engine.backgroundState.GnosisNetworkController.properties = {};
+			}
+			state.engine.backgroundState.GnosisNetworkController.properties['100'] = { isEIP1559Compatible: true };
+			if (!state.engine.backgroundState.GnosisNetworkController.provider) {
+				state.engine.backgroundState.GnosisNetworkController.provider = {};
+			}
+			state.engine.backgroundState.GnosisNetworkController.provider.chainId = '100';
+			state.engine.backgroundState.GnosisNetworkController.provider.rpcTarget = 'https://rpc.gnosischain.com';
+		}
+		if (
+			state &&
+			state.engine &&
+			state.engine.backgroundState &&
+			state.engine.backgroundState.LineaNetworkController
+		) {
+			state.engine.backgroundState.LineaNetworkController.network = '59144';
+			if (!state.engine.backgroundState.LineaNetworkController.properties) {
+				state.engine.backgroundState.LineaNetworkController.properties = {};
+			}
+			state.engine.backgroundState.LineaNetworkController.properties['59144'] = { isEIP1559Compatible: true };
+			if (!state.engine.backgroundState.LineaNetworkController.provider) {
+				state.engine.backgroundState.LineaNetworkController.provider = {};
+			}
+			state.engine.backgroundState.LineaNetworkController.provider.chainId = '59144';
+			state.engine.backgroundState.LineaNetworkController.provider.rpcTarget = 'https://rpc.linea.build';
+		}
+		if (
+			state &&
+			state.engine &&
+			state.engine.backgroundState &&
+			state.engine.backgroundState.ScrollNetworkController
+		) {
+			state.engine.backgroundState.ScrollNetworkController.network = '534352';
+			if (!state.engine.backgroundState.ScrollNetworkController.properties) {
+				state.engine.backgroundState.ScrollNetworkController.properties = {};
+			}
+			state.engine.backgroundState.ScrollNetworkController.properties['534352'] = { isEIP1559Compatible: false };
+			if (!state.engine.backgroundState.ScrollNetworkController.provider) {
+				state.engine.backgroundState.ScrollNetworkController.provider = {};
+			}
+			state.engine.backgroundState.ScrollNetworkController.provider.chainId = '534352';
+			state.engine.backgroundState.ScrollNetworkController.provider.rpcTarget = 'https://rpc.scroll.io';
 		}
 		return state;
 	}
