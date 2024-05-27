@@ -101,8 +101,8 @@ const styles = StyleSheet.create({
 	footerLogo: {
 		marginTop: 6,
 		marginBottom: 23,
-		width: 270,
-		height: 25
+		width: 312,
+		height: 84
 	},
 	importKeyWrapper: {
 		borderRadius: 10,

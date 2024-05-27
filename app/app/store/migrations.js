@@ -456,7 +456,7 @@ export const migrations = {
 
 		return state;
 	},
-	10: state => {
+	11: state => {
 		const allChains = state?.engine?.backgroundState?.PreferencesController?.allChains;
 		if (allChains && !allChains.includes(ChainType.Base)) {
 			allChains.push(ChainType.Base);
@@ -666,4 +666,4 @@ export const migrations = {
 	}
 };
 
-export const version = 10;
+export const version = 11;
