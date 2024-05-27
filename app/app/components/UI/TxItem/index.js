@@ -133,15 +133,18 @@ const TxItemHeader = ({ style, ...props }) => (
 	</View>
 );
 // eslint-disable-next-line react/prop-types
-const TxItemHeaderAndSymbol = ({ style, ...props }) => (
-	<View style={[styles.header2, style]}>
-		<TxItemAmount2 {...props} />
-		{/* eslint-disable-next-line react/prop-types */}
-		{props.symbol && <Text style={styles.symbol}>{props.symbol}</Text>}
-		<View style={baseStyles.flexGrow} />
-		<TxItemStatus {...props} />
-	</View>
-);
+const TxItemHeaderAndSymbol = ({ style, ...props }) => {
+	const { isDarkMode } = useTheme();
+	return (
+		<View style={[styles.header2, style]}>
+			<TxItemAmount2 {...props} />
+			{/* eslint-disable-next-line react/prop-types */}
+			{props.symbol && <Text style={[styles.symbol, isDarkMode && baseStyles.textDark]}>{props.symbol}</Text>}
+			<View style={baseStyles.flexGrow} />
+			<TxItemStatus {...props} />
+		</View>
+	);
+};
 const TxItemAmount = ({ style, ...props }) => {
 	const { isToken, tx, selectedAddress, decimalValue, isETHClaim, gasValue } = props;
 	const incoming = isETHClaim || safeToChecksumAddress(isToken ? tx.to : tx.transaction.to) === selectedAddress;
@@ -293,6 +296,7 @@ TxItemStatus.propTypes = {
 const TxItemDateTime = ({ style, ...props }) => <Text style={[styles.datetime, style]} {...props} />;
 
 const TxItemTo = ({ style, ...props }) => {
+	const { isDarkMode } = useTheme();
 	const onPress = () => {
 		Clipboard.setString(props.originAddr);
 		props.showAlert();
@@ -300,7 +304,9 @@ const TxItemTo = ({ style, ...props }) => {
 
 	return (
 		<TouchableOpacity onPress={onPress} activeOpacity={activeOpacity} hitSlop={styles.hitSlop}>
-			<Text style={styles.dirTitle}>{props.title || strings('other.to_to')}</Text>
+			<Text style={[styles.dirTitle, isDarkMode && baseStyles.textDark]}>
+				{props.title || strings('other.to_to')}
+			</Text>
 			<View style={styles.txTo}>
 				<Text style={[styles.to, style]} {...props}>
 					{props.toAddr}
@@ -317,13 +323,16 @@ TxItemTo.propTypes = {
 	title: PropTypes.string
 };
 const TxItemHash = ({ style, ...props }) => {
+	const { isDarkMode } = useTheme();
 	const onPress = () => {
 		props.navToBrowser();
 	};
 
 	return (
 		<TouchableOpacity onPress={onPress} activeOpacity={activeOpacity} hitSlop={styles.hitSlop}>
-			<Text style={styles.dirTitle}>{strings('other.transaction_hash')}</Text>
+			<Text style={[styles.dirTitle, isDarkMode && baseStyles.textDark]}>
+				{strings('other.transaction_hash')}
+			</Text>
 			<View style={styles.txHash}>
 				<Text style={[styles.hash, style]} {...props}>
 					{props.txHash}

@@ -11,8 +11,8 @@ import {
   safelyExecute,
   safelyExecuteWithTimeout,
 } from '../util';
-import {BaseChainConfig, ChainType, NetworkConfig} from '../Config';
-import AssetsController, {TokenNoChange} from './AssetsController';
+import { BaseChainConfig, ChainType, NetworkConfig } from '../Config';
+import AssetsController, { TokenNoChange } from './AssetsController';
 import TokenBalancesController from './TokenBalancesController';
 
 interface OHLCItem {
@@ -44,30 +44,30 @@ export interface CoinGeckoResponse {
  * @type TokenInfoResponse
  * Uniswap, PancakeSwap, QuickSwap graph response
  */
-export interface TokenInfoResponse{
+export interface TokenInfoResponse {
   data: TokenInfoData;
 }
 
-interface TokenInfoData{
+interface TokenInfoData {
   tokens: TokenInfo[];
 }
 
-interface TokenInfo{
+interface TokenInfo {
   id: string;
   symbol: string;
-  derivedETH: string;// uniswap & quickswap have derivedETH
-  derivedUSD: string;// only pancakeswap has derivedUSD
+  derivedETH: string; // uniswap & quickswap have derivedETH
+  derivedUSD: string; // only pancakeswap has derivedUSD
 }
 
-interface BlockInfoResponse{
+interface BlockInfoResponse {
   data: BlockInfoData;
 }
 
-interface BlockInfoData{
+interface BlockInfoData {
   blocks: BlockInfo[];
 }
 
-interface BlockInfo{
+interface BlockInfo {
   number: string;
 }
 
@@ -90,7 +90,7 @@ export interface Token {
   address: string;
   decimals: number;
   symbol: string;
-  l1Address?: string;// 只有arbitrum上的资产有此项
+  l1Address?: string; // 只有arbitrum上的资产有此项
 }
 
 export interface TokenPrice {
@@ -136,12 +136,12 @@ export interface TokenRatesState extends BaseState {
   allContractExchangeRates: { [chainType: number]: { [address: string]: TokenPrice } };
   allCurrencyPrice: { [chainType: number]: TokenPrice };
   bitcoinPrice: TokenPrice;
-  usdRates: { [code: string]: number};
+  usdRates: { [code: string]: number };
   currencyCodeRate: number;
   currencyCode: string;
   ohlcInfos: { [id: string]: OHLCInfo };
   obtainRateTimestamp: number;
-  coinInfos: { [id: string]: CoinInfo};
+  coinInfos: { [id: string]: CoinInfo };
   tvSymbol: { [symbol: string]: string };
 }
 
@@ -215,7 +215,7 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
         usd: 0,
         usd_24h_change: 0,
         timestamp: 0,
-      }
+      };
       allContractExchangeRates[chainType] = {};
     }
     this.defaultState = {
@@ -226,7 +226,7 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
         usd_24h_change: 0,
         timestamp: 0,
       },
-      usdRates: { 'USD': 1 },
+      usdRates: { USD: 1 },
       currencyCodeRate: 1,
       currencyCode: 'USD',
       ohlcInfos: {},
@@ -280,7 +280,7 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
       const { addresses, success } = await safelyExecute(() => this.updateExchangeRates(chainType));
       intervals.push(Date.now() - start);
       if (this.supportExtendRates.includes(chainType)) {
-        addresses?.length && await safelyExecute(() => this.extendExchangeRates(addresses, chainType));
+        addresses?.length && (await safelyExecute(() => this.extendExchangeRates(addresses, chainType)));
       } else {
         addresses?.length && this.fixExtendExchangeRates(addresses, chainType);
       }
@@ -311,21 +311,27 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
    * @param block
    * @returns
    */
-  async fetchContractTokensRate(query: string, ids: string[], derived: string, block: number): Promise<TokenInfoResponse> {
+  async fetchContractTokensRate(
+    query: string,
+    ids: string[],
+    derived: string,
+    block: number,
+  ): Promise<TokenInfoResponse> {
     const graphQL = {
       operationName: 'tokens',
       variables: { ids },
-      query: block > 0
-        ? `fragment TokenFields on Token {id, name, symbol, ${derived}}
+      query:
+        block > 0
+          ? `fragment TokenFields on Token {id, name, symbol, ${derived}}
           query tokens($ids:[String!]){tokens( block:{number : ${block}} where: {id_in: $ids}) { ...TokenFields }}`
-        : `fragment TokenFields on Token {id, name, symbol, ${derived}}
+          : `fragment TokenFields on Token {id, name, symbol, ${derived}}
           query tokens($ids:[String!]){tokens( where: {id_in: $ids}) { ...TokenFields }}`,
     };
     const options = {
       method: 'POST',
       body: JSON.stringify(graphQL),
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json',
       },
     };
@@ -375,7 +381,7 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
     for (const info of tokenInfos) {
       const priceInfo = { usd: 0, usd_24h_change: 0, timestamp: Date.now() };
       if (info.derivedETH) {
-        priceInfo.usd = (parseFloat(info.derivedETH) * usd);
+        priceInfo.usd = parseFloat(info.derivedETH) * usd;
       } else if (info.derivedUSD) {
         priceInfo.usd = parseFloat(info.derivedUSD);
       }
@@ -391,10 +397,10 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
       if (prices[info.id]) {
         let rate_24h = 0;
         if (info.derivedETH) {
-          const eth_usd_24h = usd / (1 + (usd_24h_change / 100));
+          const eth_usd_24h = usd / (1 + usd_24h_change / 100);
           const derived_eth_24h = parseFloat(info.derivedETH);
           const derived_usd_24h = derived_eth_24h * eth_usd_24h;
-          rate_24h = derived_eth_24h !== 0 ? ((prices[info.id].usd) - derived_usd_24h) / derived_usd_24h : 0;
+          rate_24h = derived_eth_24h !== 0 ? (prices[info.id].usd - derived_usd_24h) / derived_usd_24h : 0;
         } else if (info.derivedUSD) {
           const price_24h = parseFloat(info.derivedUSD);
           rate_24h = price_24h !== 0 ? (prices[info.id].usd - price_24h) / price_24h : 0;
@@ -421,7 +427,7 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
       method: 'POST',
       body: JSON.stringify(graphQL),
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json',
       },
     };
@@ -456,7 +462,7 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
   // https://api.coingecko.com/api/v3/coins/{id}?localization=false&tickers=false&community_data=false&developer_data=false&sparkline=false
   getCoinInfo(id: string): { load: any; coinInfo: CoinInfo } {
     const coin = this.state.coinInfos[id];
-    if (coin?.time && (Date.now() - coin.time) < 10 * 60 * 1000) {
+    if (coin?.time && Date.now() - coin.time < 10 * 60 * 1000) {
       return { coinInfo: coin, load: null };
     }
     return { coinInfo: coin, load: true };
@@ -525,7 +531,7 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
       method: 'POST',
       body: JSON.stringify(graphQL),
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json',
       },
     };
@@ -547,7 +553,7 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
       method: 'POST',
       body: JSON.stringify(graphQL),
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json',
       },
     };
@@ -557,7 +563,14 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
   // https://www.coingecko.com/api/documentations/v3#/coins/get_coins__id__ohlc
   getOHLC(id: string, during: string, force = false): { load: any; info: OHLCItem[] } {
     const ohlc = this.state.ohlcInfos[id];
-    if (!force && ohlc && ohlc.during === during && ohlc.time && (Date.now() - ohlc.time) < 10 * 60 * 1000 && ohlc.info?.length > 0) {
+    if (
+      !force &&
+      ohlc &&
+      ohlc.during === during &&
+      ohlc.time &&
+      Date.now() - ohlc.time < 10 * 60 * 1000 &&
+      ohlc.info?.length > 0
+    ) {
       return { info: ohlc.info, load: null };
     }
     return { info: ohlc?.info, load: true };
@@ -570,9 +583,7 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
       const result = await this.handleOHLCFetch(url);
       let normalizedOHLCInfos: OHLCItem[] = [];
       if (result && Array.isArray(result) && result.length > 0) {
-        normalizedOHLCInfos = result?.map((info: any) =>
-          this.normalizeOHLCInfo(info),
-        );
+        normalizedOHLCInfos = result?.map((info: any) => this.normalizeOHLCInfo(info));
       }
       if (normalizedOHLCInfos && normalizedOHLCInfos.length > 0) {
         const new_ohlcInfos = this.state.ohlcInfos ? { ...this.state.ohlcInfos } : {};
@@ -597,12 +608,12 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
      *
      *  Normal case: do nothing because there are some
      *  symbols like SPELL doesn't have SPELLUSD but SPELLWETH, just use the default result to fit more cases.
-    */
+     */
     const abnormals = ['ETH', 'USDT', 'USDC', 'DAI', 'TUSD', 'BUSD', 'WETH', 'HT', 'BNB'];
 
     searchName = searchName.replace('.e', ''); // for xxx.e tokens in avalanche
     if (searchName === 'WETH') {
-        searchName += 'USDT';
+      searchName += 'USDT';
     } else {
       for (const a in abnormals) {
         if (searchName === abnormals[a]) {
@@ -611,6 +622,7 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
         }
       }
     }
+    console.log(this.state.tvSymbol, 'salvee', searchName);
     const ticker = this.state.tvSymbol[searchName];
     if (ticker) {
       return { ticker, load: null };
@@ -620,12 +632,18 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
 
   async loadTvSymbol(searchName: string) {
     return new Promise<string>(async (resolve) => {
-      const url = `https://symbol-search.tradingview.com/symbol_search/?text=${searchName}&hl=1&type=bitcoin,crypto&domain=production`;
-      const result = await handleFetch(url, { method: 'GET' });
-      if (result?.[0]?.symbol) {
-        this.state.tvSymbol[searchName] = result?.[0]?.symbol;
-      }
-      resolve(result?.[0]?.symbol);
+      this.state.tvSymbol[searchName] = searchName;
+      resolve(searchName);
+      // try {
+      //   const url = `https://symbol-search.tradingview.com/symbol_search/?text=${searchName}&hl=1&type=bitcoin,crypto&domain=production`;
+      //   const result = await handleFetch(url, { method: 'GET' });
+      //   const symbol = result?.[0]?.symbol || searchName;
+      //   this.state.tvSymbol[searchName] = symbol;
+      //   resolve(symbol);
+      // } catch (e) {
+      //   console.log('caiu aqui??');
+
+      // }
     });
   }
 
@@ -643,11 +661,14 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
     setTimeout(() => this.poll(), 10000);
     setTimeout(() => this.pollUsdRates(), 10000);
     const assets = this.context.AssetsController as AssetsController;
-    assets.subscribe(({ tokenChangedType }) => {
-      if (tokenChangedType !== TokenNoChange) {
-        setTimeout(() => this.poll(), 100);
-      }
-    }, ['allTokens', 'tokenChangedType']);
+    assets.subscribe(
+      ({ tokenChangedType }) => {
+        if (tokenChangedType !== TokenNoChange) {
+          setTimeout(() => this.poll(), 100);
+        }
+      },
+      ['allTokens', 'tokenChangedType'],
+    );
   }
 
   /**
@@ -673,7 +694,10 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
     for (const addressKey in allTokens) {
       const tokens = allTokens[addressKey]?.[mainChainId] || [];
       for (const item of tokens) {
-        if (currentRates[item.address]?.timestamp && now - currentRates[item.address].timestamp < this.config.interval) {
+        if (
+          currentRates[item.address]?.timestamp &&
+          now - currentRates[item.address].timestamp < this.config.interval
+        ) {
           continue;
         }
         if (addresses.includes(item.address)) {
@@ -688,7 +712,10 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
           if (!item.l1Address) {
             continue;
           }
-          if (currentRates[item.l1Address]?.timestamp && now - currentRates[item.l1Address].timestamp < this.config.interval) {
+          if (
+            currentRates[item.l1Address]?.timestamp &&
+            now - currentRates[item.l1Address].timestamp < this.config.interval
+          ) {
             continue;
           }
           if (addresses.includes(item.l1Address)) {
@@ -711,7 +738,11 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
       }
       const pairs = sliced_addresses.join(',');
       const query = `contract_addresses=${pairs}&vs_currencies=usd&include_24hr_change=true`;
-      let prices = await safelyExecuteWithTimeout(async () => await this.fetchExchangeRate(query, coingecko_path), true, 15000);
+      let prices = await safelyExecuteWithTimeout(
+        async () => await this.fetchExchangeRate(query, coingecko_path),
+        true,
+        15000,
+      );
       if (!prices) {
         success = false;
         prices = {};
@@ -735,7 +766,7 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
   }
 
   async extendExchangeRates(price0Addresses: string[], chainType = ChainType.Ethereum) {
-    const timestamp = Math.round((Date.now() / 1000) - 86400);
+    const timestamp = Math.round(Date.now() / 1000 - 86400);
     let blockInfos;
     if (chainType === ChainType.Ethereum) {
       blockInfos = await safelyExecuteWithTimeout(async () => await this.fetchEthBlocks(timestamp), true, 11000);
@@ -753,17 +784,29 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
       }
       let graphRep;
       if (chainType === ChainType.Ethereum) {
-        graphRep = await safelyExecuteWithTimeout(async () => await this.fetchERC20Rate(sliced_addresses, -1), true, 12000 + (40 * sliced_addresses.length));
+        graphRep = await safelyExecuteWithTimeout(
+          async () => await this.fetchERC20Rate(sliced_addresses, -1),
+          true,
+          12000 + 40 * sliced_addresses.length,
+        );
       } else if (chainType === ChainType.Bsc) {
-        graphRep = await safelyExecuteWithTimeout(async () => await this.fetchBEP20Rate(sliced_addresses, -1), true, 6000 + (40 * sliced_addresses.length));
+        graphRep = await safelyExecuteWithTimeout(
+          async () => await this.fetchBEP20Rate(sliced_addresses, -1),
+          true,
+          6000 + 40 * sliced_addresses.length,
+        );
       } else if (chainType === ChainType.Polygon) {
-        graphRep = await safelyExecuteWithTimeout(async () => await this.fetchPRC20Rate(sliced_addresses, -1), true, 12000 + (40 * sliced_addresses.length));
+        graphRep = await safelyExecuteWithTimeout(
+          async () => await this.fetchPRC20Rate(sliced_addresses, -1),
+          true,
+          12000 + 40 * sliced_addresses.length,
+        );
       }
       if (!graphRep) {
         continue;
       }
       const zero_prices = sliced_addresses.reduce((ids: CoinGeckoResponse, address) => {
-        ids[address] = { usd: 0, usd_24h_change: 0, timestamp: Date.now() + (60 * 60 * 1000) };
+        ids[address] = { usd: 0, usd_24h_change: 0, timestamp: Date.now() + 60 * 60 * 1000 };
         return ids;
       }, {});
       const prices = this.tokenInfo2Price(graphRep);
@@ -771,11 +814,23 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
       if (blockNumber) {
         let grapRep24h;
         if (chainType === ChainType.Ethereum) {
-          grapRep24h = await safelyExecuteWithTimeout(async () => await this.fetchERC20Rate(sliced_addresses, parseInt(blockNumber)), true, 12000 + (40 * sliced_addresses.length));
+          grapRep24h = await safelyExecuteWithTimeout(
+            async () => await this.fetchERC20Rate(sliced_addresses, parseInt(blockNumber)),
+            true,
+            12000 + 40 * sliced_addresses.length,
+          );
         } else if (chainType === ChainType.Bsc) {
-          grapRep24h = await safelyExecuteWithTimeout(async () => await this.fetchBEP20Rate(sliced_addresses, parseInt(blockNumber)), true, 6000 + (40 * sliced_addresses.length));
+          grapRep24h = await safelyExecuteWithTimeout(
+            async () => await this.fetchBEP20Rate(sliced_addresses, parseInt(blockNumber)),
+            true,
+            6000 + 40 * sliced_addresses.length,
+          );
         } else if (chainType === ChainType.Polygon) {
-          grapRep24h = await safelyExecuteWithTimeout(async () => await this.fetchPRC20Rate(sliced_addresses, parseInt(blockNumber)), true, 12000 + (40 * sliced_addresses.length));
+          grapRep24h = await safelyExecuteWithTimeout(
+            async () => await this.fetchPRC20Rate(sliced_addresses, parseInt(blockNumber)),
+            true,
+            12000 + 40 * sliced_addresses.length,
+          );
         }
         if (grapRep24h) {
           this.calculate24hRate(prices, grapRep24h);
@@ -807,11 +862,14 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
       return;
     }
     const zero_prices = price0Addresses.reduce((ids: CoinGeckoResponse, address) => {
-      ids[toChecksumAddress(address)] = { usd: 0, usd_24h_change: 0, timestamp: Date.now() + (60 * 60 * 1000) };
+      ids[toChecksumAddress(address)] = { usd: 0, usd_24h_change: 0, timestamp: Date.now() + 60 * 60 * 1000 };
       return ids;
     }, {});
 
-    this.state.allContractExchangeRates[chainType] = { ...this.state.allContractExchangeRates[chainType], ...zero_prices } ;
+    this.state.allContractExchangeRates[chainType] = {
+      ...this.state.allContractExchangeRates[chainType],
+      ...zero_prices,
+    };
     this.update({ allContractExchangeRates: { ...this.state.allContractExchangeRates } });
   }
 
@@ -856,7 +914,11 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
       allCurrencyPrice[chainType] = prices[typeIds[chainType]];
     }
     const bitcoinPrices = 1 / prices.bitcoin.usd;
-    this.update({ usdRates: { ...this.state.usdRates, 'XBT': bitcoinPrices }, bitcoinPrice: prices.bitcoin, allCurrencyPrice });
+    this.update({
+      usdRates: { ...this.state.usdRates, XBT: bitcoinPrices },
+      bitcoinPrice: prices.bitcoin,
+      allCurrencyPrice,
+    });
     if (this.state.currencyCode === 'XBT') {
       this.update({ currencyCodeRate: bitcoinPrices });
     }
@@ -887,7 +949,7 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
       return;
     }
     let subTime = Date.now() - this.state.obtainRateTimestamp;
-    subTime = (10 * 60 * 60 * 1000) - subTime;
+    subTime = 10 * 60 * 60 * 1000 - subTime;
     subTime = subTime <= 30000 ? 30000 : subTime;
     this.update_Rates_handle = setTimeout(() => {
       this.pollUsdRates();
@@ -898,19 +960,21 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
     if (Date.now() - this.state.obtainRateTimestamp < 10 * 60 * 60 * 1000) {
       return;
     }
-    await handleFetch(this.getUsdRateURL()).then((json) => {
-      if (json && json.result === 'success') {
-        const { rates } = json;
-        if (rates) {
-          this.update({ usdRates: { ...this.state.usdRates, ...rates }, obtainRateTimestamp: Date.now() });
-          if (rates[this.state.currencyCode]) {
-            this.update({ currencyCodeRate: rates[this.state.currencyCode] });
+    await handleFetch(this.getUsdRateURL())
+      .then((json) => {
+        if (json && json.result === 'success') {
+          const { rates } = json;
+          if (rates) {
+            this.update({ usdRates: { ...this.state.usdRates, ...rates }, obtainRateTimestamp: Date.now() });
+            if (rates[this.state.currencyCode]) {
+              this.update({ currencyCodeRate: rates[this.state.currencyCode] });
+            }
           }
+        } else {
+          logInfo('PPYang updateUsdRates fail, json:', json);
         }
-      } else {
-        logInfo('PPYang updateUsdRates fail, json:', json);
-      }
-    }).catch((e) => logWarn('PPYang updateUsdRates fail, error:', e));
+      })
+      .catch((e) => logWarn('PPYang updateUsdRates fail, error:', e));
   }
 }
 

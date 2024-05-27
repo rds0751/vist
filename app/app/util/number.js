@@ -292,6 +292,20 @@ export function hexToBN(value) {
 }
 
 /**
+ * Appends a ticker suffix to a given ticker.
+ * If the ticker is 'USDT', it appends 'USD' as the suffix.
+ * Otherwise, it appends 'USDT' as the suffix.
+ * @param {string} ticker - The ticker to append the suffix to.
+ * @returns {string} - The ticker with the suffix appended.
+ */
+export const appendTickerSuffix = ticker => {
+	if (ticker === 'USDT') {
+		return `${ticker}USD`;
+	}
+	return `${ticker}USDT`;
+};
+
+/**
  * Checks if a value is a BN instance
  *
  * @param {object} value - Value to check
