@@ -852,6 +852,16 @@
 		"apply_check": "Run Scan",
 		"tap_to_check": "Tap to check security status"
 	},
+	"faucet": {
+		"grab_with_faucet": "Grab {{symbol}}",
+		"with_our_faucet": " with our faucet!",
+		"rollux_faucet": "ROLLUX FAUCET",
+		"grab_sys_with_faucet": "Grab $SYS with our faucet to begin experiencing the Rollux network!",
+		"get_faucet_amount": "You can get {{amount}} per wallet address every {{time}}.",
+		"smart_contract": "Smart Contract",
+		"your_wallet": "Your wallet",
+		"request_now": "Request now"
+	},
 	"otc": {
 		"buy_crypto": "Buy Crypto to this account",
 		"content1": "Buy crypto with fiat.",

@@ -853,6 +853,16 @@
 		"apply_check": "Detectar Seguridad",
 		"tap_to_check": "Toca para verificar el estado de seguridad"
 	},
+	"faucet": {
+		"grab_with_faucet": "¡Obtén {{symbol}}",
+		"with_our_faucet": " con nuestro grifo!",
+		"rollux_faucet": "GRIFO ROLLUX",
+		"grab_sys_with_faucet": "¡Obtén $SYS con nuestro grifo para comenzar a experimentar la red Rollux!",
+		"get_faucet_amount": "Puedes obtener {{amount}} por dirección de billetera cada {{time}}.",
+		"smart_contract": "Contrato Inteligente",
+		"your_wallet": "Tu billetera",
+		"request_now": "Solicitar ahora"
+	},
 	"otc": {
 		"buy_crypto": "Comprar Criptomonedas en esta cuenta",
 		"content1": "Compra criptomonedas con moneda fiduciaria.",

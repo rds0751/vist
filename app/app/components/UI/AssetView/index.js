@@ -1,7 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { WebView } from 'react-native-webview';
 import I18n from 'react-native-i18n';
+import { scrollTo } from 'react-native-reanimated';
+
 import {
 	StyleSheet,
 	View,
@@ -12,9 +15,36 @@ import {
 	TouchableWithoutFeedback,
 	NativeModules,
 	Platform,
-	ActivityIndicator
+	ActivityIndicator,
+	ScrollView
 } from 'react-native';
+import Modal from 'react-native-modal';
+import { CandleStickChart } from 'react-native-charts-wrapper';
+import Clipboard from '@react-native-community/clipboard';
+import HTMLView from 'react-native-htmlview';
+import { now } from 'lodash';
+
+import TokenImage from '../TokenImage';
+import Locked from '../Locked';
+import ApprovalEvent from '../ApprovalEvent';
+import ImageCapInset from '../ImageCapInset';
+import Approve from '../../Views/ApproveView/Approve';
+import Icon from '../Icon';
+
 import { baseStyles, colors, fontStyles } from '../../../styles/common';
+import { strings } from '../../../../locales/i18n';
+import Device from '../../../util/Device';
+import syscoinIntro from '../../../util/syscoinIntro.js';
+import rolluxIntro from '../../../util/rolluxIntro';
+import Engine from '../../../core/Engine';
+import EntryScriptWeb3 from '../../../core/EntryScriptWeb3';
+import { ChainType, util } from 'paliwallet-core';
+import { getQueryId } from '../../../data/ContractData';
+import { store } from '../../../store';
+import { toggleApproveModalInModal } from '../../../actions/modals';
+import { ThemeContext } from '../../../theme/ThemeProvider';
+import { toggleShowHint } from '../../../actions/hint';
+
 import {
 	convertUsdValue,
 	getChainIdByType,
@@ -23,22 +53,6 @@ import {
 	appendTickerSuffix,
 	extractTicker
 } from '../../../util/number';
-import { WebView } from 'react-native-webview';
-import Locked from '../Locked';
-import { strings } from '../../../../locales/i18n';
-import Modal from 'react-native-modal';
-import { CandleStickChart } from 'react-native-charts-wrapper';
-import Device from '../../../util/Device';
-import syscoinIntro from '../../../util/syscoinIntro.js';
-import Engine from '../../../core/Engine';
-import { util } from 'paliwallet-core';
-import { getQueryId } from '../../../data/ContractData';
-import ApprovalEvent from '../ApprovalEvent';
-import EntryScriptWeb3 from '../../../core/EntryScriptWeb3';
-import Approve from '../../Views/ApproveView/Approve';
-import { store } from '../../../store';
-import { toggleApproveModalInModal } from '../../../actions/modals';
-import { ThemeContext } from '../../../theme/ThemeProvider';
 
 import ic_liquidity from '../../../images/ic_coin_liquidity.png';
 import ic_volume from '../../../images/ic_coin_volume.png';
@@ -48,13 +62,6 @@ import ic_mc_rank from '../../../images/ic_coin_rank.png';
 import ic_total_supply from '../../../images/ic_coin_total.png';
 import ic_circulation from '../../../images/ic_coin_circulation.png';
 import ic_fdv from '../../../images/ic_coin_fdv.png';
-import Clipboard from '@react-native-community/clipboard';
-import { toggleShowHint } from '../../../actions/hint';
-import HTMLView from 'react-native-htmlview';
-import ImageCapInset from '../ImageCapInset';
-import rolluxIntro from '../../../util/rolluxIntro';
-import { now } from 'lodash';
-
 //const chart = createChart(document.getElementById("chart1"));
 
 const styles = StyleSheet.create({
@@ -62,6 +69,17 @@ const styles = StyleSheet.create({
 		position: 'relative',
 		flex: 1,
 		paddingBottom: 100
+	},
+	iconStyle: {
+		alignItems: 'center',
+		width: 50,
+		height: 50,
+
+		borderRadius: 10
+	},
+	iconAssetStyle: {
+		width: 20,
+		height: 20
 	},
 	headerMargin: {
 		marginTop: -6
@@ -230,6 +248,150 @@ const styles = StyleSheet.create({
 	loading: {
 		justifyContent: 'center',
 		alignItems: 'center'
+	},
+	faucetContainer: {
+		padding: 20
+	},
+	faucetContainerIcon: {
+		alignItems: 'center',
+		marginTop: 20
+	},
+	faucetTitle: {
+		marginHorizontal: 24,
+		marginTop: 10,
+		fontSize: 18,
+		lineHeight: 20,
+		color: colors.$030319,
+		...fontStyles.bold
+	},
+	faucetDescription: {
+		marginHorizontal: 24,
+		marginTop: 6,
+		fontSize: 14,
+		lineHeight: 19,
+		color: colors.$8F92A1
+	},
+	faucetInfo: {
+		fontSize: 14,
+		marginBottom: 10
+	},
+	faucetLinks: {
+		marginHorizontal: 24,
+		marginTop: 8,
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'space-between'
+	},
+
+	faucetLinkLabel: {
+		fontSize: 14
+	},
+	faucetLink: {
+		fontSize: 14
+	},
+	faucetButton: {
+		marginHorizontal: 24,
+
+		marginBottom: 24,
+		marginTop: 24,
+		backgroundColor: colors.brandPink300,
+		padding: 10,
+		borderRadius: 100,
+		alignItems: 'center'
+	},
+	faucetButtonText: {
+		color: colors.white,
+		...fontStyles.medium,
+		fontSize: 16
+	},
+	faucetButtonContainer: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		backgroundColor: colors.paliBlue400,
+		paddingRight: 24,
+		paddingVertical: 8,
+		borderBottomLeftRadius: 8,
+		borderBottomRightRadius: 8,
+		height: 40,
+		justifyContent: 'center',
+		position: 'absolute',
+		bottom: -18,
+		zIndex: 100,
+		alignSelf: 'center'
+	},
+	faucetButtonIconContainer: {
+		width: 40,
+		height: 40,
+		backgroundColor: '#3f6096',
+		justifyContent: 'center',
+		alignItems: 'center',
+		borderBottomLeftRadius: 8
+	},
+	faucetButtonTextContainer: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		marginLeft: 8
+	},
+	faucetButtonTextStyle: {
+		color: colors.white,
+		...fontStyles.normal,
+		marginLeft: 8
+	},
+	faucetButtonTextUnderline: {
+		textDecorationLine: 'underline'
+	},
+	faucetButtonImage: {
+		width: 20,
+		height: 20,
+		zIndex: 1
+	},
+	faucetButtonImageMargin: {
+		width: 20,
+		height: 20,
+		marginLeft: -5
+	},
+	faucetButtonImageNoMargin: {
+		width: 20,
+		height: 20
+	},
+	faucetLinksContainer: {
+		marginHorizontal: 24,
+		flexDirection: 'row',
+		justifyContent: 'space-between'
+	},
+	faucetLinkText: {
+		color: '#4D76B8',
+		textDecorationLine: 'underline'
+	},
+	grabFaucetButton: {
+		position: 'absolute',
+		bottom: -18,
+		zIndex: 100,
+		alignSelf: 'center'
+	},
+	grabFaucetButtonContainer: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		backgroundColor: colors.paliBlue400,
+		paddingRight: 24,
+		paddingVertical: 8,
+		borderBottomLeftRadius: 8,
+		borderBottomRightRadius: 8,
+		height: 40,
+		justifyContent: 'center'
+	},
+	grabFaucetIcon: {
+		width: 40,
+		height: 40,
+		backgroundColor: '#3f6096',
+		justifyContent: 'center',
+		alignItems: 'center',
+		borderBottomLeftRadius: 8
+	},
+	iconsContainer: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		marginLeft: 8
 	}
 });
 
@@ -242,12 +404,16 @@ const htmlStyle = StyleSheet.create({
 	}
 });
 
+const faucetContractAddress = '0x35EE5876Db071b527dC62FD3EE3c32e4304d8C23';
+
 /**
  * View that renders a list of transactions for a specific asset
  */
 class AssetView extends PureComponent {
 	static contextType = ThemeContext;
 	static propTypes = {
+		selectedAddress: PropTypes.string,
+		scrollViewRef: PropTypes.any,
 		style: PropTypes.any,
 		navigation: PropTypes.object,
 		header: PropTypes.object,
@@ -276,6 +442,7 @@ class AssetView extends PureComponent {
 		coinGeckoId: null
 	};
 
+	requestNowButtonRef = React.createRef();
 	moveTabOrSendTabLoading = false;
 	tabView = React.createRef();
 	showingSendModal = false;
@@ -845,30 +1012,182 @@ class AssetView extends PureComponent {
 		);
 	};
 
+	goWeb = url => {
+		this.props.navigation.navigate('BrowserTabHome');
+		this.props.navigation.navigate('BrowserView', {
+			newTabUrl: url
+		});
+	};
+
+	navigateToRequestNowButton = () => {
+		if (this.requestNowButtonRef.current) {
+			this.requestNowButtonRef.current.measure((fx, fy, width, height, px, py) => {
+				this.props.scrollViewRef.scrollTo({ x: 0, y: py - fy - 300, animated: true });
+			});
+		} else {
+			console.log('Request Now button reference is not available.');
+		}
+	};
 	render = () => {
 		const { header, asset, style } = this.props;
 		const { isDarkMode } = this.context;
+		const { selectedAddress } = this.props;
+
+		const getNetworkKey = () => {
+			const symbol = asset.symbol;
+			const chainType = asset.type;
+
+			if (symbol.toUpperCase() === 'SYS' || symbol.toUpperCase() === 'TSYS') {
+				if (chainType === ChainType.Syscoin) {
+					return symbol.toUpperCase() === 'SYS' ? 'nevm-mainnet' : 'nevm-testnet';
+				} else if (chainType === ChainType.Rollux) {
+					return symbol.toUpperCase() === 'SYS' ? 'rollux-mainnet' : 'rollux-testnet';
+				}
+			}
+			return '';
+		};
+
+		const requestFaucet = async () => {
+			const networkKey = getNetworkKey();
+			if (!networkKey) {
+				console.error('Unsupported asset type or symbol for faucet request');
+				return;
+			}
+
+			const endpoint = `https://chains.tools/api/faucet/claim?networkKey=${networkKey}&walletAddress=${selectedAddress}`;
+			try {
+				const response = await fetch(endpoint, { method: 'GET' });
+				const data = await response.json();
+				if (data.status) {
+					let amountReceived;
+					if (networkKey.includes('testnet')) {
+						amountReceived = '1 TSYS';
+					} else if (networkKey.includes('rollux-mainnet')) {
+						amountReceived = '0.001 SYS';
+					} else if (networkKey.includes('nevm-mainnet')) {
+						amountReceived = '0.01 SYS';
+					}
+					this.props.toggleShowHint(`${amountReceived} has just been sent to your wallet.`);
+					console.log('Faucet request successful:', data);
+				} else {
+					this.props.toggleShowHint(data.message);
+					console.error('Faucet request failed:', data.message);
+				}
+			} catch (error) {
+				this.props.toggleShowHint('Error making faucet request');
+				console.error('Error making faucet request:', error);
+			}
+		};
+
+		const getExplorerLink = (chainType, isTestnet) => {
+			const contractAddress = '0x35EE5876Db071b527dC62FD3EE3c32e4304d8C23';
+			let baseUrl;
+
+			switch (chainType) {
+				case ChainType.Syscoin:
+					baseUrl = isTestnet ? 'https://tanenbaum.io/address/' : 'https://explorer.syscoin.org/address/';
+					break;
+				case ChainType.Rollux:
+					baseUrl = isTestnet
+						? 'https://rollux.tanenbaum.io/address/'
+						: 'https://explorer.rollux.com/address/';
+					break;
+				default:
+					return null;
+			}
+
+			return `${baseUrl}${contractAddress}`;
+		};
+
+		const getFaucetAmount = () => {
+			const networkKey = getNetworkKey();
+			if (networkKey.includes('testnet')) {
+				return '1 TSYS';
+			} else if (networkKey.includes('rollux-mainnet')) {
+				return '0.001 SYS';
+			} else if (networkKey.includes('nevm-mainnet')) {
+				return '0.01 SYS';
+			}
+			return 'an unknown amount';
+		};
+
 		return (
 			<View style={[styles.wrapper, style && style]} activeOpacity={1}>
 				<ImageCapInset
 					style={[styles.cardWrapper, styles.headerMargin]}
-					source={
-						Device.isAndroid()
-							? isDarkMode
-								? { uri: 'dark800_card' }
-								: { uri: 'default_card' }
-							: isDarkMode
-							? require('../../../images/dark800_card.png')
-							: require('../../../images/default_card.png')
-					}
+					source={Device.isAndroid() ? { uri: 'dark800_card' } : require('../../../images/dark500_card.png')}
 					capInsets={baseStyles.capInsets}
 				>
 					<View style={[styles.otherBody]}>{header}</View>
+					{(asset.type === ChainType.Syscoin || asset.type === ChainType.Rollux) && (
+						<TouchableOpacity
+							activeOpacity={0.8}
+							style={styles.grabFaucetButton}
+							onPress={() => {
+								this.navigateToRequestNowButton();
+							}}
+						>
+							<View style={styles.grabFaucetButtonContainer}>
+								<View style={styles.grabFaucetIcon}>
+									<Icon name="faucet" style={{ color: colors.white }} />
+								</View>
+								<View style={styles.iconsContainer}>
+									{asset.type === ChainType.Rollux && (
+										<Image
+											source={{
+												uri: 'https://pali-images.s3.amazonaws.com/files/rollux_logo.png'
+											}}
+											style={[styles.iconAssetStyle, { zIndex: 1 }]}
+										/>
+									)}
+									<Image
+										source={{ uri: 'https://pali-images.s3.amazonaws.com/files/syscoin_logo.png' }}
+										style={[
+											styles.iconAssetStyle,
+											{
+												marginLeft: asset.type === ChainType.Rollux ? -5 : 0
+											}
+										]}
+									/>
+								</View>
+								<Text style={{ color: colors.white, ...fontStyles.normal, marginLeft: 8 }}>
+									<Text style={{ textDecorationLine: 'underline' }}>
+										{strings('faucet.grab_with_faucet', { symbol: asset.symbol })}
+									</Text>{' '}
+									{strings('faucet.with_our_faucet')}
+								</Text>
+							</View>
+						</TouchableOpacity>
+					)}
 				</ImageCapInset>
-
-				{asset.lockType ? (
+				<View
+					style={{ marginTop: asset.type === ChainType.Syscoin || asset.type === ChainType.Rollux ? 40 : 0 }}
+				>
+					{asset.lockType ? (
+						<ImageCapInset
+							style={[styles.cardWrapper, styles.bodyMargin]}
+							source={
+								Device.isAndroid()
+									? isDarkMode
+										? { uri: 'dark800_card' }
+										: { uri: 'default_card' }
+									: isDarkMode
+									? require('../../../images/dark800_card.png')
+									: require('../../../images/default_card.png')
+							}
+							capInsets={baseStyles.capInsets}
+						>
+							<View style={[styles.otherBody]}>
+								<Locked asset={asset} onClose={this.goBack} />
+							</View>
+						</ImageCapInset>
+					) : (
+						this.renderAsset()
+					)}
+				</View>
+				{(asset.type === ChainType.Syscoin || asset.type === ChainType.Rollux) && (
 					<ImageCapInset
-						style={[styles.cardWrapper, styles.bodyMargin]}
+						style={[styles.cardWrapper, styles.headerMargin]}
 						source={
 							Device.isAndroid()
 								? isDarkMode
@@ -880,14 +1199,54 @@ class AssetView extends PureComponent {
 						}
 						capInsets={baseStyles.capInsets}
 					>
-						<View style={[styles.otherBody]}>
-							<Locked asset={asset} onClose={this.goBack} />
+						<View style={[styles.faucetContainer]}>
+							<View style={[styles.faucetContainerIcon]}>
+								<TokenImage asset={asset} iconStyle={styles.iconStyle} fadeIn={false} />
+							</View>
+							<Text style={[styles.faucetTitle, isDarkMode && baseStyles.textDark]}>
+								{strings('faucet.rollux_faucet')}
+							</Text>
+							<Text style={styles.faucetDescription}>{strings('faucet.grab_sys_with_faucet')}</Text>
+							<Text style={styles.faucetDescription}>
+								{strings('faucet.get_faucet_amount', {
+									amount: getFaucetAmount(),
+									time: getNetworkKey().includes('testnet') ? '60 minutes' : '24h'
+								})}
+							</Text>
+							<View style={[styles.faucetLinks]}>
+								<Text style={[styles.faucetLinkLabel, { color: '#4D76B8' }]}>
+									{strings('faucet.smart_contract')}
+								</Text>
+								<TouchableOpacity onPress={() => this.goWeb(getExplorerLink(asset.type))}>
+									<Text
+										style={[
+											styles.faucetLink,
+
+											{ color: '#4D76B8', textDecorationLine: 'underline' }
+										]}
+									>
+										{`${faucetContractAddress.slice(0, 5)}...${faucetContractAddress.slice(-5)}`}
+									</Text>
+								</TouchableOpacity>
+							</View>
+							<View style={[styles.faucetLinks]}>
+								<Text style={[styles.faucetLinkLabel, isDarkMode && baseStyles.textDark]}>
+									{strings('faucet.your_wallet')}
+								</Text>
+								<Text style={[styles.faucetLink, isDarkMode && baseStyles.textDark]}>
+									{`${selectedAddress.slice(0, 5)}...${selectedAddress.slice(-5)}`}
+								</Text>
+							</View>
+							<TouchableOpacity
+								ref={this.requestNowButtonRef}
+								style={[styles.faucetButton, isDarkMode && { backgroundColor: colors.paliBlue400 }]}
+								onPress={requestFaucet}
+							>
+								<Text style={styles.faucetButtonText}>{strings('faucet.request_now')}</Text>
+							</TouchableOpacity>
 						</View>
 					</ImageCapInset>
-				) : (
-					this.renderAsset()
 				)}
-
 				{this.renderInfiniteDesc()}
 				{this.renderApproveModalInModal()}
 			</View>
@@ -897,6 +1256,7 @@ class AssetView extends PureComponent {
 
 const mapStateToProps = state => ({
 	approveModalVisibleInModal: state.modals.approveModalVisibleInModal,
+	selectedAddress: state.engine.backgroundState.PreferencesController.selectedAddress,
 	myApprovalEvents:
 		state.engine.backgroundState.ApprovalEventsController.allEvents?.[
 			state.engine.backgroundState.PreferencesController.selectedAddress

@@ -852,6 +852,16 @@
 		"apply_check": "运行扫描",
 		"tap_to_check": "查看安全报告"
 	},
+	"faucet": {
+		"grab_with_faucet": "获取{{symbol}}",
+		"with_our_faucet": " 使用我们的水龙头!",
+		"rollux_faucet": "ROLLUX 水龙头",
+		"grab_sys_with_faucet": "使用我们的水龙头获取 $SYS，开始体验 Rollux 网络!",
+		"get_faucet_amount": "您每个钱包地址可以每 {{time}} 获取 {{amount}}。",
+		"smart_contract": "智能合约",
+		"your_wallet": "您的钱包",
+		"request_now": "立即请求"
+	},
 	"otc": {
 		"buy_crypto": "为本账户购买加密货币",
 		"content1": "用法币购买加密货币。",
