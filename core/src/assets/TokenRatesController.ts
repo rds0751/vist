@@ -274,9 +274,11 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
     let strLog = '';
     for (const type in NetworkConfig) {
       const chainType = Number(type);
+
       if (NetworkConfig[chainType].Disabled) {
         continue;
       }
+
       const { addresses, success } = await safelyExecute(() => this.updateExchangeRates(chainType));
       intervals.push(Date.now() - start);
       if (this.supportExtendRates.includes(chainType)) {
@@ -622,7 +624,7 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
         }
       }
     }
-    console.log(this.state.tvSymbol, 'salvee', searchName);
+
     const ticker = this.state.tvSymbol[searchName];
     if (ticker) {
       return { ticker, load: null };
@@ -671,14 +673,86 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
     );
   }
 
+  async fetchTokenPrices() {
+    const graphUrl = 'https://rollux.graph.pegasys.fi/subgraphs/name/pollum-io/pegasys-v3';
+    const graphQL = {
+      operationName: 'tokens',
+      query: `{
+        tokens {
+          name
+          derivedSYS
+          symbol
+          id
+        }
+        bundles {
+          sysPriceUSD
+        }
+      }`,
+    };
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(graphQL),
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    };
+
+    const response = await fetch(graphUrl, options);
+    if (!response.ok) {
+      throw new Error(`Fetch failed with status '${response.status}' for request '${graphUrl}'`);
+    }
+
+    try {
+      const { data } = await response.json();
+      const organizedData = {
+        tokens: data.tokens.map((token: any) => ({
+          id: token.id,
+          name: token.name,
+          derivedSYS: token.derivedSYS,
+          symbol: token.symbol,
+        })),
+        sysPriceUSD: data.bundles[0]?.sysPriceUSD,
+      };
+
+      return organizedData;
+    } catch (e) {
+      logDebug(`leon.w@handleFetch@${graphUrl} failed response=`, response);
+      throw e;
+    }
+  }
+
   /**
    * Updates exchange rates for all tokens
    *
    * @returns Promise resolving when this operation completes
    */
-  async updateExchangeRates(chainType = ChainType.Ethereum): Promise<{ addresses: string[]; success: boolean }> {
-    const assetsController = this.context.AssetsController as AssetsController;
 
+  async updateExchangeRates(chainType = ChainType.Ethereum): Promise<{ addresses: string[]; success: boolean }> {
+    // We need to fix this because the exchange rate is not correct for Rollux
+    if (chainType === ChainType.Rollux) {
+      const newContractExchangeRates: { [address: string]: TokenPrice } = {};
+      const additionalPrices = await this.fetchTokenPrices();
+
+      additionalPrices.tokens.forEach((token: any) => {
+        if (token.id) {
+          const address = token.id;
+          newContractExchangeRates[address] = {
+            usd: token.derivedSYS * additionalPrices.sysPriceUSD,
+            usd_24h_change: 0,
+            timestamp: Date.now(),
+          };
+        }
+      });
+
+      const allContractExchangeRates = { ...this.state.allContractExchangeRates };
+      allContractExchangeRates[chainType] = { ...newContractExchangeRates };
+
+      this.update({ allContractExchangeRates });
+      return { addresses: [], success: true };
+    }
+
+    const assetsController = this.context.AssetsController as AssetsController;
     const baseConfig: { [index: string]: any } = BaseChainConfig;
     const mainChainId = this.networks[chainType].getMainChainId();
     const currentRates = this.state.allContractExchangeRates[chainType] || {};
@@ -743,6 +817,7 @@ export class TokenRatesController extends BaseController<TokenRatesConfig, Token
         true,
         15000,
       );
+
       if (!prices) {
         success = false;
         prices = {};

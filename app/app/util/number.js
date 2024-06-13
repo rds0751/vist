@@ -809,13 +809,28 @@ export function calcAssetPrices(asset, opt) {
 			} else {
 				const contractExchangeRates = allContractExchangeRates[type] || {};
 				const contractBalances = allContractBalances[type] || {};
-				price = itemAddress in contractExchangeRates ? contractExchangeRates[itemAddress].usd : 0;
-				priceChange =
-					itemAddress in contractExchangeRates ? contractExchangeRates[itemAddress].usd_24h_change : 0;
-				balance =
-					itemAddress in contractBalances
-						? renderFromTokenMinimalUnit(contractBalances[itemAddress], asset.decimals)
-						: 0;
+
+				// We need to fix this because the exchange rate is not correct for Rollux
+				if (type === ChainType.Rollux) {
+					const itemAddressLower = itemAddress.toLowerCase();
+					price = itemAddressLower in contractExchangeRates ? contractExchangeRates[itemAddressLower].usd : 0;
+					priceChange =
+						itemAddressLower in contractExchangeRates
+							? contractExchangeRates[itemAddressLower].usd_24h_change
+							: 0;
+					balance =
+						itemAddress in contractBalances
+							? renderFromTokenMinimalUnit(contractBalances[itemAddress], asset.decimals)
+							: 0;
+				} else {
+					price = itemAddress in contractExchangeRates ? contractExchangeRates[itemAddress].usd : 0;
+					priceChange =
+						itemAddress in contractExchangeRates ? contractExchangeRates[itemAddress].usd_24h_change : 0;
+					balance =
+						itemAddress in contractBalances
+							? renderFromTokenMinimalUnit(contractBalances[itemAddress], asset.decimals)
+							: 0;
+				}
 			}
 		}
 	}
