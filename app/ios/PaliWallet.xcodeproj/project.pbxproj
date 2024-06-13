@@ -16,6 +16,7 @@
 		15ACC9FB226555820063978B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		15ACC9FC22655C3A0063978B /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15723E2D225FD0B800A5B418 /* Lottie.framework */; };
 		15ACC9FD22655C3A0063978B /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 15723E2D225FD0B800A5B418 /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		17148BF163A48459D2D3E3E3 /* Pods_PaliWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD46B5A1E14C8A0489649E4 /* Pods_PaliWallet.framework */; };
 		1B0BF5032653AB9900AFC828 /* PaliWallet.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 1B0BF5022653AB9900AFC828 /* PaliWallet.entitlements */; };
 		1BDE537E26E611790027269D /* InpageVConsole.js in Resources */ = {isa = PBXBuildFile; fileRef = 1BDE537926E611790027269D /* InpageVConsole.js */; };
 		1BF815B926B3F5FA0000DC6C /* InpageBridgeWeb3.js in Resources */ = {isa = PBXBuildFile; fileRef = 1BF815B426B3F5FA0000DC6C /* InpageBridgeWeb3.js */; };
@@ -27,7 +28,6 @@
 		654378B0243E2ADC00571B9C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654378AF243E2ADC00571B9C /* File.swift */; };
 		B579CECA27145E9700D045FB /* advanced.html in Resources */ = {isa = PBXBuildFile; fileRef = B579CEC527145E9700D045FB /* advanced.html */; };
 		C18A59DF590B45CB8A9B869A /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BEFB8A3293734BEBB00CCECA /* Poppins-Regular.ttf */; };
-		C1AD4CA9B26CA485141CC318 /* libPods-PaliWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 268712BC72BD3AEF00000DF9 /* libPods-PaliWallet.a */; };
 		FF1F2CCC2A99342400E0C6A4 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = FF1F2CCB2A99342400E0C6A4 /* splash_screen.json */; };
 		FF1F2CCF2A99349800E0C6A4 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1F2CCE2A99349800E0C6A4 /* Dynamic.swift */; };
 		FF1F2CD12A9934CF00E0C6A4 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = FF1F2CD02A9934CF00E0C6A4 /* splash_screen.json */; };
@@ -122,7 +122,6 @@
 		1DC4A6B626B3A4D5007514B3 /* RNToolsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNToolsManager.swift; sourceTree = "<group>"; };
 		1DC4A6B926B3A678007514B3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1F06D56A2D2F41FB9345D16F /* Lottie.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = System/Library/Frameworks/Lottie.framework; sourceTree = SDKROOT; };
-		268712BC72BD3AEF00000DF9 /* libPods-PaliWallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PaliWallet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		278065D027394AD9B2906E38 /* libBVLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libBVLinearGradient.a; sourceTree = "<group>"; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		31DD96F4BE527C0392B36E6F /* Pods-PaliWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaliWallet.release.xcconfig"; path = "Target Support Files/Pods-PaliWallet/Pods-PaliWallet.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,6 +136,7 @@
 		5E32A09A7BDC431FA403BA73 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		654378AE243E2ADB00571B9C /* PaliWallet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PaliWallet-Bridging-Header.h"; sourceTree = "<group>"; };
 		654378AF243E2ADC00571B9C /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		6AD46B5A1E14C8A0489649E4 /* Pods_PaliWallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaliWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF1597C0ACA4902B86140B2 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		81259AFA367ECB9987C83DD6 /* Pods-PaliWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaliWallet.release.xcconfig"; path = "Target Support Files/Pods-PaliWallet/Pods-PaliWallet.release.xcconfig"; sourceTree = "<group>"; };
 		8E369AC13A2049B6B21E5120 /* libRCTSearchApi.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTSearchApi.a; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 			files = (
 				153C1ABB2217BCDC0088EFE0 /* JavaScriptCore.framework in Frameworks */,
 				15ACC9FC22655C3A0063978B /* Lottie.framework in Frameworks */,
-				C1AD4CA9B26CA485141CC318 /* libPods-PaliWallet.a in Frameworks */,
+				17148BF163A48459D2D3E3E3 /* Pods_PaliWallet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +227,7 @@
 			children = (
 				153C1A742217BCDC0088EFE0 /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
-				268712BC72BD3AEF00000DF9 /* libPods-PaliWallet.a */,
+				6AD46B5A1E14C8A0489649E4 /* Pods_PaliWallet.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -329,7 +329,6 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				15ACCA0022655C3A0063978B /* Embed Frameworks */,
 				84D295E70E7158158F0F4201 /* [CP] Copy Pods Resources */,
-				5FEB21D00BE1DF2B3328AD28 /* [CP] Embed Pods Frameworks */,
 				ECB42F9D3E0DBD2104802FBB /* [CP-User] [RNFB] Core Configuration */,
 			);
 			buildRules = (
@@ -470,24 +469,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=$(which node)\n\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
-		};
-		5FEB21D00BE1DF2B3328AD28 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PaliWallet/Pods-PaliWallet-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL-Universal/OpenSSL.framework/OpenSSL",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PaliWallet/Pods-PaliWallet-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		65E00B0A247EA25400E5AC88 /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;

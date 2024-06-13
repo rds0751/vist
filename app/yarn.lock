@@ -1749,23 +1749,23 @@
   dependencies:
     invariant "^2.2.4"
 
-"@react-native-firebase/analytics@19.2.0":
-  version "19.2.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/analytics/-/analytics-19.2.0.tgz#0fdd87de322b05b0977aa8735fa6865ad3552ac7"
-  integrity sha512-Tl9qYSW/MvMxYHDLJUYc2/JfHcP+7DE+CB2NnbZYjhg4wlDFqtQXLMsFXVpv6IpD4UlwAXVW8OySTo27nAeDKw==
+"@react-native-firebase/analytics@^20.0.0":
+  version "20.1.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/analytics/-/analytics-20.1.0.tgz#5ba10fffefc45c43d692c2bbde7f59e27023e347"
+  integrity sha512-tGwivElKEad0PaAwGxXO8ydNynnxUj/D2rtDG6QBtoU/L77hV6/UL0vh/vZcobWiBUv3sqBEkCg19VhA88j1og==
 
-"@react-native-firebase/app@19.2.0":
-  version "19.2.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-19.2.0.tgz#48dc2e12f39c0ce5a633b365c8aab351e44fc48d"
-  integrity sha512-LXpUTG3t/X0v3roxoPCq/xxQ2yivYs8RPwOIHw4zaqPM/apS6jlD32bxlTVHXnpifuzhljqEDDaa9f4yXz8tdg==
+"@react-native-firebase/app@^20.0.0":
+  version "20.1.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-20.1.0.tgz#86b9371290f92d51821b7299eede95336949f214"
+  integrity sha512-FCcTtmfz/Bk2laOEKOiUrQUkAnzerkRml7d3kZzJSxaBWLFxpWJQnnXqGZmD8hNWio2QEauB8llUD71KiDk+sw==
   dependencies:
     opencollective-postinstall "^2.0.3"
     superstruct "^0.6.2"
 
-"@react-native-firebase/messaging@19.2.0":
-  version "19.2.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/messaging/-/messaging-19.2.0.tgz#d42279539bff618e95cae8e3bc8faf82c30268b2"
-  integrity sha512-QbIHa52RyKJgS+7hfrXpNQ1z3OfW0lOmCNwFoJmO60tX1wNaIWd7ZTzDBgoeXwO46sbdSQNq2D7mHxcm5eJy4Q==
+"@react-native-firebase/messaging@^20.0.0":
+  version "20.1.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/messaging/-/messaging-20.1.0.tgz#02026259c74d1725dfc5216158b05bc6655e7951"
+  integrity sha512-y9FtQ9dIQSyueuLeJghvfLYnay5BqPVgl9T94p+HtUlkxinOgNDjquQFtV/QlzVOyVpLrVPmknMohvBj/fvBzg==
 
 "@react-native/assets@1.0.0":
   version "1.0.0"
