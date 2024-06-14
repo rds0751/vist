@@ -448,6 +448,7 @@ class Asset extends PureComponent {
 								<AssetView
 									ref={this.assetViewRef}
 									style={[{ paddingTop: headerHeight }]}
+									scrollViewRef={this._scrollView}
 									navigation={navigation}
 									header={
 										<View style={[styles.assetOverviewWrapper]}>

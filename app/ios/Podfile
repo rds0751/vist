@@ -28,8 +28,8 @@ target 'PaliWallet' do
   config = use_native_modules!
   # Comment the next line if you don't want to use dynamic frameworks
   # use_frameworks!
-
-  
+  use_frameworks! :linkage => :static
+  $RNFirebaseAsStaticFramework = true
 
   use_react_native!(
     :path => config[:reactNativePath],
@@ -37,7 +37,7 @@ target 'PaliWallet' do
     :hermes_enabled => false
   )
 
-  use_flipper!({"Flipper" => "0.93.0", "Flipper-DoubleConversion" => "1.1.7"})
+  # use_flipper!({"Flipper" => "0.93.0", "Flipper-DoubleConversion" => "1.1.7"})
   post_install do |installer|
     react_native_post_install(installer)
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
@@ -47,8 +47,8 @@ target 'PaliWallet' do
     # you should disable these next few lines.
   
   end
-  pod 'FirebaseCore', :modular_headers => true
-  pod 'GoogleUtilities', :modular_headers => true
+  # pod 'FirebaseCore', :modular_headers => true
+  # pod 'GoogleUtilities', :modular_headers => true
 
   pod 'RNCharts', :path => '../node_modules/react-native-charts-wrapper'
   pod 'CryptoSwift', '~> 1.0'

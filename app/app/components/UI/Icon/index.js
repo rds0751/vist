@@ -7,6 +7,7 @@ import Coin from '../../../images/svg/coin.svg';
 import CheckCircle from '../../../images/svg/check_circle.svg';
 import Edit from '../../../images/svg/edit.svg';
 import FaceId from '../../../images/svg/face_id.svg';
+import Faucet from '../../../images/svg/faucet.svg';
 import Fingerprint from '../../../images/svg/fingerprint.svg';
 import Globe from '../../../images/svg/globe.svg';
 import Home from '../../../images/svg/ic_home.svg';
@@ -33,8 +34,9 @@ const icons = {
 	coin: Coin,
 	checkCircle: CheckCircle,
 	edit: Edit,
-	fingerprint: Fingerprint,
 	faceId: FaceId,
+	faucet: Faucet,
+	fingerprint: Fingerprint,
 	globe: Globe,
 	home: Home,
 	nft: NFT,

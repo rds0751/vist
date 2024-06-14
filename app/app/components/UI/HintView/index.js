@@ -22,12 +22,10 @@ const styles = {
 	},
 	modalContainer: {
 		alignSelf: 'center',
-
 		borderRadius: 10,
 		flexDirection: 'row',
 		paddingVertical: 12,
 		paddingHorizontal: 23,
-
 		height: 80
 	},
 	container: {
@@ -51,7 +49,11 @@ class HintView extends PureComponent {
 		/**
 		 * hide Hint func
 		 */
-		toggleHideHint: PropTypes.func
+		toggleHideHint: PropTypes.func,
+		/**
+		 * hint type (success or error)
+		 */
+		hintType: PropTypes.oneOf(['success', 'error'])
 	};
 
 	moveAnim = new Animated.Value(height / 12);
@@ -99,30 +101,32 @@ class HintView extends PureComponent {
 	};
 
 	render() {
-		const { hintText } = this.props;
+		const { hintText, hintType } = this.props;
+		const isError = hintType === 'error';
+		console.log(isError, 'wow', hintType);
+		const backgroundColor = isError ? '#D70000' : colors.greenModal100;
+		const iconColor = isError ? '#D70000' : colors.greenModal200;
+		const iconName = isError ? 'closecircleo' : 'checkcircleo';
+
 		return (
 			<View style={styles.container} pointerEvents="none">
 				<Animated.View style={[styles.modalContainer, { bottom: this.moveAnim, opacity: this.opacityAnim }]}>
 					<View
 						style={{
 							width: '20%',
-							backgroundColor: colors.greenModal200,
+							backgroundColor: iconColor,
 							alignItems: 'center',
 							justifyContent: 'center',
 							borderTopLeftRadius: 10,
 							borderBottomLeftRadius: 10
 						}}
 					>
-						{hintText === strings('other.not_migration') ? (
-							<AntIcon color={colors.white} size={24} name={'infocirlceo'} />
-						) : (
-							<Icon width="24" height="24" color={colors.white} name="checkCircle" />
-						)}
+						<AntIcon color={colors.white} size={24} name={iconName} />
 					</View>
 					<View
 						style={{
 							width: '80%',
-							backgroundColor: colors.greenModal100,
+							backgroundColor: backgroundColor,
 							alignItems: 'flex-start',
 							paddingHorizontal: 10,
 							justifyContent: 'center',

@@ -853,6 +853,20 @@
 		"apply_check": "Detectar Seguridad",
 		"tap_to_check": "Toca para verificar el estado de seguridad"
 	},
+	"faucet": {
+		"request_successful": "{{amountReceived}} acaba de ser enviado a tu billetera.",
+		"request_failed": "La solicitud del grifo falló: {{message}}",
+		"error_request": "Error al realizar la solicitud del grifo",
+		"grab_with_faucet": "¡Obtén {{symbol}}",
+		"with_our_faucet": " con nuestro grifo!",
+		"rollux_faucet": "GRIFO ROLLUX",
+		"syscoin_faucet": "GRIFO SYSCOIN",
+		"grab_sys_with_faucet": "¡Obtén {{symbol}} con nuestro grifo para comenzar a experimentar la red Rollux!",
+		"get_faucet_amount": "Puedes obtener {{amount}} por dirección de billetera cada {{time}}.",
+		"smart_contract": "Contrato Inteligente",
+		"your_wallet": "Tu billetera",
+		"request_now": "Solicitar ahora"
+	},
 	"otc": {
 		"buy_crypto": "Comprar Criptomonedas en esta cuenta",
 		"content1": "Compra criptomonedas con moneda fiduciaria.",

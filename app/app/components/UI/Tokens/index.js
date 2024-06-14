@@ -2,6 +2,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { copilot, walkthroughable, CopilotStep } from 'react-native-copilot';
+
 import {
 	TouchableOpacity,
 	StyleSheet,
@@ -82,6 +83,7 @@ const styles = StyleSheet.create({
 	},
 	bottomModal: {
 		justifyContent: 'flex-end',
+
 		margin: 0
 	},
 	backgroundImage: {
@@ -1132,7 +1134,7 @@ class Tokens extends PureComponent {
 		const { isDarkMode } = this.context;
 		const { isAmountHide } = this.props;
 		const { currencyCode } = Engine.context.TokenRatesController.state;
-		const { price, priceChange, done, balanceFiat, balance } = asset;
+		const { price, priceChange, done, balanceFiat, balance, address } = asset;
 		const securityData = getSecurityData(asset);
 		const amountSymbol = CURRENCIES[currencyCode].symbol;
 		const isEnd = index + 1 === allLength;
@@ -1178,6 +1180,8 @@ class Tokens extends PureComponent {
 						<Text style={[styles.textItemName, isDarkMode && baseStyles.textDark]} numberOfLines={1}>
 							{asset.symbol}
 						</Text>
+						{(asset.type === ChainType.Rollux || asset.type === ChainType.Syscoin) &&
+							asset.nativeCurrency && <Icon name="faucet" color={colors.brandPink300} size={15} />}
 						{done ? (
 							<Text style={styles.claimText}>{strings('other.claim')}</Text>
 						) : (
@@ -1792,11 +1796,7 @@ class Tokens extends PureComponent {
 				animationType="fade"
 				useNativeDriver
 			>
-				<TouchableOpacity
-					style={[styles.flexOne, isDarkMode && baseStyles.darkModalBackground]}
-					activeOpacity={1.0}
-					onPress={this.hideDefiModal}
-				>
+				<TouchableOpacity style={[styles.flexOne]} activeOpacity={1.0} onPress={this.hideDefiModal}>
 					<View style={styles.flexSpace} />
 					<ScrollView
 						style={[styles.defiModalWrapper, isDarkMode && baseStyles.darkModalBackground]}

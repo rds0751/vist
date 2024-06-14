@@ -1,7 +1,8 @@
-export function toggleShowHint(hintText) {
+export function toggleShowHint(hintText, hintType = 'success') {
 	return {
 		type: 'SHOW_HINT',
-		hintText
+		hintText,
+		hintType
 	};
 }
 

@@ -726,7 +726,7 @@ const Main = props => {
 			</Modal>
 		);
 
-	const renderHintView = () => props.showHintView && <HintView hintText={props.hintText} />;
+	const renderHintView = () => props.showHintView && <HintView hintText={props.hintText} hintType={props.hintType} />;
 
 	const showUpdateModalIfNeeded = async () => {
 		const latestVersionCode = props.updateConfig?.latest_version_code
@@ -1426,6 +1426,7 @@ Main.propTypes = {
 	hideWalletConnectIcon: PropTypes.func,
 	showHintView: PropTypes.bool,
 	hintText: PropTypes.string,
+	hintType: PropTypes.string,
 	// eslint-disable-next-line react/no-unused-prop-types
 	ongoingTransactionsModalVisible: PropTypes.bool,
 	toggleOngoingTransactionsModal: PropTypes.func,
@@ -1446,6 +1447,7 @@ const mapStateToProps = state => ({
 	bscNetworkModalVisible: state.modals.bscNetworkModalVisible,
 	showHintView: state.hint.showHint,
 	hintText: state.hint.hintText,
+	hintType: state.hint.hintType,
 	ongoingTransactionsModalVisible: state.modals.ongoingTransactionsModalVisible,
 	updateConfig: state.settings.updateConfig,
 	isLockScreen: state.settings.isLockScreen

@@ -300,7 +300,7 @@ class AssetOverview extends PureComponent {
 						<View style={styles.originLogo}>{this.renderLogo()}</View>
 						<View style={styles.symbolBase}>
 							<View style={styles.symbol}>
-								<Text style={[styles.symbolText, isDarkMode && baseStyles.textDark]} numberOfLines={1}>
+								<Text style={[styles.symbolText, baseStyles.textDark]} numberOfLines={1}>
 									{symbol}
 								</Text>
 								{address && (
@@ -318,7 +318,7 @@ class AssetOverview extends PureComponent {
 					</View>
 
 					<View style={styles.assetTrans}>
-						<Text style={[styles.assetTransTotal, isDarkMode && baseStyles.textDark]}>
+						<Text style={[styles.assetTransTotal, baseStyles.textDark]}>
 							{amountSymbol}
 							{renderAmount(price && price > 10000 ? new BigNumber(price).toFixed(2) : price)}
 						</Text>
@@ -352,17 +352,13 @@ class AssetOverview extends PureComponent {
 						</View>
 					</View>
 				</View>
-				<Text style={[styles.balanceTitle, isDarkMode && baseStyles.subTextDark]}>
+				<Text style={[styles.balanceTitle, baseStyles.subTextDark]}>
 					{strings('watch_asset_request.balance')}
 				</Text>
-				<Text style={[styles.balance, isDarkMode && baseStyles.textDark]}>
-					{hideAmount ? '***' : renderAmount(balance)}
-				</Text>
-				<Text style={[styles.networthTitle, isDarkMode && baseStyles.subTextDark]}>
-					{strings('other.networth')}
-				</Text>
+				<Text style={[styles.balance, baseStyles.textDark]}>{hideAmount ? '***' : renderAmount(balance)}</Text>
+				<Text style={[styles.networthTitle, baseStyles.subTextDark]}>{strings('other.networth')}</Text>
 				<View style={styles.networkWrapper}>
-					<Text style={[styles.balance, isDarkMode && baseStyles.textDark]}>
+					<Text style={[styles.balance, baseStyles.textDark]}>
 						{hideAmount ? '***' : renderAmount(secondaryBalance)}
 					</Text>
 					{!asset.lockType && (
