@@ -1022,7 +1022,7 @@ class AssetView extends PureComponent {
 	};
 
 	navigateToRequestNowButton = () => {
-		if (this.requestNowButtonRef.current) {
+		if (this.requestNowButtonRef.current && this.props.scrollViewRef) {
 			this.requestNowButtonRef.current.measure((fx, fy, width, height, px, py) => {
 				this.props.scrollViewRef.scrollTo({ x: 0, y: py - fy - 300, animated: true });
 			});
@@ -1140,49 +1140,52 @@ class AssetView extends PureComponent {
 					capInsets={baseStyles.capInsets}
 				>
 					<View style={[styles.otherBody]}>{header}</View>
-					{(asset.type === ChainType.Syscoin || asset.type === ChainType.Rollux) && asset.nativeCurrency && (
-						<TouchableOpacity
-							activeOpacity={0.8}
-							style={styles.grabFaucetButton}
-							onPress={() => {
-								this.navigateToRequestNowButton();
-							}}
-						>
-							<View style={styles.grabFaucetButtonContainer}>
-								<View style={styles.grabFaucetIcon}>
-									<Icon name="faucet" style={{ color: colors.white }} />
-								</View>
-								<View style={styles.iconsContainer}>
-									{asset.type === ChainType.Rollux && (
+					{(asset.type === ChainType.Syscoin || asset.type === ChainType.Rollux) &&
+						!Device.isAndroid() &&
+						asset.nativeCurrency && (
+							<TouchableOpacity
+								activeOpacity={0.8}
+								style={styles.grabFaucetButton}
+								onPress={() => {
+									this.navigateToRequestNowButton();
+								}}
+							>
+								<View style={styles.grabFaucetButtonContainer}>
+									<View style={styles.grabFaucetIcon}>
+										<Icon name="faucet" style={{ color: colors.white }} />
+									</View>
+									<View style={styles.iconsContainer}>
+										{asset.type === ChainType.Rollux && (
+											<Image
+												source={require('../../../images/rollux_logo.png')}
+												style={[styles.iconAssetStyle, { zIndex: 1 }]}
+											/>
+										)}
 										<Image
-											source={require('../../../images/rollux_logo.png')}
-											style={[styles.iconAssetStyle, { zIndex: 1 }]}
+											source={require('../../../images/syscoin_logo.png')}
+											style={[
+												styles.iconAssetStyle,
+												{
+													marginLeft: asset.type === ChainType.Rollux ? -5 : 0
+												}
+											]}
 										/>
-									)}
-									<Image
-										source={require('../../../images/syscoin_logo.png')}
-										style={[
-											styles.iconAssetStyle,
-											{
-												marginLeft: asset.type === ChainType.Rollux ? -5 : 0
-											}
-										]}
-									/>
+									</View>
+									<Text style={{ color: colors.white, ...fontStyles.normal, marginLeft: 8 }}>
+										<Text style={{ textDecorationLine: 'underline' }}>
+											{strings('faucet.grab_with_faucet', { symbol: asset.symbol })}
+										</Text>{' '}
+										{strings('faucet.with_our_faucet')}
+									</Text>
 								</View>
-								<Text style={{ color: colors.white, ...fontStyles.normal, marginLeft: 8 }}>
-									<Text style={{ textDecorationLine: 'underline' }}>
-										{strings('faucet.grab_with_faucet', { symbol: asset.symbol })}
-									</Text>{' '}
-									{strings('faucet.with_our_faucet')}
-								</Text>
-							</View>
-						</TouchableOpacity>
-					)}
+							</TouchableOpacity>
+						)}
 				</ImageCapInset>
 				<View
 					style={{
 						marginTop:
 							(asset.type === ChainType.Syscoin || asset.type === ChainType.Rollux) &&
+							!Device.isAndroid() &&
 							asset.nativeCurrency
 								? 40
 								: 0
@@ -1270,9 +1273,13 @@ class AssetView extends PureComponent {
 								ref={this.requestNowButtonRef}
 								activeOpacity={0.6}
 								style={[
-									styles.faucetButton,
+									{
+										...styles.faucetButton,
+										justifyContent: 'center',
+										alignItems: 'center'
+									},
 									isDarkMode && { backgroundColor: colors.paliBlue400 },
-									{ minHeight: 45, opacity: this.state.faucetButtonDisabled ? 0.5 : 1 }
+									{ height: 45, opacity: this.state.faucetButtonDisabled ? 0.5 : 1 }
 								]}
 								onPress={requestFaucet}
 								disabled={this.state.isLoading || this.state.faucetButtonDisabled}
@@ -1280,7 +1287,9 @@ class AssetView extends PureComponent {
 								{this.state.isLoading ? (
 									<ActivityIndicator size="small" color={colors.white} />
 								) : (
-									<Text style={styles.faucetButtonText}>{strings('faucet.request_now')}</Text>
+									<Text style={[styles.faucetButtonText, { textAlign: 'center' }]}>
+										{strings('faucet.request_now')}
+									</Text>
 								)}
 							</TouchableOpacity>
 						</View>
