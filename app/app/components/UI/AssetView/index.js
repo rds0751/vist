@@ -1140,7 +1140,7 @@ class AssetView extends PureComponent {
 					capInsets={baseStyles.capInsets}
 				>
 					<View style={[styles.otherBody]}>{header}</View>
-					{(asset.type === ChainType.Syscoin || asset.type === ChainType.Rollux) && (
+					{(asset.type === ChainType.Syscoin || asset.type === ChainType.Rollux) && asset.nativeCurrency && (
 						<TouchableOpacity
 							activeOpacity={0.8}
 							style={styles.grabFaucetButton}
@@ -1180,7 +1180,13 @@ class AssetView extends PureComponent {
 					)}
 				</ImageCapInset>
 				<View
-					style={{ marginTop: asset.type === ChainType.Syscoin || asset.type === ChainType.Rollux ? 40 : 0 }}
+					style={{
+						marginTop:
+							(asset.type === ChainType.Syscoin || asset.type === ChainType.Rollux) &&
+							asset.nativeCurrency
+								? 40
+								: 0
+					}}
 				>
 					{asset.lockType ? (
 						<ImageCapInset
@@ -1204,7 +1210,7 @@ class AssetView extends PureComponent {
 						this.renderAsset()
 					)}
 				</View>
-				{(asset.type === ChainType.Syscoin || asset.type === ChainType.Rollux) && (
+				{(asset.type === ChainType.Syscoin || asset.type === ChainType.Rollux) && asset.nativeCurrency && (
 					<ImageCapInset
 						style={[styles.cardWrapper, styles.headerMargin]}
 						source={
