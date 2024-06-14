@@ -433,6 +433,8 @@ class AssetView extends PureComponent {
 		data: {
 			dataSets: []
 		},
+		isLoading: false,
+		faucetButtonDisabled: false,
 		ticker: null,
 		tvHtmlContent: null,
 		hideChart: false,
@@ -1055,6 +1057,8 @@ class AssetView extends PureComponent {
 			}
 
 			const endpoint = `https://chains.tools/api/faucet/claim?networkKey=${networkKey}&walletAddress=${selectedAddress}`;
+			this.setState({ isLoading: true });
+			this.setState({ faucetButtonDisabled: true });
 			try {
 				const response = await fetch(endpoint, { method: 'GET' });
 				const data = await response.json();
@@ -1067,21 +1071,27 @@ class AssetView extends PureComponent {
 					} else if (networkKey.includes('nevm-mainnet')) {
 						amountReceived = '0.01 SYS';
 					}
+
 					this.props.toggleShowHint(strings('faucet.request_successful', { amountReceived }), 'success');
 					console.log('Faucet request successful:', data);
 				} else {
 					this.props.toggleShowHint(strings('faucet.request_failed', { message: data.message }), 'error');
-					console.error('Faucet request failed:', data.message);
+
+					console.log('Faucet request failed:', data.message);
 				}
 			} catch (error) {
+				this.setState({ faucetButtonDisabled: false });
 				this.props.toggleShowHint(strings('faucet.error_request'), 'error');
-				console.error('Error making faucet request:', error);
+				console.log('Error making faucet request:', error);
+			} finally {
+				this.setState({ isLoading: false });
 			}
 		};
 
-		const getExplorerLink = (chainType, isTestnet) => {
+		const getExplorerLink = chainType => {
 			const contractAddress = '0x35EE5876Db071b527dC62FD3EE3c32e4304d8C23';
 			let baseUrl;
+			const isTestnet = asset.symbol.toUpperCase() === 'TSYS';
 
 			switch (chainType) {
 				case ChainType.Syscoin:
@@ -1115,7 +1125,15 @@ class AssetView extends PureComponent {
 			<View style={[styles.wrapper, style && style]} activeOpacity={1}>
 				<ImageCapInset
 					style={[styles.cardWrapper, styles.headerMargin]}
-					source={Device.isAndroid() ? { uri: 'dark800_card' } : require('../../../images/dark500_card.png')}
+					source={
+						Device.isAndroid()
+							? isDarkMode
+								? { uri: 'dark800_card' }
+								: { uri: 'dark500_card' }
+							: isDarkMode
+							? require('../../../images/dark800_card.png')
+							: require('../../../images/dark500_card.png')
+					}
 					capInsets={baseStyles.capInsets}
 				>
 					<View style={[styles.otherBody]}>{header}</View>
@@ -1204,9 +1222,13 @@ class AssetView extends PureComponent {
 								<TokenImage asset={asset} iconStyle={styles.iconStyle} fadeIn={false} />
 							</View>
 							<Text style={[styles.faucetTitle, isDarkMode && baseStyles.textDark]}>
-								{strings('faucet.rollux_faucet')}
+								{strings(
+									asset.type === ChainType.Syscoin ? 'faucet.syscoin_faucet' : 'faucet.rollux_faucet'
+								)}
 							</Text>
-							<Text style={styles.faucetDescription}>{strings('faucet.grab_sys_with_faucet')}</Text>
+							<Text style={styles.faucetDescription}>
+								{strings('faucet.grab_sys_with_faucet', { symbol: asset.symbol })}
+							</Text>
 							<Text style={styles.faucetDescription}>
 								{strings('faucet.get_faucet_amount', {
 									amount: getFaucetAmount(),
@@ -1239,10 +1261,20 @@ class AssetView extends PureComponent {
 							</View>
 							<TouchableOpacity
 								ref={this.requestNowButtonRef}
-								style={[styles.faucetButton, isDarkMode && { backgroundColor: colors.paliBlue400 }]}
+								activeOpacity={0.6}
+								style={[
+									styles.faucetButton,
+									isDarkMode && { backgroundColor: colors.paliBlue400 },
+									{ height: 40, opacity: this.state.faucetButtonDisabled ? 0.5 : 1 }
+								]}
 								onPress={requestFaucet}
+								disabled={this.state.isLoading || this.state.faucetButtonDisabled}
 							>
-								<Text style={styles.faucetButtonText}>{strings('faucet.request_now')}</Text>
+								{this.state.isLoading ? (
+									<ActivityIndicator size="small" color={colors.white} />
+								) : (
+									<Text style={styles.faucetButtonText}>{strings('faucet.request_now')}</Text>
+								)}
 							</TouchableOpacity>
 						</View>
 					</ImageCapInset>
