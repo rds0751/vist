@@ -1075,7 +1075,10 @@ class AssetView extends PureComponent {
 					this.props.toggleShowHint(strings('faucet.request_successful', { amountReceived }), 'success');
 					console.log('Faucet request successful:', data);
 				} else {
-					this.props.toggleShowHint(strings('faucet.request_failed', { message: data.message }), 'error');
+					const requestFailedString = networkKey.includes('testnet')
+						? strings('faucet.request_failed_testnet')
+						: strings('faucet.request_failed');
+					this.props.toggleShowHint(requestFailedString, 'error');
 
 					console.log('Faucet request failed:', data.message);
 				}

@@ -27,7 +27,7 @@ export const ThemeProvider = ({ children }) => {
 				console.log(storedTheme);
 				setTheme(storedTheme);
 			} else {
-				console.log(systemPreference, 'wow');
+				console.log(systemPreference, 'theme');
 				setTheme(systemPreference);
 			}
 		};

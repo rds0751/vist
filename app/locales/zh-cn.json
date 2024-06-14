@@ -854,7 +854,8 @@
 	},
 	"faucet": {
 		"request_successful": "{{amountReceived}} 已经发送到您的钱包。",
-		"request_failed": "水龙头请求失败：{{message}}",
+		"request_failed": "请等待24小时后再次请求！",
+		"request_failed_testnet": "请等待60分钟后再次请求！",
 		"error_request": "制作水龙头请求时出错",
 		"grab_with_faucet": "获取{{symbol}}",
 		"with_our_faucet": " 使用我们的水龙头!",

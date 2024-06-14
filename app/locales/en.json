@@ -854,7 +854,8 @@
 	},
 	"faucet": {
 		"request_successful": "{{amountReceived}} has just been sent to your wallet.",
-		"request_failed": "Faucet request failed: {{message}}",
+		"request_failed": "Please wait 24 hours to request again!",
+		"request_failed_testnet": "Please wait 60 minutes to request again!",
 		"error_request": "Error making faucet request",
 		"grab_with_faucet": "Grab {{symbol}}",
 		"with_our_faucet": " with our faucet!",

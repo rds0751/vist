@@ -855,7 +855,8 @@
 	},
 	"faucet": {
 		"request_successful": "{{amountReceived}} acaba de ser enviado a tu billetera.",
-		"request_failed": "La solicitud del grifo falló: {{message}}",
+		"request_failed": "Por favor, espera 24 horas para solicitar de nuevo!",
+		"request_failed_testnet": "Por favor, espera 60 minutos para solicitar de nuevo!",
 		"error_request": "Error al realizar la solicitud del grifo",
 		"grab_with_faucet": "¡Obtén {{symbol}}",
 		"with_our_faucet": " con nuestro grifo!",

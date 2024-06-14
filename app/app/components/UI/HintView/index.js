@@ -103,7 +103,6 @@ class HintView extends PureComponent {
 	render() {
 		const { hintText, hintType } = this.props;
 		const isError = hintType === 'error';
-		console.log(isError, 'wow', hintType);
 		const backgroundColor = isError ? '#D70000' : colors.greenModal100;
 		const iconColor = isError ? '#D70000' : colors.greenModal200;
 		const iconName = isError ? 'closecircleo' : 'checkcircleo';
