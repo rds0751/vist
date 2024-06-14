@@ -1152,14 +1152,12 @@ class AssetView extends PureComponent {
 								<View style={styles.iconsContainer}>
 									{asset.type === ChainType.Rollux && (
 										<Image
-											source={{
-												uri: 'https://pali-images.s3.amazonaws.com/files/rollux_logo.png'
-											}}
+											source={require('../../../images/rollux_logo.png')}
 											style={[styles.iconAssetStyle, { zIndex: 1 }]}
 										/>
 									)}
 									<Image
-										source={{ uri: 'https://pali-images.s3.amazonaws.com/files/syscoin_logo.png' }}
+										source={require('../../../images/syscoin_logo.png')}
 										style={[
 											styles.iconAssetStyle,
 											{
