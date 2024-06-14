@@ -1272,7 +1272,7 @@ class AssetView extends PureComponent {
 								style={[
 									styles.faucetButton,
 									isDarkMode && { backgroundColor: colors.paliBlue400 },
-									{ height: 40, opacity: this.state.faucetButtonDisabled ? 0.5 : 1 }
+									{ minHeight: 45, opacity: this.state.faucetButtonDisabled ? 0.5 : 1 }
 								]}
 								onPress={requestFaucet}
 								disabled={this.state.isLoading || this.state.faucetButtonDisabled}
