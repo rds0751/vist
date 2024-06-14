@@ -853,6 +853,9 @@
 		"tap_to_check": "Tap to check security status"
 	},
 	"faucet": {
+		"request_successful": "{{amountReceived}} has just been sent to your wallet.",
+		"request_failed": "Faucet request failed: {{message}}",
+		"error_request": "Error making faucet request",
 		"grab_with_faucet": "Grab {{symbol}}",
 		"with_our_faucet": " with our faucet!",
 		"rollux_faucet": "ROLLUX FAUCET",

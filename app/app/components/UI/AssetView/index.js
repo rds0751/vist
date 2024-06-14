@@ -1067,14 +1067,14 @@ class AssetView extends PureComponent {
 					} else if (networkKey.includes('nevm-mainnet')) {
 						amountReceived = '0.01 SYS';
 					}
-					this.props.toggleShowHint(`${amountReceived} has just been sent to your wallet.`);
+					this.props.toggleShowHint(strings('faucet.request_successful', { amountReceived }), 'success');
 					console.log('Faucet request successful:', data);
 				} else {
-					this.props.toggleShowHint(data.message);
+					this.props.toggleShowHint(strings('faucet.request_failed', { message: data.message }), 'error');
 					console.error('Faucet request failed:', data.message);
 				}
 			} catch (error) {
-				this.props.toggleShowHint('Error making faucet request');
+				this.props.toggleShowHint(strings('faucet.error_request'), 'error');
 				console.error('Error making faucet request:', error);
 			}
 		};
@@ -1267,7 +1267,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	toggleShowHint: hintText => dispatch(toggleShowHint(hintText))
+	toggleShowHint: (hintText, hintType) => dispatch(toggleShowHint(hintText, hintType))
 });
 
 export default connect(

@@ -2,7 +2,8 @@ import { REHYDRATE } from 'redux-persist';
 
 const initialState = {
 	showHint: false,
-	hintText: ''
+	hintText: '',
+	hintType: 'success'
 };
 
 const alertReducer = (state = initialState, action) => {
@@ -15,7 +16,8 @@ const alertReducer = (state = initialState, action) => {
 			return {
 				...state,
 				showHint: true,
-				hintText: action.hintText
+				hintText: action.hintText,
+				hintType: action.hintType
 			};
 		case 'HIDE_HINT':
 			return {

@@ -7,12 +7,13 @@ import { View } from 'react-native';
 class HintWrapper extends PureComponent {
 	static propTypes = {
 		hintText: PropTypes.string,
-		showHintView: PropTypes.bool
+		showHintView: PropTypes.bool,
+		hintType: PropTypes.string
 	};
 
 	render() {
-		const { showHintView, hintText } = this.props;
-		return showHintView ? <HintView hintText={hintText} /> : <View />;
+		const { showHintView, hintText, hintType } = this.props;
+		return showHintView ? <HintView hintText={hintText} hintType={hintType} /> : <View />;
 	}
 }
 
