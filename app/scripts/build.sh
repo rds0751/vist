@@ -100,7 +100,7 @@ prebuild_android() {
 build_core() {
 	cd ./../core
 	yarn build
-	rsync -rcv ./dist/ ./../app/node_modules/paliwallet-core/dist/
+	rsync -rcv ./dist/ ./../app/node_modules/vistawallet-core/dist/
 	cd ./../app
 }
 

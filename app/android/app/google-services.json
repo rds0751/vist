@@ -1,18 +1,29 @@
 {
 	"project_info": {
-		"project_number": "Put your own firebase configuration data here"
+	  "project_number": "976401419043",
+	  "project_id": "vista-54dfa",
+	  "storage_bucket": "vista-54dfa.appspot.com"
 	},
 	"client": [
-		{
-			"client_info": {},
-			"oauth_client": [{}, {}],
-			"api_key": [{}],
-			"services": {
-				"appinvite_service": {
-					"other_platform_oauth_client": []
-				}
-			}
+	  {
+		"client_info": {
+		  "mobilesdk_app_id": "1:976401419043:android:5e03728e194522afd81a96",
+		  "android_client_info": {
+			"package_name": "com.vistafinance"
+		  }
+		},
+		"oauth_client": [],
+		"api_key": [
+		  {
+			"current_key": "AIzaSyAtyI_btIYhDEQ0fbT9GbUgGXClTa_dH7o"
+		  }
+		],
+		"services": {
+		  "appinvite_service": {
+			"other_platform_oauth_client": []
+		  }
 		}
+	  }
 	],
 	"configuration_version": "1"
-}
+  }

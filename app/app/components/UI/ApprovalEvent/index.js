@@ -18,7 +18,7 @@ import Engine from '../../../core/Engine';
 import { getChainTypeByChainId } from '../../../util/number';
 import { toLowerCaseEquals } from '../../../util/general';
 import { strings } from '../../../../locales/i18n';
-import { ChainType, TransactionStatus, util } from 'paliwallet-core';
+import { ChainType, TransactionStatus, util } from 'vistawallet-core';
 import TransactionTypes from '../../../core/TransactionTypes';
 import { onEvent } from '../../../util/statistics';
 import { chainToChainType } from '../../../util/ChainTypeImages';

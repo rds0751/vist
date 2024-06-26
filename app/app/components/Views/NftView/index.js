@@ -42,7 +42,7 @@ import { getDefiIcon } from '../../../util/rpcUtil';
 import { isSvgFile } from '../../../util/general';
 import { getRpcChainTypeByChainId, isRpcChainId } from '../../../util/ControllerUtils';
 import { ChainTypeBgDefi, ChainTypes } from '../../../util/ChainTypeImages';
-import { ChainType } from 'paliwallet-core';
+import { ChainType } from 'vistawallet-core';
 import { ThemeContext } from '../../../theme/ThemeProvider';
 
 const screenWidth = Device.getDeviceWidth();

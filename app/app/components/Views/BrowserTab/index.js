@@ -38,7 +38,7 @@ import Device from '../../../util/Device';
 import AppConstants from '../../../core/AppConstants';
 import SharedDeeplinkManager from '../../../core/DeeplinkManager';
 import { SetUseTestServer } from '../../../actions/settings';
-import { ChainType, util, URL } from 'paliwallet-core';
+import { ChainType, util, URL } from 'vistawallet-core';
 import { toggleShowHint } from '../../../actions/hint';
 import { checkPermissionAndSave } from '../../../util/ImageUtils.android';
 import { getAppVersion, getAppVersionCode, getChannel, getDeviceId, getDeviceInfo } from '../../../util/ApiClient';
@@ -865,7 +865,7 @@ const BrowserTab = props => {
 	const onShouldStartLoadWithRequest = nativeEvent => {
 		const { url } = nativeEvent;
 		try {
-			if (url.startsWith('wc:') || url.startsWith('paliwallet://wc')) {
+			if (url.startsWith('wc:') || url.startsWith('vistawallet://wc')) {
 				SharedDeeplinkManager.parse(url, {
 					origin: undefined
 				});
@@ -1914,7 +1914,7 @@ const BrowserTab = props => {
 							onMessage={onMessage}
 							onError={onError}
 							onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
-							originWhitelist={['http://*', 'https://*', 'wc:', 'paliwallet://']}
+							originWhitelist={['http://*', 'https://*', 'wc:', 'vistawallet://']}
 							userAgent={USER_AGENT}
 							sendCookies
 							javascriptEnabled

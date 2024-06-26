@@ -21,7 +21,7 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import iconCopy from '../../../images/copy.png';
 
 import iconReceiveActive from '../../../images/receive_hl.png';
-import { ChainType, util } from 'paliwallet-core';
+import { ChainType, util } from 'vistawallet-core';
 import GlobalAlert from '../GlobalAlert';
 import { getTokenName } from '../../../util/number';
 import { getChainTypeName } from '../../../util/ChainTypeImages';

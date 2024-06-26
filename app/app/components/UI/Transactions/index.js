@@ -17,7 +17,7 @@ import { ThemeContext } from '../../../theme/ThemeProvider';
 import { safeToChecksumAddress } from '../../../util/address';
 import iconNotx from '../../../images/notx.png';
 import { strings } from '../../../../locales/i18n';
-import { ChainType, toChecksumAddress, TransactionStatus, util } from 'paliwallet-core';
+import { ChainType, toChecksumAddress, TransactionStatus, util } from 'vistawallet-core';
 import Engine from '../../../core/Engine';
 import { store } from '../../../store';
 import { showAlert } from '../../../actions/alert';

@@ -9,7 +9,7 @@ import iconPolygon from '../../../images/ic_polygon.png';
 import iconEther from '../../../images/ic_ethereum.png';
 import { strings } from '../../../../locales/i18n';
 import Engine from '../../../core/Engine';
-import { ChainType } from 'paliwallet-core';
+import { ChainType } from 'vistawallet-core';
 import { getChainTypeName } from '../../../util/ChainTypeImages';
 import { ThemeContext } from '../../../theme/ThemeProvider';
 

@@ -7,7 +7,7 @@ import SecureKeychain from '../../../core/SecureKeychain';
 import { connect } from 'react-redux';
 import { colors } from '../../../styles/common';
 import { BACKUP_VAULT, BIOMETRY_CHOICE, BIOMETRY_CHOICE_DISABLED, EXISTING_USER } from '../../../constants/storage';
-import { util } from 'paliwallet-core';
+import { util } from 'vistawallet-core';
 import LottieSplashScreen from 'react-native-lottie-splash-screen';
 import Device from '../../../util/Device';
 

@@ -1,4 +1,4 @@
-import { ChainType } from 'paliwallet-core';
+import { ChainType } from 'vistawallet-core';
 import { callSqlite } from '../util/ControllerUtils';
 
 export const migrations = {

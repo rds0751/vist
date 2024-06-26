@@ -1,4 +1,4 @@
-package io.paliwallet.nativeModules;
+package com.vistafinance.nativeModules;
 
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -23,11 +23,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.paliwallet.utils.CryptUtil;
-import io.paliwallet.utils.DataConnectionManager;
-import io.paliwallet.utils.DeviceInfoUtils;
-import io.paliwallet.utils.GooglePlayUtils;
-import io.paliwallet.utils.NotificationUtils;
+import com.vistafinance.utils.CryptUtil;
+import com.vistafinance.utils.DataConnectionManager;
+import com.vistafinance.utils.DeviceInfoUtils;
+import com.vistafinance.utils.GooglePlayUtils;
+import com.vistafinance.utils.NotificationUtils;
 
 public class RNToolsManager extends ReactContextBaseJavaModule {
 	private Context mContext;

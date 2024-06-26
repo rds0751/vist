@@ -1,4 +1,4 @@
-import { ChainType } from 'paliwallet-core';
+import { ChainType } from 'vistawallet-core';
 
 //node: lowercase address
 export const CBRIDGE_SUPPORT_TOKENS = {

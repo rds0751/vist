@@ -31,7 +31,7 @@ import { key2Warn } from '../../../util/security';
 import Modal from 'react-native-modal';
 import LottieView from 'lottie-react-native';
 import { getIcTagByChainType, getIcLogoByChainType } from '../../../util/ChainTypeImages';
-import { ChainType, util } from 'paliwallet-core';
+import { ChainType, util } from 'vistawallet-core';
 import { ThemeContext } from '../../../theme/ThemeProvider';
 
 const { width } = Dimensions.get('screen');

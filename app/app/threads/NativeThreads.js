@@ -3,7 +3,7 @@ import { randomTransactionId } from '../util/number';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as ApiClient from '../util/ApiClient';
 import { getExportFunctions } from '../util/threadUtils';
-import { util as TsUtils } from 'paliwallet-core';
+import { util as TsUtils } from 'vistawallet-core';
 
 class NativeThreads {
 	listeners = {};

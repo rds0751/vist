@@ -1,4 +1,4 @@
-package io.paliwallet.utils;
+package com.vistafinance.utils;
 
 /**
  * @author Lody

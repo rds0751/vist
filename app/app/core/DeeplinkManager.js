@@ -2,7 +2,7 @@
 
 import qs from 'qs';
 import WC2Manager, { isWC2Enabled } from '../core/WalletConnect/WalletConnectV2';
-import { util, URL } from 'paliwallet-core';
+import { util, URL } from 'vistawallet-core';
 
 class DeeplinkManager {
 	constructor(_navigation) {
@@ -86,7 +86,7 @@ class DeeplinkManager {
 						});
 				}
 				break;
-			case 'paliwallet':
+			case 'vistawallet':
 				handled();
 				const urlDeeplink = params?.uri || urlObj.href;
 				let fixedUrl = urlDeeplink;

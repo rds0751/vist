@@ -27,7 +27,7 @@ import { passwordRequirementsMet } from '../../../util/password';
 import Device from '../../../util/Device';
 import Icon from '../../UI/Icon';
 import BiometryButton from '../../UI/BiometryButton';
-import { util } from 'paliwallet-core';
+import { util } from 'vistawallet-core';
 import { updateLockScreen } from '../../../actions/settings';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { isDate } from 'lodash';
@@ -174,7 +174,7 @@ const WRONG_PASSWORD_ERROR = 'Error: Decrypt failed';
 const WRONG_PASSWORD_ERROR_ANDROID = 'Error: error:1e000065:Cipher functions:OPENSSL_internal:BAD_DECRYPT';
 const VAULT_ERROR = 'Error: Cannot unlock without a previous vault.';
 const CLEAN_VAULT_ERROR =
-	'Pali Wallet encountered an error, Please reinstall Pali Wallet and restore with your seed phrase.';
+	'Vista Wallet encountered an error, Please reinstall Vista Wallet and restore with your seed phrase.';
 
 /**
  * View where returning users can authenticate

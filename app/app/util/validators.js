@@ -1,4 +1,4 @@
-import { EthersUtils } from 'paliwallet-core';
+import { EthersUtils } from 'vistawallet-core';
 
 export const failedSeedPhraseRequirements = seed => {
 	const wordCount = seed.split(/\s+/u).length;

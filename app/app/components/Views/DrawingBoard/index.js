@@ -22,7 +22,7 @@ import Progress from './progress';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { EXISTING_USER, TRUE } from '../../../constants/storage';
 import { failedSeedPhraseRequirements, isValidMnemonic, parseSeedPhrase } from '../../../util/validators';
-import { Mutex, util } from 'paliwallet-core';
+import { Mutex, util } from 'vistawallet-core';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import NativeThreads from '../../../threads/NativeThreads';
 import { ThemeContext } from '../../../theme/ThemeProvider';

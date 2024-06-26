@@ -1,14 +1,14 @@
-import { ChainType } from 'paliwallet-core';
+import { ChainType } from 'vistawallet-core';
 import { callSqlite } from './ControllerUtils';
 import { chainToChainType } from './ChainTypeImages';
 
 export const CLIENT_OPTIONS = {
 	clientMeta: {
 		// Required
-		description: 'Pali Wallet Mobile app',
-		url: 'https://paliwallet.com',
+		description: 'Vista Wallet Mobile app',
+		url: 'https://vistawallet.com',
 		icons: [],
-		name: 'Pali Wallet',
+		name: 'Vista Wallet',
 		ssl: true
 	}
 };

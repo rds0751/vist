@@ -11214,7 +11214,7 @@ pac-resolver@^7.0.0:
     ip "^1.1.8"
     netmask "^2.0.2"
 
-"paliwallet-core@file:../core":
+"vistawallet-core@file:../core":
   version "1.0.0"
   dependencies:
     "@ethereumjs/common" "^2.3.1"

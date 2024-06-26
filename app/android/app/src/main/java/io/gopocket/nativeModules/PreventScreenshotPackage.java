@@ -1,4 +1,4 @@
-package io.paliwallet.nativeModules;
+package com.vistafinance.nativeModules;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;

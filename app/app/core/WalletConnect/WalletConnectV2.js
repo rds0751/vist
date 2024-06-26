@@ -10,7 +10,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { formatJsonRpcResult } from '@json-rpc-tools/utils';
 import { WALLET_CONNECT_ORIGIN } from '../../util/walletconnect';
 import { WALLETCONNECTV2_SESSIONS } from '../../constants/storage';
-import { ChainType, util } from 'paliwallet-core';
+import { ChainType, util } from 'vistawallet-core';
 import { isPrefixedFormattedHexString } from '../../util/networks';
 import { getChainIdByType, getNetworkController, getChainTypeByChainId } from '../../util/number';
 
@@ -827,9 +827,9 @@ export class WC2Manager {
 		const options = {
 			core: core,
 			metadata: {
-				name: 'Pali Wallet',
-				description: 'Pali Wallet Integration',
-				url: 'http://paliwallet.com/',
+				name: 'Vista Wallet',
+				description: 'Vista Wallet Integration',
+				url: 'http://vistawallet.com/',
 				icons: []
 			}
 		};

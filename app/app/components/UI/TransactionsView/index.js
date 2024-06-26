@@ -14,7 +14,7 @@ import MStatusBar from '../MStatusBar';
 
 import { connect } from 'react-redux';
 import TitleBar from '../TitleBar';
-import { ChainType } from 'paliwallet-core';
+import { ChainType } from 'vistawallet-core';
 
 const activeOpacity = 0.8;
 const styles = StyleSheet.create({

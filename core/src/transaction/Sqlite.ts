@@ -7,9 +7,9 @@ import Fuse from 'fuse.js';
 
 SQLiteStorage.DEBUG(false);
 SQLiteStorage.enablePromise(false);
-const database_name = 'PaliWallet.db';
+const database_name = 'vistawallet.db';
 const database_version = '1.0';
-const database_displayname = 'PaliWalletDatabase';
+const database_displayname = 'vistawalletDatabase';
 
 export class Sqlite {
   private static instance: Sqlite;

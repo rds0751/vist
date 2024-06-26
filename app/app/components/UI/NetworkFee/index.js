@@ -29,7 +29,7 @@ import {
 	renderGwei,
 	toGwei
 } from '../../../util/number';
-import { ChainType, BN, util } from 'paliwallet-core';
+import { ChainType, BN, util } from 'vistawallet-core';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 
 import sliderThumb from '../../../images/img_slider.png';

@@ -41,7 +41,7 @@ const styles = {
 		alignItems: 'center'
 	},
 
-	logoPali: {
+	logoVista: {
 		width: 65,
 		height: 65,
 		resizeMode: 'contain'
@@ -132,7 +132,7 @@ export default class AboutView extends PureComponent {
 	};
 
 	goWebsite = () => {
-		Linking.openURL('https://paliwallet.com/');
+		Linking.openURL('https://vistawallet.com/');
 	};
 
 	goDiscord = () => {
@@ -140,7 +140,7 @@ export default class AboutView extends PureComponent {
 	};
 
 	goTwitter = () => {
-		Linking.openURL('https://twitter.com/PaliWallet');
+		Linking.openURL('https://twitter.com/vistawallet');
 	};
 
 	goTelegram = () => {
@@ -163,7 +163,7 @@ export default class AboutView extends PureComponent {
 				/>
 
 				<View style={styles.imgCircle}>
-					<Image style={styles.logoPali} source={require('../../../images/pali.png')} />
+					<Image style={styles.logoVista} source={require('../../../images/pali.png')} />
 				</View>
 				<Text style={styles.title}>PALI WALLET</Text>
 				<Text style={styles.version}>{this.state.version}</Text>

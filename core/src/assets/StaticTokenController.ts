@@ -59,7 +59,7 @@ export class StaticTokenController extends BaseController<StaticTokenConfig, Bas
       do {
         const maxTokenId = await Sqlite.getInstance().getStaticTokensMaxId();
         logInfo('PPYang start load static token, id:', maxTokenId);
-        //TODO: update api url to Pali ones
+        //TODO: update api url to Vista ones
         const url = `https://pali.pollum.cloud/getTokens?startId=${maxTokenId + 1}&count=${maxLoadCount}`;
         const response: any = await handleFetch(url);
 

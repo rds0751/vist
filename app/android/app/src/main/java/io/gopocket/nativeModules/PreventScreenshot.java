@@ -1,4 +1,4 @@
-package io.paliwallet.nativeModules;
+package com.vistafinance.nativeModules;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -7,7 +7,7 @@ import com.facebook.react.bridge.Promise;
 
 import android.view.WindowManager;
 
-import io.paliwallet.MainApplication;
+import com.vistafinance.MainApplication;
 
 import static com.facebook.react.bridge.UiThreadUtil.runOnUiThread;
 

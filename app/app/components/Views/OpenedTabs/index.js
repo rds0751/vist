@@ -5,7 +5,7 @@ import CookieManager from '@react-native-cookies/cookies';
 import { clearWebViewIOSCache } from 'react-native-webview-ios-cache-clear';
 import Modal from 'react-native-modal';
 import { WebView } from 'react-native-webview';
-import { util } from 'paliwallet-core';
+import { util } from 'vistawallet-core';
 import { useTheme } from '../../../theme/ThemeProvider';
 
 import { colors, fontStyles, baseStyles } from '../../../styles/common';
@@ -13,7 +13,7 @@ import { SvgUri } from 'react-native-svg';
 
 import { strings } from '../../../../locales/i18n';
 
-import { URL } from 'paliwallet-core';
+import { URL } from 'vistawallet-core';
 
 import { callSqlite } from '../../../util/ControllerUtils';
 import Device from '../../../util/Device';
@@ -240,7 +240,7 @@ const TabItem = ({ tab, isActive, activeTab, onPress, closeTab, index }) => {
 
 	useEffect(() => {
 		const getFavicon = async () => {
-			if (tab.url === 'paliwallet://homepage') {
+			if (tab.url === 'vistawallet://homepage') {
 				return setFavicon(require('../../../images/ic_dapp_home.png'));
 			}
 

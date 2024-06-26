@@ -1,16 +1,16 @@
-Pali Mobile - Privacy Policy V1
+Vista Mobile - Privacy Policy V1
 
 LAST UPDATED: June 6, 2023
 
 INTRODUCTION
 
-Welcome to Pali Wallet, the official Syscoin & Rollux wallet, powered by the talented minds at Pollum. Pali is a reliable, open-source, multichain & evolving app focused on ensuring seamless interactions with blockchains and decentralized applications (dapps) across all EVM-compatible chains.
+Welcome to Vista Wallet, the official Syscoin & Rollux wallet, powered by the talented minds at Pollum. Vista is a reliable, open-source, multichain & evolving app focused on ensuring seamless interactions with blockchains and decentralized applications (dapps) across all EVM-compatible chains.
 
 We believe in the open ethos of the blockchain world and we make an immense effort to minimize, and wherever feasible, eliminate the exposure of personal data during the use of our products.
 
-Pali Wallet does not collect, hold, or store keys, account information, or passwords. We do not capitalize on the collection of data and do not use your data for marketing or advertising.
+Vista Wallet does not collect, hold, or store keys, account information, or passwords. We do not capitalize on the collection of data and do not use your data for marketing or advertising.
 
-This privacy policy (“Policy”) explains how Pali Wallet handles and protects personal information of people who use our mobile application ("App") or otherwise use our services (collectively, the “Services”).
+This privacy policy (“Policy”) explains how Vista Wallet handles and protects personal information of people who use our mobile application ("App") or otherwise use our services (collectively, the “Services”).
 
 This Policy applies to anyone who accesses the Services. Please read the Policy carefully to understand our practices regarding your information and how we will treat it. By using the Apps and/or the Services, you acknowledge that the collection, use, and sharing of your information will take place as described in this Policy.
 
@@ -18,12 +18,12 @@ So that we are clear about the terminology we are using, when we use the phrase 
 
 THE BLOCKCHAIN
 
-Considering the inherent transparency of many blockchains, including Syscoin & Rollux, transactions that users broadcast via Pali Wallet may be publicly accessible. This could include, but is not limited to, your public sending address, the receiver's public address, the transaction amount, and any other data a user chooses to include in a given transaction. The information stored on a blockchain might be public, unchangeable, and challenging or even impossible to remove. Transactions and addresses may inadvertently disclose information about the user's identity and such information could potentially be correlated now or in the future by any party who chooses to do so, including law enforcement. Users are encouraged to understand how privacy and transparency on the blockchain work.
+Considering the inherent transparency of many blockchains, including Syscoin & Rollux, transactions that users broadcast via Vista Wallet may be publicly accessible. This could include, but is not limited to, your public sending address, the receiver's public address, the transaction amount, and any other data a user chooses to include in a given transaction. The information stored on a blockchain might be public, unchangeable, and challenging or even impossible to remove. Transactions and addresses may inadvertently disclose information about the user's identity and such information could potentially be correlated now or in the future by any party who chooses to do so, including law enforcement. Users are encouraged to understand how privacy and transparency on the blockchain work.
 
 
 WHAT WE COLLECT
 
-We may collect Personal Information you choose to provide to us. For example, when you contact us for support through the Services, you give us your e-mail address and any other information that you choose to provide. Also, if you participate in a Pali Wallet offer, give-away, or promotion (“Promotion”), you provide your name, e-mail address, mailing address, and any other required information.
+We may collect Personal Information you choose to provide to us. For example, when you contact us for support through the Services, you give us your e-mail address and any other information that you choose to provide. Also, if you participate in a Vista Wallet offer, give-away, or promotion (“Promotion”), you provide your name, e-mail address, mailing address, and any other required information.
 
 USE OF INFORMATION
 
@@ -31,7 +31,7 @@ The information we collect about you is aimed to enhance your experience with ou
 
 We may collect Personal Information you willingly provide to us. For instance, when you contact us for assistance through our Services, you provide us your email address and any other information you decide to share.
 
-Also, in certain instances such as participating in a Pali offer, event or promotion ("Promotion"), you may provide your name, email address, postal address, and any other information necessary.
+Also, in certain instances such as participating in a Vista offer, event or promotion ("Promotion"), you may provide your name, email address, postal address, and any other information necessary.
 
 Furthermore, we might also collect information about visits to our App, or our Site/Blog, and use an analytics platform to track user activity. Although this platform may identify your IP address to recognize unique visitors, we do not collect or retain that information. We may, however, collect information about your operating system, visit duration, actions and views per visit, and referring site information.
 
@@ -51,7 +51,7 @@ We might share your Personal Information with service providers who help us to o
 
 If we go through a business transition, such as a merger, acquisition by another company, or sale of all or a portion of our assets, your Personal Information might be among the assets transferred. In such an event, we will notify you and assure that the acquirer will adhere to the commitments of this Policy.
 
-Also, we might disclose your Personal Information as necessary to comply with any law, regulation, or legal request; to protect the rights and property of Pali Wallet, our agents, customers, and others, including enforcing our agreements, policies, and Terms of Service; and in an emergency, to protect the personal safety of Pali Wallet, our customers, or any person.
+Also, we might disclose your Personal Information as necessary to comply with any law, regulation, or legal request; to protect the rights and property of Vista Wallet, our agents, customers, and others, including enforcing our agreements, policies, and Terms of Service; and in an emergency, to protect the personal safety of Vista Wallet, our customers, or any person.
 
 DATA SECURITY
 
@@ -69,7 +69,7 @@ The App and the Services are controlled and operated by us from the United Arab 
 
 CHILDREN'S PRIVACY
 
-Pali Wallet Services are not intended for or directed at individuals under the age of 18. We do not knowingly collect Personal Information from individuals under 18. If you are under the age of 18, please do not submit any Personal Information to us.
+Vista Wallet Services are not intended for or directed at individuals under the age of 18. We do not knowingly collect Personal Information from individuals under 18. If you are under the age of 18, please do not submit any Personal Information to us.
 
 RETENTION
 
@@ -85,6 +85,6 @@ CONTACT INFORMATION
 
 If you have any questions or comments about this Policy, or if you would like to exercise your rights to your Personal Information, you may contact us by email at legal@pollum.io or through the contact form available in our App.
 
-By using Pali Wallet and its Services, you agree to this Privacy Policy. If you do not agree with this Policy, you should not use the Services.
+By using Vista Wallet and its Services, you agree to this Privacy Policy. If you do not agree with this Policy, you should not use the Services.
 
-Thank you for using Pali Wallet. We are committed to protecting your privacy and providing a safe and productive online environment.
+Thank you for using Vista Wallet. We are committed to protecting your privacy and providing a safe and productive online environment.

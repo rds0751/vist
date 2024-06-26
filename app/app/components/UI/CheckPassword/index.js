@@ -18,7 +18,7 @@ import Device from '../../../util/Device';
 import SecureKeychain from '../../../core/SecureKeychain';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { BIOMETRY_CHOICE_DISABLED, TRUE } from '../../../constants/storage';
-import { util } from 'paliwallet-core';
+import { util } from 'vistawallet-core';
 import { connect } from 'react-redux';
 import { useTheme } from '../../../theme/ThemeProvider';
 

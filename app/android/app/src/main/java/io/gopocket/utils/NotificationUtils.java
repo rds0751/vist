@@ -1,4 +1,4 @@
-package io.paliwallet.utils;
+package com.vistafinance.utils;
 
 import android.app.AppOpsManager;
 import android.content.Context;

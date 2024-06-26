@@ -18,7 +18,7 @@ import { colors, baseStyles } from '../../../styles/common';
 import PropTypes from 'prop-types';
 import Device from '../../../util/Device';
 import { strings } from '../../../../locales/i18n';
-import { URL, util } from 'paliwallet-core';
+import { URL, util } from 'vistawallet-core';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ImageCapInset from '../../UI/ImageCapInset';
 import AppConstants from '../../../core/AppConstants';

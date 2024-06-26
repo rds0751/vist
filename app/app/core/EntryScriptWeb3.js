@@ -1,5 +1,5 @@
 import Device from '../util/Device';
-import { RNFS } from 'paliwallet-core';
+import { RNFS } from 'vistawallet-core';
 
 const EntryScriptWeb3 = {
 	entryScriptWeb3: null,

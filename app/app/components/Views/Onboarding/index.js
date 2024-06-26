@@ -13,7 +13,7 @@ import ImportBackground from '../../../images/seedphrasebackground.png';
 import BackgroundWelcome from '../../../images/backgroundWelcome.png';
 import Create from '../../../images/Add.png';
 import Import from '../../../images/seedphrase.png';
-import PaliLogo from '../../../images/img_share_logo.png';
+import VistaLogo from '../../../images/img_share_logo.png';
 import Logo from '../../../images/img_support_network.png';
 import importKey from '../../../images/ic_import_key.png';
 import importKeyBackground from '../../../images/import_key_background.png';
@@ -189,7 +189,7 @@ class Onboarding extends PureComponent {
 						repeat="repeat"
 					/>
 				)}
-				<Image resizeMode="contain" source={PaliLogo} style={styles.logo} />
+				<Image resizeMode="contain" source={VistaLogo} style={styles.logo} />
 
 				<TouchableOpacity
 					style={styles.createButtonWrapper}

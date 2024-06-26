@@ -38,7 +38,7 @@ import syscoinIntro from '../../../util/syscoinIntro.js';
 import rolluxIntro from '../../../util/rolluxIntro';
 import Engine from '../../../core/Engine';
 import EntryScriptWeb3 from '../../../core/EntryScriptWeb3';
-import { ChainType, util } from 'paliwallet-core';
+import { ChainType, util } from 'vistawallet-core';
 import { getQueryId } from '../../../data/ContractData';
 import { store } from '../../../store';
 import { toggleApproveModalInModal } from '../../../actions/modals';

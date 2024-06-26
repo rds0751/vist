@@ -1,4 +1,4 @@
-# Pali Wallet Core Module
+# Vista Wallet Core Module
 
 `yarn && yarn build`
 

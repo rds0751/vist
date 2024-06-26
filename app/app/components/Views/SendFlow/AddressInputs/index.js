@@ -4,7 +4,7 @@ import { colors, fontStyles, baseStyles } from '../../../../styles/common';
 import PropTypes from 'prop-types';
 import { renderShortAddress } from '../../../../util/address';
 import { strings } from '../../../../../locales/i18n';
-import { isValidAddress } from 'paliwallet-core';
+import { isValidAddress } from 'vistawallet-core';
 import NFTImage from '../../../UI/NFTImage';
 import { useTheme } from '../../../../theme/ThemeProvider';
 

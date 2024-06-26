@@ -1,6 +1,6 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
-project './PaliWallet.xcodeproj'
+project './vistawallet.xcodeproj'
 platform :ios, '11.0'
 
 def react_native_post_install(installer)
@@ -24,7 +24,7 @@ def react_native_post_install(installer)
     end
   end
 
-target 'PaliWallet' do
+target 'vistawallet' do
   config = use_native_modules!
 
 

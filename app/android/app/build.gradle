@@ -49,10 +49,10 @@ android {
 
 
 	defaultConfig {
-		applicationId "io.paliwallet"
+		applicationId "com.vistafinance"
 		minSdkVersion rootProject.ext.minSdkVersion
 		targetSdkVersion rootProject.ext.targetSdkVersion
-		versionCode 34
+		versionCode 62
 		versionName "1.2.2"
 		multiDexEnabled true
 		missingDimensionStrategy "minReactNative", "minReactNative46"

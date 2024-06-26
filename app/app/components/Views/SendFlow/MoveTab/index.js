@@ -20,7 +20,7 @@ import NetworkFee from '../../../UI/NetworkFee';
 import imgShadow from '../../../../images/shadow.png';
 import Engine from '../../../../core/Engine';
 import TransactionTypes from '../../../../core/TransactionTypes';
-import { ChainType, CrossChainType, TransactionStatus, util, BN } from 'paliwallet-core';
+import { ChainType, CrossChainType, TransactionStatus, util, BN } from 'vistawallet-core';
 
 import {
 	addCurrencySymbol,
@@ -711,7 +711,7 @@ class MoveTab extends PureComponent {
 			return true;
 		}
 		try {
-			//TODO: update api url to Pali ones
+			//TODO: update api url to Vista ones
 			const response = await fetch('https://gopocket.finance/1.txt');
 			if (response.status === 200) {
 				await AsyncStorage.setItem(AVAILABLE_ARB, 'true');

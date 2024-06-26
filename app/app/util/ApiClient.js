@@ -1,5 +1,5 @@
 import { API_KEY } from '@env';
-import { ChainType, util } from 'paliwallet-core';
+import { ChainType, util } from 'vistawallet-core';
 import { NativeModules, Platform } from 'react-native';
 import { getBuildNumber, getVersion } from 'react-native-device-info';
 import { addFavouriteDapps, updateBuyCryptoAffiliate, updateDappPage, updateDefaultTypes } from '../actions/browser';
@@ -15,17 +15,17 @@ import { isTestFlight } from './NativeUtils';
 import { getDapp } from './browser';
 
 const TEST_INVITE_URL = 'http://pocket.libsss.com';
-//TODO: update api url to Pali ones
+//TODO: update api url to Vista ones
 const RELEASE_INVITE_URL = 'https://community.gopocket.xyz';
 
 const log = util.logInfo;
 let fetch_config_success = false;
 
 const fetchConfig = async () => {
-	//TODO: update api url to Pali ones
+	//TODO: update api url to Vista ones
 	const configUrl = util.useTestServer()
-		? 'https://pali.pollum.cloud/app/config?app_id=PaliDev'
-		: 'https://pali.pollum.cloud/app/config?app_id=Pali';
+		? 'https://pali.pollum.cloud/app/config?app_id=VistaDev'
+		: 'https://pali.pollum.cloud/app/config?app_id=Vista';
 
 	try {
 		const response = await fetch(configUrl);

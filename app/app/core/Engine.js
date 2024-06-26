@@ -28,7 +28,7 @@ import {
 	ChainType,
 	ArbContractController,
 	PolygonContractController
-} from 'paliwallet-core';
+} from 'vistawallet-core';
 
 import { store } from '../store';
 import NativeThreads from '../threads/NativeThreads';

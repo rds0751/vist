@@ -1,4 +1,4 @@
-import { ChainType, util } from 'paliwallet-core';
+import { ChainType, util } from 'vistawallet-core';
 import { strings } from '../../locales/i18n';
 import { RPC } from './networks';
 import { getIcTagResource, getTagColor, getIcLogoResource } from './rpcUtil';

@@ -230,7 +230,7 @@ export default class Settings extends PureComponent {
 							title={strings('app_settings.update_check')}
 						/>
 
-						{/* {TODO: Update the onInvite to Pali one instead of Pali Wallet
+						{/* {TODO: Update the onInvite to Vista one instead of Vista Wallet
 							and probably update to send for the download page, or invite rewards page, idk}
 						{/* <SettingsDrawer
 							onPress={this.onInvite}

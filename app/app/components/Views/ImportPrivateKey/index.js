@@ -12,7 +12,7 @@ import { importAccountFromPrivateKey, parsePrivateKey } from '../../../util/addr
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ThemeContext } from '../../../theme/ThemeProvider';
 import { EXISTING_USER, TRUE } from '../../../constants/storage';
-import { util } from 'paliwallet-core';
+import { util } from 'vistawallet-core';
 import { toggleShowHint } from '../../../actions/hint';
 import { SafeAreaView } from 'react-native-safe-area-context';
 

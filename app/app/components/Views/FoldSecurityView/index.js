@@ -21,7 +21,7 @@ import { connect } from 'react-redux';
 import { baseStyles, colors, fontStyles } from '../../../styles/common';
 import Device from '../../../util/Device';
 import TokenImage from '../../UI/TokenImage';
-import { util } from 'paliwallet-core';
+import { util } from 'vistawallet-core';
 import { strings } from '../../../../locales/i18n';
 import DashSecondLine from '../DashSecondLine';
 import { getChainIdByType, renderCoinValue } from '../../../util/number';

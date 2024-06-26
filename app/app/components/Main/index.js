@@ -36,7 +36,7 @@ import { setEtherTransaction, setTransactionObject } from '../../actions/transac
 import PersonalSign from '../UI/PersonalSign';
 import TypedSign from '../UI/TypedSign';
 import Modal from 'react-native-modal';
-import { util, CrossChainType, BN, ChainType, OnEventTag } from 'paliwallet-core';
+import { util, CrossChainType, BN, ChainType, OnEventTag } from 'vistawallet-core';
 import { strings } from '../../../locales/i18n';
 
 import {
@@ -85,7 +85,7 @@ import { updateLockScreen } from '../../actions/settings';
 import WalletConnectList from '../UI/WalletConnectList';
 import { hideWalletConnectList, showWalletConnectIcon, hideWalletConnectIcon } from '../../actions/walletconnect';
 import { toggleShowHint } from '../../actions/hint';
-import { logDebug } from 'paliwallet-core/dist/util';
+import { logDebug } from 'vistawallet-core/dist/util';
 import SecureKeychain from '../../core/SecureKeychain';
 import { isMainnetChain } from '../../util/ControllerUtils';
 import { useTheme } from '../../theme/ThemeProvider';
