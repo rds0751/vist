@@ -224,11 +224,6 @@ export default class Settings extends PureComponent {
 							title={'Theme'}
 							isTheme={theme}
 						/>
-						<SettingsDrawer
-							onPress={this.onUpdateCheck}
-							image={require('../../../images/ic_setting_update.png')}
-							title={strings('app_settings.update_check')}
-						/>
 
 						{/* {TODO: Update the onInvite to Vista one instead of Vista Wallet
 							and probably update to send for the download page, or invite rewards page, idk}
