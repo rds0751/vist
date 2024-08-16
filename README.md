@@ -1,88 +1,796 @@
-# pali-mobile
-
-Immerse yourself in the Web3 revolution with Vista Mobile, the official Syscoin & Rollux wallet, powered by the talented minds at Pollum. Our mission? To deliver an unbeatable user experience in the realm of cryptocurrencies and decentralized applications (dapps), across all EVM-compatible chains.
-
-![banner](img/banner.png)
-
-## Features
-
-• SIMPLE UX: Vista is designed with a straight-to-the-point navigation system, a minimalist interface, and pleasant components, aiming to make your journey through the cryptosphere as welcoming as possible. We consistently update and adapt our features in line with community feedback and evolving market trends, ensuring that Vista remains not just functional, but exceptional.
-
-• FULLY AUDITED & OPEN-SOURCE: With a commitment to absolute transparency, our codebase is entirely open-source and audited, meaning you can not only trust Vista with the security of your assets, but also verify it. What's safer than that?
-
-• FREE FOREVER: At Vista, we believe in the open ethos of the blockchain world. That's why we've ensured that our app is not just easy to use but free to use, always. Vista takes ZERO fees on services, ensuring that your transactions are as straightforward and cost-effective as possible. It's our way of fostering a truly decentralized and accessible environment.
-
-• STATE-OF-THE-ART SECURITY: Your security is our top priority. Vista is equipped with robust security features including Face ID login, screenshot protection, and the ability to revoke token approvals. Moreover, our token security analysis is powered by the [Go Plus Security API](https://gopluslabs.io/), offering real-time insights for informed transactions.
-
-• BUILT-IN ON/OFF RAMP: Vista seamlessly integrates with Coinify, enabling users to convert crypto into fiat currencies like USD, EUR, BRL, and more. This feature opens up a wealth of real-world possibilities, empowering you to use your digital assets in everyday transactions, from purchasing coffee to online shopping.
-
-• NFT SUPPORT: Collect and manage your ERC721 and ERC1155 collections across chains in a streamlined interface, directly integrated with OpenSea and Luxy. We're actively expanding our support to include innovative token standards, transforming NFTs into more than just collectibles—your digital unlockables, identities, and event accesses will all find a home in Vista.
-
-Beyond these powerful features, Vista upholds a strong commitment to user privacy and data security. We never collect personal information, ensuring your privacy remains uncompromised as you navigate the decentralized web.
-
-Vista Mobile is designed to suit all levels of crypto expertise, with a user-friendly interface for organizing holdings, tracking market data, and personalizing your dApp interactions. It's more than a crypto wallet—it's a passport to the boundless world of Web3. Download Vista today and explore the decentralized universe like never before!
-
-Be a part of the future, be a part of Vista 🕉️
-
-## Links
-
-🔗[Official Website](https://vistawallet.com/)
-
-🎙[Discord](https://discord.gg/syscoin)
-
-🐦[Twitter](https://twitter.com/vistawallet)
-
-## Build Steps
-
-1. Set API Keys
-   Vista Wallet uses several third party API like Infura and Etherscan. Before build you should set your own API keys for those services.
-
-- `mkdir ./app/apikeys`
-- `mv ./app/.env.template ./app/apikeys/.env`
-- set infura_id/etherscan/polygonscan/bscscan/opensea and etc. in `./app/apikeys/.env`
-
-2. Firebase Information
-
-- You will need to add your own google-service.json(android) and GoogleService-info.plist(ios). You are able to get this on firebase console.
-
-3. Build
-
-```
-cd app && yarn clean
-yarn build:thread
-```
-
-4. Over-the-Air Deployment.
-
-If you want to use over-the-air deployment, make sure to insert the API keys for Android (You can get them on appcenter.ms).
-ps: We are missing the over-the-air implementation on IOS for now. Hope that they fix some library problems so we can add in the future.
-
-For debug version:
-`yarn start:android`
-or
-`yarn start:ios`
-
-For release version:
-`yarn build:android`
-or
-`yarn build:ios`
-
-## Remember to
-
-Install [Node.js](https://nodejs.org) **version 16**
-
-## Addresses
-
-### Rollux
-
-- [TokenInfos.sol](0xAbD231AA41B691585F029Ecfd43B4B93b15b1D3a)
-- [BalanceChecker.sol](0x1ACD0B3bCC084D02Fa4E9017997BaF2F4aa256F4)
-
-## Disclaimer
-
-Vista Mobile Copyright (C) 2023 Pollum Labs.
-
-This program comes with ABSOLUTELY NO WARRANTY.
-This is free software, and you are welcome to redistribute it under certain conditions.
-Users are 100% responsible for their own digital asset custody, private key management, password storage, regulation compliance & tax reporting, according to their local juristiction. Vista doesn't collect any form of sensitive data, so our team has no mechanisms to assist users or authorities with the points outlined above.
-Source code initially forked from our partners Go Pocket Wallet under GNU General Public License v3.0.
+ADDRESS
+0x96A64A23a25c2e1f18df9b3b1C1e8C714882d5CC
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+0
+ADDRESS
+0xD17D4E03958c3022F5350bb0AC26Cdf71C2d7205
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+1
+ADDRESS
+0x5Af5811E6e83dc1680C4FC869003A6342d4aBC03
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+2
+ADDRESS
+0x91C9A3d44e8f12a16Df22a6A929159a7068cCE5d
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+3
+ADDRESS
+0x59D5C5c746CdCB2aaf4f246adf2d8EbEaA1bdC90
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+4
+ADDRESS
+0xC0fa608bb42539825c6BbA8C9360Af33766B42b1
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+5
+ADDRESS
+0x9AA91e38B3697Deb90621EAbDFF68A1264320034
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+6
+ADDRESS
+0x546EDF21D9201161A861D6F630a2684C0378E352
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+7
+ADDRESS
+0x02f1615b3D5a78C39cB986a69fc4Cba71AB97173
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+8
+ADDRESS
+0x23AB0525D36405bC3dC18035EA653Ae9246663FE
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+9
+ADDRESS
+0xE6C1706Ae4FdfC2d532E52DE4A632E37dB302553
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+10
+ADDRESS
+0xa813E88ebA413C15A03F3F5A701514A3CC8258DF
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+11
+ADDRESS
+0xFE158c0A10eEFB26D71811C4651b9cD5273a65F9
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+12
+ADDRESS
+0xB35DC918eF51E604Ec0330288D103dB0c6522c35
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+13
+ADDRESS
+0x695894F9211e3008dFaE1D40320A7351A7D780aE
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+14
+ADDRESS
+0x431c495151a2908fA55146d680477160C800A46b
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+15
+ADDRESS
+0xB63f7baF634F39E0126477e328e9Cd27A4F7175f
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+16
+ADDRESS
+0x560a903C3754509EcCb80967c9F987217F3df144
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+17
+ADDRESS
+0xD3FAbf68cBF6F643b8bF5EaF54092A281F57afED
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+18
+ADDRESS
+0x4B5682231A317443878C46cca7D7757DF99d023a
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+19
+ADDRESS
+0x4D5d16C17ccc9F33A714857dBD8196Cb384B678E
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+20
+ADDRESS
+0x5C3558B1BFED044b76599619710a32BBFe6A7fe7
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+21
+ADDRESS
+0xAC8c38F475E79435c27e2486c41b687c7051B962
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+22
+ADDRESS
+0xD2B9e00dc142d3CF7C4B096Fa4737C4632C8a85b
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+23
+ADDRESS
+0x12F2c2e3B30A605f649F3d5a824E2Df07878dE19
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+24
+ADDRESS
+0x1BCeE76383337c3ae728b1181457EEd5e18BA10a
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+25
+ADDRESS
+0xE7DDFfCd74623ab67D37C41887406FAa6E198685
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+26
+ADDRESS
+0x21E431d0033556bFad982Abd8182CA6BE6746E8b
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+27
+ADDRESS
+0x3188C9e070CC3084dfA6133666C199B34a69Bb37
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+28
+ADDRESS
+0x5342535524fb2645F4A66da377aBb524e918d328
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+29
+ADDRESS
+0x6838DD61b19ED31Fdff9825fF51773DF7B41CcaC
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+30
+ADDRESS
+0x291f426975544792C313217e1484222C8a47F015
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+31
+ADDRESS
+0xb42438E0569d9696560C7FfF860263DC592A649E
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+32
+ADDRESS
+0x1F1F8C82148991337Bb43eFA22774D7FCF5c8899
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+33
+ADDRESS
+0x47d6Df00b59574f35Cc6eefAFeb74C7a87Cb0d93
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+34
+ADDRESS
+0x661109a01b1332d1D011FC3E2d8609ce28E12f5D
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+35
+ADDRESS
+0x97db81D15fd62b824C1851DaDd688963472F87D1
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+36
+ADDRESS
+0x6B1f13B40D103E63FA9AEC1520CCfaD76ecc9ED8
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+37
+ADDRESS
+0xd881f68364f83A56293ce1fC680abe35F6137d89
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+38
+ADDRESS
+0x273c1283d0B99C37DE9e4f77a84D2B7cf3fa0F75
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+39
+ADDRESS
+0xF8275b447E38B4F795CDcca3167eB6B76612c0c1
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+40
+ADDRESS
+0x4d9EB13A691E9F76E6E45Db9734208350551dA0f
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+41
+ADDRESS
+0x00c5246D8065ACEc57D2cC5Ae3a0F780fD24E1b8
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+42
+ADDRESS
+0x9F8cE28259477CEfe05AfB8f12447523F7b9CbBe
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+43
+ADDRESS
+0x056F453068344e6EBe89d61f936Ef83C9502a638
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+44
+ADDRESS
+0x3b981e5F55fEFD22B716cAb04b8bd2484ADAf1a2
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+45
+ADDRESS
+0xeA29D2aDE9beD46295C3c0461EA8Fd8C1d27f742
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+46
+ADDRESS
+0x8B3E6A4878b55dc189AAA7CFBa5d44a555e96702
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+47
+ADDRESS
+0x7F7C459d335d31587F0BCB1d3cB4de8C938e81F8
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+48
+ADDRESS
+0x4EF10b0673F6EcfA5Fd5E42B426623834a74F2B9
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+49
+ADDRESS
+0x2FdB1cd6e2B6bc5Ad1d939279475C2056F247723
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+50
+ADDRESS
+0x61BB104bb6CB163E1F509Ac50ef35657C416fA3f
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+51
+ADDRESS
+0xb16a545A91ab0Ba7899E05412B34193d721c2f72
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+52
+ADDRESS
+0xB62dEfbae321478f1c507CE6658FC65093f6C0f8
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+53
+ADDRESS
+0x00b1731C994b7e16289e233EbB7c8aC5E8Da6F15
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+54
+ADDRESS
+0x691529d905C8B976E1C76521C9FB32cA8D00B71B
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+55
+ADDRESS
+0x6d35D9F27572fB60D72a36010b08CC8805225b55
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+56
+ADDRESS
+0xC751DFfA36769450f69E3E8Ce4E9f26B8E2F4cff
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+57
+ADDRESS
+0xc2fa4F28670aB9B3b84c9ada40fCBd6ee56d6548
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+58
+ADDRESS
+0x96b27Eef392d72C1f4Bc731f5e84f1931431452e
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+59
+ADDRESS
+0x87c91A820FFB7b913C25bdAD56a13e15e076A192
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+60
+ADDRESS
+0x879d2f9dc8E9880daA10F5bE44D6Ff9E01d72ebd
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+61
+ADDRESS
+0xB3a88BEA9397866EfECbA99eFEADc57f91039Ba6
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+62
+ADDRESS
+0x8ae0312973A469CEC4522a0568f6276E8085d098
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+63
+ADDRESS
+0xe9b63D3e1bcE11D415ae44B069a4cb20A8535cb7
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+64
+ADDRESS
+0x8eE60037F8791616da7d509EE46Dcd87CB55fF67
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+65
+ADDRESS
+0x8cf3b9472538cFe4449FDD48bA3B6389c58B5A05
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+66
+ADDRESS
+0xd22C5623ff6B4086c4938C811068eEc496414bb5
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+67
+ADDRESS
+0xEE7d46Ba7b489F2f761f2962F49bB1586C80E3a0
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+68
+ADDRESS
+0xBf560f1Cf7415330a3c5df8385e1551e952C7aCD
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+69
+ADDRESS
+0xC4985f6cb3989f564c92e96BC4f83c350d92A56B
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+70
+ADDRESS
+0x56B82A3A0e58aef44305D24A1a7B9eF1665c9dA9
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+71
+ADDRESS
+0x1B6B22954583368aa6778641E95dD73Bf5291D3E
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+72
+ADDRESS
+0x5De293FaE41f19e9c4CD9FbA7bcFbf3a8ecAB360
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+73
+ADDRESS
+0x60CcCba875eED4ab6744C1f184840E5E73CF5c59
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+74
+ADDRESS
+0x9E0615c0bf4F858e2a9b3a9e391b421d18FEde8b
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+75
+ADDRESS
+0x120D1088b765e2f29B2B1D11e2e8A133e3948622
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+76
+ADDRESS
+0x54C049f65b078f0a0F86695586053b98767fe989
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+77
+ADDRESS
+0xb72e8999D80F050e00AaBBB2CD5B2ff801042dAB
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+78
+ADDRESS
+0xd7f7Bf48092e072ab2AF3ae25DFe977ca4e7768D
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+79
+ADDRESS
+0x70540Ab3D7035E667F0c8108Fd2F08968E7Cd355
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+80
+ADDRESS
+0x8bCbBa20c3C333d982a1eED0E6c589d8f322F39b
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+81
+ADDRESS
+0x570b03C121C27367E0Ca09F0fE4774408679b6f4
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+82
+ADDRESS
+0x541FAf64e7F3743bccb487b782054300615ec5e1
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+83
+ADDRESS
+0x8e8607a5A3b5706b96Ff222d3b2C623F9E8Fd9e9
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+84
+ADDRESS
+0xDF6DE4643bB290f69009F48Cd3918d06b1A7cD8c
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+85
+ADDRESS
+0x8eC3f002C82E90dd120d6B741B7c1fB4b43F0F24
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+86
+ADDRESS
+0x9bAd0f866c038739e3741a02caaBD5170086656D
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+87
+ADDRESS
+0x94C565027f62Fa2172937aa3bDaAa995AD6351a3
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+88
+ADDRESS
+0x5FB56059F61c0983A96B4b38445fCD4F40d3D986
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+89
+ADDRESS
+0x877E5A9A64Abe4C5D5f64A42cf6fcf6201865db5
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+90
+ADDRESS
+0x11545042974734CfD04B6c7b787e964C1C6A12B0
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+91
+ADDRESS
+0x2BA3D9593156264056874ac4076471fbDf8bB463
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+92
+ADDRESS
+0x0C856Cf427FB018fC7522945BB25F350F0DCE0Dd
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+93
+ADDRESS
+0xE03088d3f4a68a07ca5bD417674321dF239E26D8
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+94
+ADDRESS
+0x57264Eb12A0cB77D29790AcDE1D1BeCFfc7c0C46
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+95
+ADDRESS
+0x3CBa0D1927C2Db7BFd15585285c8541153cfc549
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+96
+ADDRESS
+0x1e3Be51F341700188291296aa2BE379B1efAAde7
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+97
+ADDRESS
+0x97E01c53FB3493fEcf62dC58B4347Ef677E6419B
+BALANCE
+0.00 ETH
+TX COUNT
+0
+INDEX
+98
+ADDRESS
+0x70D145eF4a8a15972D66bD8Eb8e2897C6Bf7dacD
+BALANCE
+0.00 ETH
